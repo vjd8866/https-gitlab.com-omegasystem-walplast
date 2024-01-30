@@ -1,0 +1,373 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <!--    Products One2many View    -->
+        <record id="view_cust_onboard_form" model="ir.ui.view">
+            <field name="name">cust.onboard.form</field>
+            <field name="model">cust.onboard</field>
+            <field name="arch" type="xml">
+                <form string="Customer On-Boarding">
+                    <header>
+                        <button name="action_close" string="Completed" class="oe_highlight" type="object" attrs="{'invisible':[('final_status','in',('Completed','Rejected'))]}"/>
+                        <button name="action_reject" string="Rejected" class="oe_highlight" type="object" attrs="{'invisible':[('final_status','=','Rejected')]}"/>
+                        <field name="final_status" widget="statusbar"/>
+                    </header>
+                    <sheet>
+                        <div style="margin:10px;border-bottom: 1px solid blue;">
+                            <group string="Basic Details">
+                                <group >
+                                    <field name="name"/>
+                                    <field name="email"/>
+                                    <field name="company_id"/>
+                                    <field name="contact_name"/>
+                                    <field name="contact_no"/>
+                                    <field name="designation"/>
+                                </group>
+                                <group >
+                                    <field name="date" />
+                                    <label for="street1" string="Address"/>
+                                    <div class="o_address_format">
+                                        <field name="street1" placeholder="Street..." class="o_address_street"/>
+                                        <field name="street2" placeholder="Street 2..." class="o_address_street"/>
+                                        <field name="city" placeholder="City" class="o_address_city" required="1"/>
+                                        <field name="zip_code" placeholder="ZIP" class="o_address_zip"/>
+                                        <field name="district_id" placeholder="District" class="o_address_district"
+                                               options='{"no_open": True}' required="1" />
+                                        <field name="state_id" class="o_address_state" placeholder="State" required="1"
+                                               style="width: 100%;" options='{"no_open": True}' widget="selection"/>
+                                        <field name="country_id" placeholder="Country" class="o_address_country"
+                                               options='{"no_open": True, "no_create": True}'/>
+                                    </div>
+                                </group>
+                            </group>
+                        </div>
+                        <div string="Processing Status">
+                            <div style="margin:10px;border-bottom: 1px solid blue;">
+                                <group>
+                                    <group>
+                                        <!--                                <label for="costing_sub" style="width:200px"/>-->
+                                        <field name="costing_sub" widget="selection" />
+                                        <field name="costing_sub_rem"  placeholder="Remarks" />
+                                    </group>
+                                    <group>
+                                        <field name="costing_sub_attach" widget="many2many_binary" />
+                                    </group>
+                                </group>
+                            </div>
+                            <div style="margin:10px;border-bottom: 1px solid blue;">
+                                <group>
+                                    <group>
+                                        <!--                                <label for="fg_sample_sub" style="width:15%"/>-->
+                                        <field name="fg_sample_sub" widget="selection"  />
+                                        <field name="fg_sample_sub_rem"  placeholder="Remarks"  />
+                                    </group>
+                                    <group>
+                                        <field name="fg_sample_sub_attach" widget="many2many_binary"  />
+                                    </group>
+                                </group>
+                            </div>
+                            <div style="margin:10px;border-bottom: 1px solid blue;">
+                                <group>
+                                    <group>
+                                        <!--                            <label for="cust_code_gen" style="width:15%"/>-->
+                                        <field name="cust_code_gen" widget="selection"/>
+                                        <field name="cust_code_gen_rem"  placeholder="Remarks"/>
+                                    </group>
+                                    <group>
+                                        <field name="cust_code_gen_attach" widget="many2many_binary"  />
+                                    </group>
+                                </group>
+                            </div>
+                            <div style="margin:10px;border-bottom: 1px solid blue;">
+                                <group>
+                                    <group>
+                                        <!--                                <label for="vend_code_gen" style="width:15%"/>-->
+                                        <field name="vend_code_gen" widget="selection" />
+                                        <field name="vend_code_gen_rem"  placeholder="Remarks"  />
+                                    </group>
+                                    <group>
+                                        <field name="vend_code_gen_attach" widget="many2many_binary"  />
+                                    </group>
+                                </group>
+                            </div>
+                            <div style="margin:10px;border-bottom: 1px solid blue;">
+                                <group>
+                                    <group>
+                                        <!--                                <label for="virt_dep_aggreement" style="width:15%"/>-->
+                                        <field name="virt_dep_aggreement" widget="selection"  />
+                                        <field name="virt_dep_aggreement_rem"  placeholder="Remarks"  />
+                                    </group>
+                                    <group>
+                                        <field name="virt_dep_aggreement_attach" widget="many2many_binary"  />
+                                    </group>
+                                </group>
+                            </div>
+                            <div style="margin:10px;border-bottom: 1px solid blue;">
+                                <group>
+                                    <group>
+                                        <!--                                <label for="physic_depo_agreement" style="width:15%"/>-->
+                                        <field name="physic_depo_agreement" widget="selection"  />
+                                        <field name="physic_depo_agreement_rem"  placeholder="Remarks"  />
+                                    </group>
+                                    <group>
+                                        <field name="physic_depo_agreement_attach" widget="many2many_binary"  />
+                                    </group>
+                                </group>
+                            </div>
+                            <div style="margin:10px;border-bottom: 1px solid blue;">
+                                <group>
+                                    <group>
+                                        <!--                            <label for="sale_purchase_agreement" style="width:15%"/>-->
+                                        <field name="sale_purchase_agreement" widget="selection"  />
+                                        <field name="sale_purchase_agreement_rem"  placeholder="Remarks"  />
+                                    </group>
+                                    <group>
+                                        <field name="sale_purchase_agreement_attach" widget="many2many_binary"  />
+                                    </group>
+                                </group>
+                            </div>
+                            <div style="margin:10px;border-bottom: 1px solid blue;">
+                                <group>
+                                    <group>
+                                        <!--                                <label for="artw_prep" style="width:15%"/>-->
+                                        <field name="artw_prep" widget="selection"  />
+                                        <field name="artw_prep_rem"  placeholder="Remarks"  />
+                                    </group>
+                                    <group>
+                                        <field name="artw_prep_attach" widget="many2many_binary"  />
+                                    </group>
+                                </group>
+                            </div>
+                            <div style="margin:10px;border-bottom: 1px solid blue;">
+                                <group>
+                                    <group>
+                                        <!--<label for="pack_bag_dev" style="width:15%"/>-->
+                                        <field name="pack_bag_dev" widget="selection"  />
+                                        <field name="pack_bag_dev_rem"  placeholder="Remarks"  />
+                                    </group>
+                                    <group>
+                                        <field name="pack_bag_dev_attach" widget="many2many_binary"  />
+                                    </group>
+                                </group>
+                            </div>
+                            <div style="margin:10px;border-bottom: 1px solid blue;">
+                                <group>
+                                    <group>
+                                        <!--<label for="art_spec_sub" style="width:15%"/>-->
+                                        <field name="art_spec_sub" widget="selection"  />
+                                        <field name="art_spec_sub_rem"  placeholder="Remarks"  />
+                                    </group>
+                                    <group>
+                                        <field name="art_spec_sub_attach" widget="many2many_binary"  />
+                                    </group>
+                                </group>
+                            </div>
+                            <div style="margin:10px;border-bottom: 1px solid blue;">
+                                <group>
+                                    <group>
+                                        <!--<label for="mast_sample_sub" style="width:15%"/>-->
+                                        <field name="mast_sample_sub" widget="selection"  />
+                                        <field name="mast_sample_sub_rem"  placeholder="Remarks"  />
+                                    </group>
+                                    <group>
+                                        <field name="mast_sample_sub_attach" widget="many2many_binary"  />
+                                    </group>
+                                </group>
+                            </div>
+                            <div style="margin:10px;border-bottom: 1px solid blue;">
+                                <group>
+                                    <group>
+                                        <!--                                <label for="bb_supply" style="width:15%"/>-->
+                                        <field name="bb_supply" widget="selection"  />
+                                        <field name="bb_supply_rem"  placeholder="Remarks"  />
+                                    </group>
+                                    <group>
+                                        <field name="bb_supply_attach" widget="many2many_binary"  />
+                                    </group>
+                                </group>
+                            </div>
+                            <div style="margin:10px;border-bottom: 1px solid blue;">
+                                <group>
+                                    <group>
+                                        <!--                                <label for="fg_spec" style="width:15%"/>-->
+                                        <field name="fg_spec" widget="selection"  />
+                                        <field name="fg_spec_rem"  placeholder="Remarks"  />
+                                    </group>
+                                    <group>
+                                        <field name="fg_spec_attach" widget="many2many_binary"  />
+                                    </group>
+                                </group>
+                            </div>
+                            <div style="margin:10px;border-bottom: 1px solid blue;">
+                                <group>
+                                    <group>
+                                        <!--                                <label for="mrp" style="width:15%"/>-->
+                                        <field name="mrp" widget="selection"  />
+                                        <field name="mrp_rem"  placeholder="Remarks"  />
+                                    </group>
+                                    <group>
+                                        <field name="mrp_attach" widget="many2many_binary"  />
+                                    </group>
+                                </group>
+                            </div>
+                            <div style="margin:10px;border-bottom: 1px solid blue;">
+                                <group>
+                                    <group>
+                                        <!--                                <label for="batch_slip_sub" style="width:15%"/>-->
+                                        <field name="batch_slip_sub" widget="selection"  />
+                                        <field name="batch_slip_sub_rem"  placeholder="Remarks"  />
+                                    </group>
+                                    <group>
+                                        <field name="batch_slip_sub_attach" widget="many2many_binary"  />
+                                    </group>
+                                </group>
+                            </div>
+                            <div style="margin:10px;border-bottom: 1px solid blue;">
+                                <group>
+                                    <group>
+                                        <!--                                <label for="ijp_approval" style="width:15%"/>-->
+                                        <field name="ijp_approval" widget="selection"  />
+                                        <field name="ijp_approval_rem"  placeholder="Remarks"  />
+                                    </group>
+                                    <group>
+                                        <field name="ijp_approval_attach" widget="many2many_binary"  />
+                                    </group>
+                                </group>
+                            </div>
+                            <div style="margin:10px;border-bottom: 1px solid blue;">
+                                <group>
+                                    <group>
+                                        <!--                                <label for="fg_code_createfg_code_create" style="width:15%"/>-->
+                                        <field name="fg_code_create" widget="selection"  />
+                                        <field name="fg_code_create_rem"  placeholder="Remarks"  />
+                                    </group>
+                                    <group>
+                                        <field name="fg_code_create_attach" widget="many2many_binary"  />
+                                    </group>
+                                </group>
+                            </div>
+                            <div style="margin:10px;border-bottom: 1px solid blue;">
+                                <group>
+                                    <group>
+                                        <!--                                <label for="monthly_forecast" style="width:15%"/>-->
+                                        <field name="monthly_forecast" widget="selection"  />
+                                        <field name="monthly_forecast_rem"  placeholder="Remarks"  />
+                                    </group>
+                                    <group>
+                                        <field name="monthly_forecast_attach" widget="many2many_binary"  />
+                                    </group>
+                                </group>
+                            </div>
+                            <div style="margin:10px;border-bottom: 1px solid blue;">
+                                <group>
+                                    <group>
+                                        <!--                                <label for="sop_sub" style="width:15%"/>-->
+                                        <field name="sop_sub" widget="selection"  />
+                                        <field name="sop_sub_rem"  placeholder="Remarks"  />
+                                    </group>
+                                    <group>
+                                        <field name="sop_sub_attach" widget="many2many_binary"  />
+                                    </group>
+                                </group>
+                            </div>
+                            <div style="margin:10px;border-bottom: 1px solid blue;">
+                                <group>
+                                    <group>
+                                        <!--                                <label for="prem_available" style="width:15%"/>-->
+                                        <field name="prem_available" widget="selection"  />
+                                        <field name="prem_available_rem"  placeholder="Remarks"  />
+                                    </group>
+                                    <group>
+                                        <field name="prem_available_attach" widget="many2many_binary"  />
+                                    </group>
+                                </group>
+                            </div>
+                            <div style="margin:10px;border-bottom: 1px solid blue;">
+                                <group>
+                                    <group>
+                                        <!--                                <label for="landed_price_sub" style="width:15%"/>-->
+                                        <field name="landed_price_sub" widget="selection"  />
+                                        <field name="landed_price_sub_rem"  placeholder="Remarks"  />
+                                    </group>
+                                    <group>
+                                        <field name="landed_price_sub_attach" widget="many2many_binary"  />
+                                    </group>
+                                </group>
+                            </div>
+                            <div style="margin:10px;border-bottom: 1px solid blue;">
+                                <group>
+                                    <group>
+                                        <!--                                <label for="po_cust" style="width:15%"/>-->
+                                        <field name="po_cust" widget="selection"  />
+                                        <field name="po_cust_rem"  placeholder="Remarks" />
+                                    </group>
+                                    <group>
+                                        <field name="po_cust_attach" widget="many2many_binary"  />
+                                    </group>
+                                </group>
+                            </div>
+                        </div>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="view_cust_onboard_tree" model="ir.ui.view">
+            <field name="name">cust.onboard.tree</field>
+            <field name="model">cust.onboard</field>
+            <field name="arch" type="xml">
+                <tree string="Customer On-Boarding">
+                    <field name="name"/>
+                    <field name="date"/>
+                    <field name="contact_name"/>
+                    <field name="contact_no"/>
+                    <field name="company_id"/>
+                    <field name="final_status"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="view_cust_onboard_search" model="ir.ui.view">
+            <field name="name">cust.onboard.search</field>
+            <field name="model">cust.onboard</field>
+            <field name="arch" type="xml">
+                <search string="Customer On-Boarding">
+                    <field name="name"/>
+                    <field name="email"/>
+                    <field name="contact_name"/>
+                    <field name="designation"/>
+                    <field name="final_status"/>
+                    <group expand="0" string="Pending">
+                        <filter string="Pending" name="pending"
+                                domain="[('final_status','=','Pending')]"/>
+                    </group>
+                    <group expand="0" string="Completed">
+                        <filter string="Completed" name="completed"
+                                domain="[('final_status','=','Completed')]"/>
+                    </group>
+                    <group expand="0" string="Rejected">
+                        <filter string="Rejected" name="rejected"
+                                domain="[('final_status','=','Rejected')]"/>
+                    </group>
+
+                </search>
+            </field>
+        </record>
+
+        <record id="action_cust_onboard" model="ir.actions.act_window">
+            <field name="name">Customer On-Boarding</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">cust.onboard</field>
+            <field name="search_view_id" ref="customer_onboarding.view_cust_onboard_search"/>
+            <field name="domain">{'search_default_pending':1}</field>
+<!--            <field name="view_type">form</field>-->
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <menuitem id="menu_cust_onboard_root" name="Customer On-Boarding"
+                  sequence="6" web_icon="customer_onboarding,static/description/cust_onboarding.png" groups="cust_onboard_user_group"/>
+        <menuitem id="menu_cust_onboard" name="Customer On-Boarding" action="action_cust_onboard"
+                  sequence="1" parent="menu_cust_onboard_root" groups="cust_onboard_user_group"/>
+
+    </data>
+</odoo>

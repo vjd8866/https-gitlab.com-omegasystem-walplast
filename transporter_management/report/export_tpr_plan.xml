@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <record model='ir.ui.view' id='tpr_plan_report_form'>
+            <field name="name">tpr.plan.report.form</field>
+            <field name="model">tpr.plan.report</field>
+            <field name="arch" type="xml">
+                <form >
+                    <field name="state" invisible="1"/>
+                    <div states="choose">
+                        <group>
+                            <field name="plant" widget="many2many_tags"/>
+                        </group>
+                        <group>
+                            <group>
+                                <label for="from_date" string="From"/>
+                                <field name="from_date" nolabel="1"/>
+                            </group>
+                            <group>
+                                <label for="to_date" string="To"/>
+                                <field name="to_date" nolabel="1"/>
+                            </group>
+                        </group>
+                    </div>
+                    <div states="get">
+                        <group>
+                            <field name="filename" colspan="4" invisible="1"/>
+                            <field name="xls_file" filename="filename" colspan="4"/>
+                        </group>
+                    </div>
+
+                    <footer states="choose">
+                        <button name="export_tpr_plan" string="Print" type="object" class="oe_highlight"/>
+                        <button string="Cancel" class="oe_link" special="cancel" />
+                    </footer>
+                    <footer states="get">
+                        <button special="cancel" string="Cancel" class="oe_highlight" />
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+        <record model='ir.actions.act_window' id='tpr_plan_report_action'>
+            <field name="name">Export TPR Report</field>
+            <field name="res_model">tpr.plan.report</field>
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="tpr_plan_report_form"/>
+            <field name="target">new</field>
+        </record>
+
+        <menuitem id="menu_tpr_report" name="Report" sequence="2" action="tpr_plan_report_action" parent="menu_transporter_management_root" groups="transporter_user_group"/>
+    </data>
+</odoo>

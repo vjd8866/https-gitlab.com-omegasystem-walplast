@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+
+        <record id="view_users_form_extension" model="ir.ui.view">
+            <field name="name">res.users.form</field>
+            <field name="inherit_id" ref="base.view_users_form" />
+            <field name="model">res.users</field>
+            <field name="arch" type="xml">
+
+                <notebook position="inside">
+                    <page string="ERP Credentials">
+                        <group>
+                            <field name="owner_ids"  widget="many2many_tags"  />
+                        </group>
+                        <field name="erp_credentials_one2many" string="ERP Credentials" >
+                            <tree  editable='bottom' >
+                                <field name="wp_user_id" invisible="1"/>
+                                <field name="sequence" widget="handle"/>
+                                <field name="ad_user_id"/>
+                                <field name="erp_user"/>
+                                <field name="erp_pass"/>
+                                <field name="erp_roleid"/>
+                                <field name="company_id"/>
+                            </tree>
+                        </field>
+                    </page>
+                </notebook>
+
+                <!--                <field name="partner_id" position="replace"/>-->
+
+                <!--                Commented due to repeating of functionality-->
+                <!--                <xpath expr="//header" position="inside">-->
+                <!--                    <button name="create_employee_from_user" string="Create Employee" type="object" class="oe_highlight"-->
+                <!--                        attrs="{'invisible':[('employee_id','!=',False)]}"/>-->
+
+                <!--                </xpath>-->
+
+
+
+                <xpath expr="//div[hasclass('oe_title')]/group" position="inside">
+                    <group col="4" colspan="4">
+                        <!--                Commented due to repeating of functionality-->
+                        <!--                        <field name="employee_bool"/>-->
+                        <field name="wp_user_type_id" options="{'no_create' : True, 'no_open': True}"
+                               required="1" widget="selection"/>
+                        <field name="partner_id" readonly="1" required="0" groups="base.group_no_one"
+                               attrs="{'invisible': [('id', '=', False)]}"/>
+                        <!--                        <field name="employee_id" readonly="1" required="0" -->
+                        <!--                               attrs="{'invisible': [('id', '=', False)]}"/>-->
+                    </group>
+                </xpath>
+
+            </field>
+        </record>
+
+        <record id="view_wp_res_users_type_form" model="ir.ui.view">
+            <field name="name">wp.res.users.type.form</field>
+            <field name="model">wp.res.users.type</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <field name="name" />
+                            <field name="active"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="view_wp_res_users_type_tree" model="ir.ui.view">
+            <field name="name">wp.res.users.type.tree</field>
+            <field name="model">wp.res.users.type</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="sequence"/>
+                    <field name="name" />
+                    <field name="active"/>
+                </tree>
+            </field>
+        </record>
+        <record id="view_company_form_inherit_website_module" model="ir.ui.view">
+            <field name="name">res.company.support.ticket</field>
+            <field name="model">res.company</field>
+            <field name="inherit_id" ref="base.view_company_form"/>
+            <field name="arch" type="xml">
+                <field name="website" position="after">
+                    <field name="next_support_ticket_number"/>
+                    <field name="short_name"/>
+                </field>
+            </field>
+        </record>
+        <record id="action_wp_res_users_type" model="ir.actions.act_window">
+            <field name="name">User Type</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">wp.res.users.type</field>
+            <field name="binding_view_types">form</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <record id="action_res_users_wmvd" model="ir.actions.act_window">
+            <field name="name">Users</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">res.users</field>
+            <field name="binding_view_types">form</field>
+            <field name="view_id" ref="base.view_users_simple_form"/>
+            <field name="search_view_id" ref="base.view_users_search"/>
+            <field name="context">{'search_default_no_share': 1}</field>
+        </record>
+
+    </data>
+</odoo>
+        
+        

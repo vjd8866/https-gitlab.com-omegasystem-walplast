@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <record model='ir.ui.view' id='update_planning_form'>
+            <field name="name">update.planning.form</field>
+            <field name="model">update.planning</field>
+            <field name="arch" type="xml">
+                <form >
+                    <div>
+                        <group>
+                            <group>
+                                <field name="status"/>
+                                <field name="remarks"/>
+                            </group>
+                            <group>
+                                <field name="actual_type"/>
+                                <field name="reason"/>
+                                <field name="tpr_id" invisible="1"/>
+                            </group>
+                        </group>
+                    </div>
+                    <group attrs="{'invisible':[('status','!=','No')]}">
+                        <group attrs="{'invisible':[('status','!=','No')]}">
+                            <field name="duplicate_plan" />
+                        </group>
+                        <group attrs="{'invisible':[('duplicate_plan','=',False)]}">
+                            <field name="next_date"/>
+                        </group>
+                    </group>
+                    <group attrs="{'invisible':[('status','!=','Yes')]}">
+                        <group>
+                            <field name="truck_reporting_time"/>
+<!--                            <field name="update_truck_trans" invisible="1"/>-->
+                        </group>
+                        <group/>
+                    </group>
+                    <div>
+                        <notebook>
+                            <page String="Product Code">
+                                <field name="products_transport_rel" widget="one2many_list">
+                                    <tree editable="bottom">
+                                        <field name="product_id" domain="['|',('bp_name','ilike','Asian'),('bp_name','ilike','asian')]" readonly="1"/>
+                                        <field name="bags"/>
+                                        <field name="volume" sum="Total Volume" readonly="1"/>
+                                    </tree>
+                                </field>
+                            </page>
+                        </notebook>
+                    </div>
+                    <footer>
+                        <button name="update_planning_details" string="Update" type="object" class="oe_highlight"/>
+                        <button string="Cancel" class="oe_link" special="cancel" />
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+        <record model='ir.actions.act_window' id='update_planning_action'>
+            <field name="name">Update Details</field>
+            <field name="res_model">update.planning</field>
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="update_planning_form"/>
+            <field name="target">new</field>
+        </record>
+    </data>
+</odoo>

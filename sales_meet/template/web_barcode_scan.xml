@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="web_barcode_scan" name="Web Barcode Session" >
+        <t t-call="website.layout">
+            <div class="container" align="center">
+                <header class="row" align="center">
+                    <div>
+                        <h1>
+                            <img align="left" src="/sales_meet/static/src/js/Drychem Letterhead-09.png" alt="Drychem" height="83px" width="83px" />
+                            <img align="right" src="/sales_meet/static/src/js/HS-BW-Walplast-New-2.png" alt="Walplast" height="80px" width="80px"/>
+                            QR Scan (HO)</h1>
+                    </div>
+                    <!--                    <div align="center"></div>-->
+                </header>
+                <!--                <form action="/asset/allocation/submit" method="POST" onsubmit="this.submit(); this.reset(); return false;" nctype="multipart/form-data">-->
+                <form method="POST" nctype="multipart/form-data">
+                    <!--                <div class="container mt16 mb16">-->
+                    <br/><br/>
+                    <div class="row" align="center">
+                        <table class="table">
+                            <tbody>
+                                <tr>
+                                    <script>
+                                        function getInputValue(){
+                                        var codes = document.getElementById('barcode').value
+                                        var recheck_id = document.getElementById('recheck_id').value
+                                        var coupon_worth = document.getElementById('coupon_worth').value
+                                        var accepted_count = document.getElementById('accepted_id').value
+                                        var rejected_count = document.getElementById('rejected_id').value
+                                        $.post("/barcode/scanned", {barcode:codes,recheck:recheck_id,coupon_worth:coupon_worth}, function (data) {
+
+                                        if (data === 'rejected'){
+                                        document.getElementById('rejected_id').value = parseInt(rejected_count) + 1
+                                        alert ("Coupon already Rechecked. Keep it separate and submit to Sales Support Team")
+                                        }
+
+                                        else if (data === 'twice_scanned'){
+                                        alert("Same barcode scanned twice !!!")
+                                        }
+
+                                        else if (data === 'rechecked'){
+                                        alert("Please refresh the page...Qr Scan already submitted !!!")
+                                        }
+
+                                        else {
+                                        document.getElementById('accepted_id').value = parseInt(accepted_count) + 1
+                                        }
+                                        document.getElementById('barcode').value = ''
+                                        });
+                                        }
+                                    </script>
+                                    <th>Coupon Number :</th>
+                                    <td>
+                                        <input type="text" id="barcode" class="o_input form-control" autofocus="" size="13" onchange="getInputValue();"/>
+                                    </td>
+                                </tr>
+                                <input type="text" t-att-value="recheck.id" id="recheck_id" style="display:none"/>
+                                <tr/>
+                                <tr>
+                                    <th>Accepted Count :</th>
+                                    <td>
+                                        <!--                                        <t t-esc="accepted_count"/>-->
+                                        <input type="text" t-att-value="recheck.accepted_count" id="accepted_id" readonly="readonly"/>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th>Rejected Count :</th>
+                                    <td>
+                                        <!--                                        <t t-esc="rejected_count"/>-->
+                                        <input type="text" t-att-value="recheck.rejected_count" id="rejected_id" readonly="readonly"/>
+                                    </td>
+                                </tr>
+                                <t t-if="not recheck.amount">
+                                    <tr>
+                                        <th>Coupon Worth :</th>
+                                        <td>
+                                            <input type="text" id="coupon_worth" />
+                                        </td>
+                                    </tr>
+                                </t>
+                            </tbody>
+                        </table>
+                        <script>
+                            function submitQr(){
+                            var recheck_id = document.getElementById('recheck_id').value
+                            $.post("/qr/scan/submit", {recheck:recheck_id}, function (data) {
+                            });
+                            }
+                        </script>
+                        <br/><br/>
+                        <button type="button" class="btn btn-primary form_green_btn" onclick="submitQr();">Submit</button>
+                    </div>
+                </form>
+                <!--            </div>-->
+            </div>
+        </t>
+    </template>
+
+    <!--        <template id="submit_asset_requisition" name="Asset Requisition" >-->
+    <!--            <t t-call="website.layout">-->
+    <!--                <div class="container">-->
+    <!--                    <form method="POST" nctype="multipart/form-data">-->
+    <!--                        <div class="row" align="center">-->
+    <!--                            <div class="col-lg-8 col-sm-9">-->
+    <!--                                <span>-->
+    <!--                                    <h1 class="text-center">-->
+    <!--                                        Thank you for the Asset Acknowledgement !!!-->
+    <!--                                    </h1>-->
+    <!--                                </span>-->
+    <!--                            </div>-->
+    <!--                        </div>-->
+    <!--                        <div class="row">-->
+    <!--                            <embed src="/website_support/static/src/js/IT_Policy.pdf" width="1200px" height="2100px" />-->
+    <!--                        </div>-->
+    <!--                    </form>-->
+    <!--                </div>-->
+    <!--            </t>-->
+    <!--        </template>-->
+</odoo>

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <record id="view_vendor_config_form" model="ir.ui.view">
+        <field name="name">vendor.config.form</field>
+        <field name="model">vendor.config</field>
+        <field name="arch" type="xml">
+            <form>
+                <group>
+                    <group>
+                        <field name="operation" required="1"/>
+                        <field name="based_on"
+                               attrs="{'invisible':[('operation','=','block_amount')],'required':[('operation','=','add_tds')]}"/>
+                        <field name="c_bpartner_id"/>
+                        <field name="is_active"/>
+                    </group>
+                    <group>
+                        <field name="name" attrs="{'invisible':[('operation','=','block_amount')]}"/>
+                        <field name="amount"/>
+                    </group>
+                </group>
+            </form>
+        </field>
+    </record>
+
+
+    <record id="view_vendor_config_tree" model="ir.ui.view">
+        <field name="name">vendor.config.tree</field>
+        <field name="model">vendor.config</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="operation"/>
+                <field name="name" attrs="{'invisible':[('operation','=','block_amount')]}"/>
+                <field name="c_bpartner_id"/>
+                <field name="is_active"/>
+                <field name="amount"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="action_vendor_config" model="ir.actions.act_window">
+        <field name="name">Bank Payment Vendor Config</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">vendor.config</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+
+    <menuitem name="Vendor Configuration" id="menu_vendor_config_new"
+              sequence="9" parent='sales_meet.menu_bank_payment_config' action="action_vendor_config"/>
+
+</odoo>

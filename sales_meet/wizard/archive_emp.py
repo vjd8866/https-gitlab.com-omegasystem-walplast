@@ -1,0 +1,63 @@
+from odoo import api,fields,models,_
+from odoo.exceptions import UserError,ValidationError
+
+class EmpArchive(models.TransientModel):
+    _name = 'archive.emp'
+
+    def archive_emp(self):
+        emails = ['abdul.shaikh@drychem.com', 'abhilash.khapre@drychem.com', 'aditya.vora@walplast.com',
+                  'ajeetsinghok@yahoo.in', 'akshay.gowda@drychem.com', 'aman.naik@mirajdrymix.com',
+                  'amitkumar.singh@mirajdrymix.com', 'ankitkhambhati@rediffmail.com', 'ankit.upadhyaya@walplast.com',
+                  'anshul.gupta@drychem.com', 'anuj.mishra@drychem.com', 'anuruddh.shukla@drychem.com',
+                  'arpit.gupta@walplast.com', 'arpit.verma@walplast.com', 'girivalam0190@gmail.com',
+                  'asha.mehta@walplast.com', 'ashish.tiwari@mirajdrymix.com', 'ashish.sharma@walplast.com',
+                  'parthbarot141093@gmail.com', 'bhavesh.cc@walplast.com', 'bhagwan.prajapati2015@gmail.com',
+                  'bharat.dhonde@walplast.com', 'bharat.pareek@walplast.com', 'bhuvneshwar.dadhich@drychem.com',
+                  'bikramjeet.singh@walplast.com', 'chandrakant.mankar@walplast.com', 'chandrasekaran.raju@drychem.com',
+                  'chetan2026mateda@gmail.com', 'chhatrapal.thakur@walplast.com', 'chiragbaria1554@gmail.com',
+                  'deepak.agrawal@walplast.com', 'deepak.kumar@walplast.com', 'demo.salesperson@walplast.com',
+                  'digeshkumar.shah@drychem.com', 'dikshantsonwane1987@gmail.com', 'gayatri.mhamunkar@walplast.com',
+                  'gopal.sharma@walplast.com', 'hamid.shaikh@walplast.com', 'honeypanwala@gmail.com',
+                  'hardik.prajapati1991@gmail.com', 'hari.prabhu@drychem.com', 'harshit.poddar@walplast.com',
+                  'himani.ghodmare@walplast.com', 'hitesh.digarse@drychem.com', 'jagdishhiramotin@gmail.com',
+                  'jayeshg1991@gmail.com', 'jitendra0610singh@gmail.com', 'jitend.rarajai@walplast.com',
+                  'jitursingh41@gmail.com', 'kamta.singh@aristosales.com', 'kartiksharma03@yahoo.in',
+                  'ketan.warkad@mirajdrymix.com', 'vishnukolcha1988@gmail.com', 'mahipal.yadav@shunipta.com',
+                  'kshitinaw@gmail.com', 'unadlakhnotra23@gmail.com', 'lalit.yadav@drychem.com',
+                  'jeyaraman1961@gmail.com', 'lokeshgupta001@gmail.com', 'lokesh.raw@walplast.com',
+                  'manish.prajapati111@gmail.com', 'manish.rai@mirajdrymix.in', 'manoharsingh.rajput@walplast.com',
+                  'shoeb.md@walplast.com', 'meetali.pawar@drychem.com', 'meet.bhuptani@walplast.com',
+                  'meghna.dave@drychem.com', 'jasgia2011@gmail.com', 'milan.thakkar@walplast.com', 'mkpmech@gmail.com',
+                  'aamirrafiq0192@gmail.com', 'mohammad.wasim@walpalst.com', 'mohanasundaram.s@drychem.com',
+                  'tiwarimohit66@gmail.com', 'mpatel101183@gmail.com', 'prabhatnalin10@gmail.com',
+                  'narayan.yadav@walplast.com', 'nareshsharma3344@gmail.com', 'nayan.bauwa@walplast.com',
+                  'nayonika.bidichandani@drychem.com', 'nikhil.jailkar@drychem.com', 'nspanchal24@gmail.com',
+                  'prajapatinil@gmail.com', 'nitesh.ghate@drychem.com', 'nitesh.shiwankar@walplast.com',
+                  'nitin.dhawre@walplast.com', 'nitin.salvi@drychem.com', 'pankaj.babariya@drychem.com',
+                  'parag.malpekar@walplast.com', 'manish.patel@walplast.com', 'pavanpatel8347@gmail.com',
+                  'patelp20@gmail.com', 'praful.mehta@aristosales.com', 'prakash.kotpal@walplast.com',
+                  'prakashsinh1989@gmail.com', 'prakhar.sahu@drychem.com', 'pranit.patil@drychem.com',
+                  'prasad.patil@drychem.com', 'prasanth.murugan@drychem.com', 'prashant.waghmare@walplast.com',
+                  'prince.raj@walplast.com', 'banspal.p@walplast.com', 'rahul.jain@walplast.com',
+                  'rahul.patil@drychem.com', 'rajendrantpr07@gmail.com', 'rakesh.gupta@walplast.com',
+                  'ramakant.choudhary@walplast.com', 'rk.nair@walplast.com', 'anrgram@gmail.com',
+                  'ram.rathore@walplast.com', 'rikenranarn@gmail.com', 'ravi.pandey@walplast.com',
+                  'richard.robinson@walplast.com', 'rituraman.awasthi@walplast.com', 'rohitk.2123k@itm.edu',
+                  'rupesh.choudhary@walplast.com', 'sachinm.2123k@itm.edu', 'sagar.gharat@walplast.com',
+                  'sahil.shindkar@drychem.com', 'sandeep.chopde@walplast.com', 'manojsanjay7@gmail.com',
+                  'sanjayraanu@gmail.com', 'satish.poojari@walplast.com', 'kriplesh@yahoo.com',
+                  'shamika.mhatre@drychem.com', 'sheetal.gaikwad@drychem.com', 'shivani.chauhan@drychem.com',
+                  'sidh17389@yahoo.in', 'simran.priyadarshi@walplast.com', 'somtripathi239@gmail.com',
+                  'schnsoni0@gmail.com', 'srinivasan.yuvaraj@drychem.com', 'subhash.kumar@walplast.com',
+                  'sugreevsinghb@gmail.com', 'sujatajadhav7@gmail.com', 'sukhchain.singh@walplast.com',
+                  'sumanta.das@walplast.com', 'ssunil895@gmail.com', 'sunny.malik@aliveceramics.com',
+                  'suryakanth.ladde@walplast.com', 'tejas.ghanshyambhai@walplast.com', 'tushar.tyagi@drychem.com',
+                  'udaypatel120990@gmail.com', 'uttam.sahu@drychem.com', 'uzma.alji@drychem.com',
+                  'vicky.bhagyawant@drychem.com', 'vijayan.c@drychem.com', 'vijay.k@walplast.com',
+                  'vijay.benvanshi@walplast.com', 'vijaypal.singh@walplast.com', 'vinodsingh9987@gmail.com',
+                  'virendra.yadav@walplast.com', 'vivekanandan@mirajdrymix.com', 'vivek.jha@walplast.co',
+                  'vivek.shukla@walplast.com', 'vivake92@gmail.com', 'yadnyesh.patil@drychem.com',
+                  'victorianyugesh@gmail.com', 'yuvaraj.m@walplast.com']
+        employees = self.env['hr.employee'].sudo().search([('work_email', 'in', emails)])
+        # for emp in employees:
+        employees.write({'active': False, 'status': 'left'})

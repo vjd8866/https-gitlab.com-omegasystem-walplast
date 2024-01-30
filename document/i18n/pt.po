@@ -1,0 +1,2650 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* document
+# 
+# Translators:
+# João Carvalho <jpldcarvalho+github@gmail.com>, 2020
+# José Gomes <jg@opencloud.pro>, 2020
+# Joao Felix <jrmfelix@gmail.com>, 2020
+# Martin Trigaux, 2020
+# 425fe09b3064b9f906f637fff94056ae_a00ea56 <0fa3588fa89906bfcb3a354600956e0e_308047>, 2020
+# Ricardo Martins <ricardo.nbs.martins@gmail.com>, 2020
+# Manuela Silva <manuelarodsilva@gmail.com>, 2020
+# Nuno Silva <nuno.silva@arxi.pt>, 2020
+# Diogo Fonseca <dsf@thinkopensolutions.pt>, 2020
+# Pedro Filipe <pedro2.10@hotmail.com>, 2020
+# Pedro Castro Silva <pedrocs@exo.pt>, 2020
+# Reinaldo Ramos <reinaldo.ramos@arxi.pt>, 2021
+# 
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 14.0+e\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-11-27 13:47+0000\n"
+"PO-Revision-Date: 2020-09-07 08:19+0000\n"
+"Last-Translator: Reinaldo Ramos <reinaldo.ramos@arxi.pt>, 2021\n"
+"Language-Team: Portuguese (https://www.transifex.com/odoo/teams/41243/pt/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Language: pt\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#. module: document
+#: model_terms:digest.tip,tip_description:document.digest_tip_document_0
+msgid "% else"
+msgstr "% else"
+
+#. module: document
+#: model_terms:digest.tip,tip_description:document.digest_tip_document_0
+msgid "% endif"
+msgstr "% endif"
+
+#. module: document
+#: model_terms:digest.tip,tip_description:document.digest_tip_document_0
+msgid ""
+"% set record = object.env['document.share'].search([('alias_name', '!=', False)], limit=1)\n"
+"    <b class=\"tip_title\">Tip: Become a paperless company</b>\n"
+"    % if record and record.alias_domain"
+msgstr ""
+
+#. module: document
+#. openerp-web
+#: code:addons/document/static/src/js/document_controller_mixin.js:0
+#, python-format
+msgid "%s document"
+msgstr ""
+
+#. module: document
+#. openerp-web
+#: code:addons/document/static/src/js/document_controller_mixin.js:0
+#, python-format
+msgid "%s document (%s locked)"
+msgstr ""
+
+#. module: document
+#. openerp-web
+#: code:addons/document/static/src/js/document_search_panel.js:0
+#, python-format
+msgid "%s file(s) not moved because they are locked by another user"
+msgstr ""
+
+#. module: document
+#: model_terms:ir.ui.view,arch_db:document.document_view_form
+msgid ""
+"&amp;nbsp;\n"
+"                            <i class=\"fa fa-lock oe_inline\" title=\"Locked\" attrs=\"{'invisible': [('lock_uid', '=', False)]}\"/>"
+msgstr ""
+
+#. module: document
+#. openerp-web
+#: code:addons/document/static/src/js/document_inspector.js:0
+#, python-format
+msgid "+ Add a tag "
+msgstr "+ Adicionar uma etiqueta"
+
+#. module: document
+#: model_terms:ir.ui.view,arch_db:document.public_page_layout
+msgid ", expired on"
+msgstr ",expira em"
+
+#. module: document
+#: model:document.tag,name:document.document_finance_fiscal_year_2017
+msgid "2019"
+msgstr ""
+
+#. module: document
+#: model:document.tag,name:document.document_finance_fiscal_year_2018
+msgid "2020"
+msgstr ""
+
+#. module: document
+#: code:addons/document/controllers/main.py:0
+#, python-format
+msgid ""
+"<b> File uploaded by: </b> %s <br/>\n"
+"                               <b> Link created by: </b> %s <br/>\n"
+"                               <a class=\"btn btn-primary\" href=\"/web#id=%s&model=document.share&view_type=form\" target=\"_blank\">\n"
+"                                  <b>%s</b>\n"
+"                               </a>\n"
+"                             "
+msgstr ""
+
+#. module: document
+#: model_terms:ir.ui.view,arch_db:document.format_file_size
+msgid "<b>Bytes</b>"
+msgstr "<b>Bites</b>"
+
+#. module: document
+#. openerp-web
+#: code:addons/document/static/src/js/tours/document.js:0
+#, python-format
+msgid "<b>Deselect this page</b> as we plan to process all bills first."
+msgstr ""
+
+#. module: document
+#: model_terms:ir.ui.view,arch_db:document.format_file_size
+msgid "<b>Gb</b>"
+msgstr "<b>Gb</b>"
+
+#. module: document
+#: model_terms:ir.ui.view,arch_db:document.format_file_size
+msgid "<b>Kb</b>"
+msgstr "<b>Kb</b>"
+
+#. module: document
+#: model_terms:ir.ui.view,arch_db:document.format_file_size
+msgid "<b>Mb</b>"
+msgstr "<b>Mb</b>"
+
+#. module: document
+#: model_terms:ir.ui.view,arch_db:document.public_page_layout
+msgid "<br/>Powered by"
+msgstr "<br/>Desenvolvido por"
+
+#. module: document
+#: model_terms:ir.ui.view,arch_db:document.share_view_form_popup
+msgid ""
+"<i class=\"fa fa fa-folder o_document_folder_color mr-2\" "
+"title=\"Workspace\"/>"
+msgstr ""
+
+#. module: document
+#: model_terms:ir.ui.view,arch_db:document.share_single
+msgid ""
+"<i class=\"fa fa-circle-o-notch fa-spin text-white fa-3x mb8\" role=\"img\" "
+"aria-label=\"Loading\" title=\"Loading\"/>"
+msgstr ""
+
+#. module: document
+#: model_terms:ir.ui.view,arch_db:document.document_view_kanban
+msgid "<i class=\"fa fa-circle-thin o_record_selector\" title=\"Select document\"/>"
+msgstr ""
+
+#. module: document
+#: model_terms:ir.ui.view,arch_db:document.share_page
+msgid "<i class=\"fa fa-download fa-fw\"/>  Download All"
+msgstr "<i class=\"fa fa-download fa-fw\"/>Instalar todos"
+
+#. module: document
+#: model_terms:ir.ui.view,arch_db:document.share_single
+msgid "<i class=\"fa fa-download fa-fw\"/> Download"
+msgstr "<i class=\"fa fa-download fa-fw\"/>Transferencia"
+
+#. module: document
+#: model_terms:ir.ui.view,arch_db:document.share_view_form
+#: model_terms:ir.ui.view,arch_db:document.share_view_form_popup
+msgid ""
+"<i class=\"fa fa-fw o_button_icon fa-arrow-right\"/> Configure Email Servers"
+msgstr ""
+"<i class=\"fa fa-fw o_button_icon fa-arrow-right\"/> Configurar Servidores "
+"de Email"
+
+#. module: document
+#: model_terms:ir.ui.view,arch_db:document.document_view_kanban
+msgid "<i class=\"fa fa-globe\" title=\"Document url\"/>"
+msgstr ""
+
+#. module: document
+#: model_terms:ir.ui.view,arch_db:document.share_single
+msgid "<i class=\"fa fa-link\"/> Go to URL"
+msgstr ""
+
+#. module: document
+#: model_terms:ir.ui.view,arch_db:document.share_view_form_popup
+msgid ""
+"<i class=\"fa fa-tag o_document_tag_color ml-2\" attrs=\"{'invisible': "
+"[('tag_ids', '=', [])]}\" title=\"Tags\"/>"
+msgstr ""
+
+#. module: document
+#: model_terms:ir.ui.view,arch_db:document.share_page
+msgid "<i class=\"fa fa-upload\"/>  Upload"
+msgstr "<i class=\"fa fa-upload\"/>Enviar"
+
+#. module: document
+#: model_terms:ir.ui.view,arch_db:document.folder_view_form
+msgid "<span class=\"o_stat_text\">Actions</span>"
+msgstr ""
+
+#. module: document
+#: model_terms:ir.ui.view,arch_db:document.document_document_res_partner_view
+#: model_terms:ir.ui.view,arch_db:document.folder_view_form
+msgid "<span class=\"o_stat_text\">document</span>"
+msgstr ""
+
+#. module: document
+#: model_terms:ir.ui.view,arch_db:document.document_view_form
+msgid "<span class=\"o_stat_text\">Related <br/> Record</span>"
+msgstr ""
+
+#. module: document
+#: model_terms:ir.ui.view,arch_db:document.public_page_layout
+msgid "<span style=\"color:white;\">&amp;nbsp;document.</span>"
+msgstr ""
+
+#. module: document
+#: model_terms:ir.ui.view,arch_db:document.share_page
+msgid "<span title=\"Requested Document\">Requested Document</span>"
+msgstr ""
+
+#. module: document
+#: model_terms:ir.ui.view,arch_db:document.document_view_kanban
+msgid "<span><b> Request</b></span>"
+msgstr ""
+
+#. module: document
+#: model_terms:ir.ui.view,arch_db:document.document_view_kanban
+msgid "<span><b>Requested Document</b></span>"
+msgstr ""
+
+#. module: document
+#: model:mail.template,body_html:document.mail_template_document_request
+msgid ""
+"<table border=\"0\" cellpadding=\"0\" cellspacing=\"0\" style=\"padding-top: 16px; background-color: #F1F1F1; font-family:Verdana, Arial,sans-serif; color: #454748; width: 100%; border-collapse:separate;\"><tr><td align=\"center\">\n"
+"                    <table border=\"0\" cellpadding=\"0\" cellspacing=\"0\" width=\"590\" style=\"padding: 16px; background-color: white; color: #454748; border-collapse:separate;\">\n"
+"                    <tbody>\n"
+"                        <!-- HEADER -->\n"
+"                        <tr>\n"
+"                            <td align=\"center\" style=\"min-width: 590px;\">\n"
+"                                <table border=\"0\" cellpadding=\"0\" cellspacing=\"0\" width=\"590\" style=\"min-width: 590px; background-color: white; padding: 0px 8px 0px 8px; border-collapse:separate;\">\n"
+"                                    <tr><td valign=\"middle\">\n"
+"                                        <span style=\"font-size: 10px;\">\n"
+"                                            Document Request: <br/>\n"
+"                                            % if object.name:\n"
+"                                                <span style=\"font-size: 20px; font-weight: bold;\">\n"
+"                                                    ${object.name | safe}\n"
+"                                                </span>\n"
+"                                            % endif\n"
+"                                        </span><br/>\n"
+"                                    </td><td valign=\"middle\" align=\"right\">\n"
+"                                        <img src=\"/logo.png?company=${object.create_uid.company_id.id}\" style=\"padding: 0px; margin: 0px; height: auto; width: 80px;\" alt=\"${object.create_uid.company_id.name}\"/>\n"
+"                                    </td></tr>\n"
+"                                    <tr><td colspan=\"2\" style=\"text-align:center;\">\n"
+"                                      <hr width=\"100%\" style=\"background-color:rgb(204,204,204);border:medium none;clear:both;display:block;font-size:0px;min-height:1px;line-height:0; margin: 16px 0px 16px 0px;\"/>\n"
+"                                    </td></tr>\n"
+"                                </table>\n"
+"                            </td>\n"
+"                        </tr>\n"
+"                        <!-- CONTENT -->\n"
+"                        <tr>\n"
+"                            <td align=\"center\" style=\"min-width: 590px;\">\n"
+"                                <table border=\"0\" cellpadding=\"0\" cellspacing=\"0\" width=\"590\" style=\"min-width: 590px; background-color: white; padding: 0px 8px 0px 8px; border-collapse:separate;\">\n"
+"                                    <tr><td valign=\"top\" style=\"font-size: 13px;\">\n"
+"                                        <div>\n"
+"                                            Hello ${object.owner_id.name},\n"
+"                                            <br/><br/>\n"
+"                                            ${object.create_uid.name} (${object.create_uid.email}) asks you to provide the following document:\n"
+"                                            <br/><br/>\n"
+"                                            <center>\n"
+"                                                <div>\n"
+"                                                    % if object.name:\n"
+"                                                        <b>${object.name | safe}</b>\n"
+"                                                    % endif\n"
+"                                                </div>\n"
+"                                                <div>\n"
+"                                                    % if object.activity_note:\n"
+"                                                        <i>${object.activity_note | safe}</i>\n"
+"                                                    % endif\n"
+"                                                </div>\n"
+"                                                <br/>\n"
+"                                                <div style=\"margin: 16px 0px 16px 0px;\">\n"
+"                                                    <a href=\"${object.full_url}\" style=\"background-color: #875A7B; padding: 20px 30px 20px 30px; text-decoration: none; color: #fff; border-radius: 5px; font-size:13px;\">\n"
+"                                                        Upload the requested document\n"
+"                                                    </a>\n"
+"                                                </div>\n"
+"                                            </center><br/>\n"
+"                                            Please provide us with the missing document before the link expires (planned on ${object.date_deadline}).\n"
+"                                            % if user and user.signature:\n"
+"                                                <br/>\n"
+"                                                ${user.signature | safe}\n"
+"                                                <br/>\n"
+"                                            % endif\n"
+"                                        </div>\n"
+"                                    </td></tr>\n"
+"                                    <tr><td style=\"text-align:center;\">\n"
+"                                      <hr width=\"100%\" style=\"background-color:rgb(204,204,204);border:medium none;clear:both;display:block;font-size:0px;min-height:1px;line-height:0; margin: 16px 0px 16px 0px;\"/>\n"
+"                                    </td></tr>\n"
+"                                </table>\n"
+"                            </td>\n"
+"                        </tr>\n"
+"                        <!-- FOOTER -->\n"
+"                        <tr>\n"
+"                            <td align=\"center\" style=\"min-width: 590px;\">\n"
+"                                <table border=\"0\" cellpadding=\"0\" cellspacing=\"0\" width=\"590\" style=\"min-width: 590px; background-color: white; font-size: 11px; padding: 0px 8px 0px 8px; border-collapse:separate;\">\n"
+"                                    <tr><td valign=\"middle\" align=\"left\">\n"
+"                                        ${object.create_uid.company_id.name}\n"
+"                                    </td></tr>\n"
+"                                    <tr><td valign=\"middle\" align=\"left\" style=\"opacity: 0.7;\">\n"
+"                                        ${object.create_uid.company_id.phone}\n"
+"                                        % if object.create_uid.company_id.email\n"
+"                                            | <a href=\"'mailto:%s' % ${object.create_uid.company_id.email}\" style=\"text-decoration:none; color: #454748;\">${object.create_uid.company_id.email}</a>\n"
+"                                        % endif\n"
+"                                        % if object.create_uid.company_id.website\n"
+"                                            | <a href=\"'%s' % ${object.create_uid.company_id.website}\" style=\"text-decoration:none; color: #454748;\">\n"
+"                                            ${object.create_uid.company_id.website}\n"
+"                                        </a>\n"
+"                                        % endif\n"
+"                                    </td></tr>\n"
+"                                </table>\n"
+"                            </td>\n"
+"                        </tr>\n"
+"                    </tbody>\n"
+"                    </table>\n"
+"                    </td></tr>\n"
+"                    <!-- POWERED BY -->\n"
+"                    <tr><td align=\"center\" style=\"min-width: 590px;\">\n"
+"                        <table border=\"0\" cellpadding=\"0\" cellspacing=\"0\" width=\"590\" style=\"min-width: 590px; background-color: #F1F1F1; color: #454748; padding: 8px; border-collapse:separate;\">\n"
+"                          <tr><td style=\"text-align: center; font-size: 13px;\">\n"
+"                            % if object.date_deadline:\n"
+"                                This link expires on <b>${object.date_deadline}.</b><br/>\n"
+"                            % endif\n"
+"                            Powered by <a target=\"_blank\" href=\"https://www.odoo.com/page/document\" style=\"color: #875A7B;\">Odoo document</a>\n"
+"                          </td></tr>\n"
+"                        </table>\n"
+"                    </td></tr>\n"
+"                </table>\n"
+"            "
+msgstr ""
+
+#. module: document
+#: model:ir.model.fields,help:document.field_document_share__alias_defaults
+msgid ""
+"A Python dictionary that will be evaluated to provide default values when "
+"creating new records for this alias."
+msgstr ""
+"Um dicionário de Python que será avaliado para fornecer valores predefinidos"
+" quando criar novos registos para este alias."
+
+#. module: document
+#: model:ir.model,name:document.model_document_workflow_rule
+msgid ""
+"A set of condition and actions which will be available to all attachments "
+"matching the conditions"
+msgstr ""
+
+#. module: document
+#: model:ir.model.fields,help:document.field_document_folder__parent_folder_id
+msgid "A workspace will inherit the tags of its parent workspace"
+msgstr ""
+
+#. module: document
+#: model_terms:ir.ui.view,arch_db:document.document_view_form
+msgid "Access"
+msgstr "Acesso"
+
+#. module: document
+#: model:ir.model.fields,field_description:document.field_document_document__group_ids
+msgid "Access Groups"
+msgstr "Grupos de Acesso"
+
+#. module: document
+#: model_terms:ir.ui.view,arch_db:document.folder_view_form
+msgid "Access Rights"
+msgstr "Permissões de acesso"
+
+#. module: document
+#: model:ir.model.fields,field_description:document.field_document_share__access_token
+msgid "Access Token"
+msgstr "Código de Acesso"
+
+#. module: document
+#. openerp-web
+#: code:addons/document/static/src/owl/components/pdf_manager/pdf_manager.xml:0
+#: code:addons/document/static/src/xml/document_views.xml:0
+#: model:ir.model.fields,field_description:document.field_document_workflow_action__action
+#, python-format
+msgid "Action"
+msgstr "Ação"
+
+#. module: document
+#: model:ir.model.fields,field_description:document.field_document_workflow_rule__name
+msgid "Action Button Name"
+msgstr ""
+
+#. module: document
+#: model:ir.model.fields,field_description:document.field_document_folder__action_count
+msgid "Action Count"
+msgstr ""
+
+#. module: document
+#: model:ir.model.fields,field_description:document.field_document_document__message_needaction
+#: model:ir.model.fields,field_description:document.field_document_share__message_needaction
+msgid "Action Needed"
+msgstr "Ação Necessária"
+
+#. module: document
+#. openerp-web
+#: code:addons/document/models/folder.py:0
+#: code:addons/document/static/src/xml/document_inspector.xml:0
+#: model:ir.ui.menu,name:document.workflow_rules_menu
+#: model_terms:ir.ui.view,arch_db:document.workflow_rule_form_view
+#, python-format
+msgid "Actions"
+msgstr "Ações"
+
+#. module: document
+#: model:ir.model.fields,field_description:document.field_document_document__active
+msgid "Active"
+msgstr "Ativo"
+
+#. module: document
+#: model:ir.model.fields,field_description:document.field_document_document__activity_ids
+#: model_terms:ir.ui.view,arch_db:document.workflow_rule_form_view
+msgid "Activities"
+msgstr "Atividades"
+
+#. module: document
+#: model:ir.model,name:document.model_mail_activity
+#: model_terms:ir.ui.view,arch_db:document.share_view_form
+#: model_terms:ir.ui.view,arch_db:document.share_view_form_popup
+msgid "Activity"
+msgstr "Atividade"
+
+#. module: document
+#: model:ir.model.fields,field_description:document.field_document_document__activity_exception_decoration
+msgid "Activity Exception Decoration"
+msgstr "Marcador de Exceções de Atividade"
+
+#. module: document
+#: model:ir.model.fields,field_description:document.field_document_workflow_rule__activity_note
+msgid "Activity Note"
+msgstr "Nota de Atividade"
+
+#. module: document
+#: model:ir.model.fields,field_description:document.field_document_document__activity_state
+msgid "Activity State"
+msgstr "Estado da Atividade"
+
+#. module: document
+#: model:ir.model,name:document.model_mail_activity_type
+msgid "Activity Type"
+msgstr "Tipo de Atividade"
+
+#. module: document
+#: model:ir.model.fields,field_description:document.field_document_document__activity_type_icon
+msgid "Activity Type Icon"
+msgstr "Ícone de Tipo de Atividade"
+
+#. module: document
+#: model:ir.model.fields,field_description:document.field_document_request_wizard__activity_type_id
+#: model:ir.model.fields,field_description:document.field_document_share__activity_type_id
+#: model:ir.model.fields,field_description:document.field_document_workflow_rule__activity_type_id
+msgid "Activity type"
+msgstr "Tipo de Atividade"
+
+#. module: document
+#: model:ir.model.fields.selection,name:document.selection__document_workflow_action__action__add
+#: model_terms:ir.ui.view,arch_db:document.document_upload_url_view
+msgid "Add"
+msgstr "Adicionar"
+
+#. module: document
+#. openerp-web
+#: code:addons/document/static/src/owl/components/pdf_manager/pdf_manager.xml:0
+#: code:addons/document/static/src/owl/components/pdf_manager/pdf_manager.xml:0
+#, python-format
+msgid "Add File"
+msgstr ""
+
+#. module: document
+#: model:ir.actions.act_window,name:document.action_url_form
+msgid "Add Url"
+msgstr "Adicionar URL"
+
+#. module: document
+#. openerp-web
+#: code:addons/document/static/src/xml/document_views.xml:0
+#, python-format
+msgid "Add a Link"
+msgstr ""
+
+#. module: document
+#. openerp-web
+#: code:addons/document/static/src/owl/components/pdf_manager/pdf_manager.xml:0
+#: code:addons/document/static/src/owl/components/pdf_manager/pdf_manager.xml:0
+#: code:addons/document/static/src/owl/components/pdf_manager/pdf_manager.xml:0
+#: code:addons/document/static/src/owl/components/pdf_manager/pdf_manager.xml:0
+#, python-format
+msgid "Add new file"
+msgstr ""
+
+#. module: document
+#: model:res.groups,name:document.group_document_manager
+msgid "Administrator"
+msgstr "Administrador"
+
+#. module: document
+#: model:document.tag,name:document.document_marketing_assets_ads
+msgid "Ads"
+msgstr ""
+
+#. module: document
+#: model:ir.model.fields,field_description:document.field_document_share__alias_id
+msgid "Alias"
+msgstr "Alias"
+
+#. module: document
+#: model:ir.model.fields,field_description:document.field_document_share__alias_contact
+msgid "Alias Contact Security"
+msgstr "Segurança de Contacto do Alias"
+
+#. module: document
+#: model:ir.model.fields,field_description:document.field_document_share__alias_name
+msgid "Alias Name"
+msgstr "Nome do Alias"
+
+#. module: document
+#: model:ir.model.fields,field_description:document.field_document_share__alias_domain
+msgid "Alias domain"
+msgstr "Domínio do alias"
+
+#. module: document
+#: model:ir.model.fields,field_description:document.field_document_share__alias_model_id
+msgid "Aliased Model"
+msgstr "Modelo Aliased"
+
+#. module: document
+#: code:addons/document/controllers/main.py:0
+#, python-format
+msgid "All files uploaded"
+msgstr ""
+
+#. module: document
+#: model:ir.model.fields,field_description:document.field_document_share__action
+msgid "Allows to"
+msgstr "Permite que"
+
+#. module: document
+#: model:ir.module.category,description:document.module_category_document_management
+msgid "Allows you to manage your document."
+msgstr "Permite-lhe gerir os seus documentos."
+
+#. module: document
+#: model_terms:digest.tip,tip_description:document.digest_tip_document_0
+msgid ""
+"An easy way to process incoming mails is to configure your scanner to send "
+"PDFs to ${record.alias_id.display_name}. Scanned files will appear "
+"automatically in your workspace. Then, process your document in bulk with "
+"the split tool: launch user defined actions, request a signature, convert to"
+" vendor bills with AI, etc."
+msgstr ""
+
+#. module: document
+#: model_terms:digest.tip,tip_description:document.digest_tip_document_0
+msgid ""
+"An easy way to process incoming mails is to configure your scanner to send "
+"PDFs to your workspace email. Scanned files will appear automatically in "
+"your workspace. Then, process your document in bulk with the split tool: "
+"launch user defined actions, request a signature, convert to vendor bills "
+"with AI, etc."
+msgstr ""
+
+#. module: document
+#. openerp-web
+#: code:addons/document/static/src/xml/document_inspector.xml:0
+#: model_terms:ir.ui.view,arch_db:document.document_view_form
+#, python-format
+msgid "Archive"
+msgstr "Arquivar"
+
+#. module: document
+#. openerp-web
+#: code:addons/document/static/src/owl/components/pdf_manager/pdf_manager.xml:0
+#, python-format
+msgid "Archive original file(s)"
+msgstr ""
+
+#. module: document
+#: model_terms:ir.ui.view,arch_db:document.document_view_form
+#: model_terms:ir.ui.view,arch_db:document.document_view_search
+msgid "Archived"
+msgstr "Arquivados"
+
+#. module: document
+#. openerp-web
+#: code:addons/document/static/src/js/tours/document.js:0
+#, python-format
+msgid ""
+"As this PDF contains multiple document, let's split and process in bulk."
+msgstr ""
+
+#. module: document
+#: model:document.workflow.rule,name:document.document_rule_finance_afv
+msgid "Ask for Validation"
+msgstr ""
+
+#. module: document
+#: model:document.facet,name:document.document_marketing_assets
+msgid "Assets"
+msgstr "Ativos"
+
+#. module: document
+#: model_terms:ir.ui.view,arch_db:document.document_view_search
+msgid "Attached To"
+msgstr "Anexado a"
+
+#. module: document
+#: model:ir.model,name:document.model_ir_attachment
+#: model:ir.model.fields,field_description:document.field_document_document__attachment_id
+msgid "Attachment"
+msgstr "Anexo"
+
+#. module: document
+#: model:ir.model.fields,field_description:document.field_document_document__message_attachment_count
+#: model:ir.model.fields,field_description:document.field_document_share__message_attachment_count
+msgid "Attachment Count"
+msgstr "Número de Anexos"
+
+#. module: document
+#: model:ir.model.fields,field_description:document.field_document_document__description
+msgid "Attachment Description"
+msgstr ""
+
+#. module: document
+#: model:ir.model.fields,field_description:document.field_document_document__attachment_name
+msgid "Attachment Name"
+msgstr "Nome do Anexo"
+
+#. module: document
+#: model:ir.model.fields,field_description:document.field_document_document__attachment_type
+msgid "Attachment Type"
+msgstr ""
+
+#. module: document
+#. openerp-web
+#: code:addons/document/static/src/js/document_kanban_view.js:0
+#, python-format
+msgid "Attachments Kanban"
+msgstr ""
+
+#. module: document
+#: model_terms:document.folder,description:document.document_finance_folder
+msgid ""
+"Automate your inbox using scanned document or emails sent to <strong>inbox-"
+"financial</strong> email alias."
+msgstr ""
+
+#. module: document
+#: model:ir.model.fields,field_description:document.field_document_document__available_rule_ids
+msgid "Available Rules"
+msgstr "Regras Disponíveis "
+
+#. module: document
+#: model:document.tag,name:document.document_finance_document_bill
+msgid "Bill"
+msgstr "Fatura de Fornecedor"
+
+#. module: document
+#: model:document.folder,name:document.document_marketing_brand1_folder
+msgid "Brand 1"
+msgstr ""
+
+#. module: document
+#: model:document.folder,name:document.document_marketing_brand2_folder
+msgid "Brand 2"
+msgstr ""
+
+#. module: document
+#: model:document.tag,name:document.document_marketing_assets_brochures
+msgid "Brochures"
+msgstr ""
+
+#. module: document
+#: model:ir.model.fields,help:document.field_mail_activity_type__folder_id
+msgid "By defining a folder, the upload activities will generate a document"
+msgstr ""
+
+#. module: document
+#: model:ir.model.fields,field_description:document.field_document_share__can_upload
+msgid "Can Upload"
+msgstr "Pode Enviar"
+
+#. module: document
+#: model_terms:ir.ui.view,arch_db:document.document_request_form_view
+#: model_terms:ir.ui.view,arch_db:document.document_upload_url_view
+msgid "Cancel"
+msgstr "Cancelar"
+
+#. module: document
+#: model_terms:document.folder,description:document.document_internal_folder
+msgid "Categorize, share and keep track of all your internal document."
+msgstr ""
+
+#. module: document
+#: model:ir.model,name:document.model_document_facet
+#: model:ir.model.fields,field_description:document.field_document_tag__facet_id
+#: model:ir.model.fields,field_description:document.field_document_workflow_action__facet_id
+#: model_terms:ir.ui.view,arch_db:document.facet_view_tree
+#: model_terms:ir.ui.view,arch_db:document.folder_view_form
+#: model_terms:ir.ui.view,arch_db:document.tag_view_form
+msgid "Category"
+msgstr "Categoria"
+
+#. module: document
+#: model:ir.model.fields,field_description:document.field_document_document__checksum
+msgid "Checksum/SHA1"
+msgstr "Checksum/SHA1"
+
+#. module: document
+#. openerp-web
+#: code:addons/document/static/src/js/tours/document.js:0
+#, python-format
+msgid "Click on a card to <b>select the document</b>."
+msgstr ""
+
+#. module: document
+#. openerp-web
+#: code:addons/document/static/src/js/tours/document.js:0
+#, python-format
+msgid "Click on a thumbnail to <b>preview the document</b>."
+msgstr ""
+
+#. module: document
+#. openerp-web
+#: code:addons/document/static/src/js/tours/document.js:0
+#, python-format
+msgid ""
+"Click on the <b>page separator</b>: we don't want to split these two pages "
+"as they belong to the same document."
+msgstr ""
+
+#. module: document
+#: model:ir.model.fields,field_description:document.field_document_document__company_id
+#: model:ir.model.fields,field_description:document.field_document_folder__company_id
+msgid "Company"
+msgstr "Empresa"
+
+#. module: document
+#: model:ir.model.fields,field_description:document.field_document_workflow_rule__condition_type
+msgid "Condition type"
+msgstr "Tipo de Condição"
+
+#. module: document
+#: model_terms:ir.ui.view,arch_db:document.workflow_rule_form_view
+msgid "Conditions"
+msgstr "Condições"
+
+#. module: document
+#: model:ir.ui.menu,name:document.Config
+msgid "Configuration"
+msgstr "Configuração"
+
+#. module: document
+#: model:ir.model,name:document.model_res_partner
+#: model:ir.model.fields,field_description:document.field_document_document__partner_id
+#: model:ir.model.fields,field_description:document.field_document_request_wizard__partner_id
+#: model:ir.model.fields,field_description:document.field_document_share__partner_id
+#: model:ir.model.fields,field_description:document.field_document_workflow_rule__criteria_partner_id
+#: model_terms:ir.ui.view,arch_db:document.document_view_search
+msgid "Contact"
+msgstr "Contacto"
+
+#. module: document
+#: model_terms:ir.ui.view,arch_db:document.workflow_rule_form_view
+msgid "Contains"
+msgstr "Contém"
+
+#. module: document
+#: model:document.tag,name:document.document_finance_document_Contracts
+#: model:document.tag,name:document.document_internal_template_contracts
+msgid "Contracts"
+msgstr "Contratos"
+
+#. module: document
+#: model:ir.model.fields,field_description:document.field_document_workflow_rule__create_model
+msgid "Create"
+msgstr "Criar"
+
+#. module: document
+#: model:document.workflow.rule,name:document.document_rule_internal_mark
+msgid "Create Bill"
+msgstr "Criar Fatura de Fornecedor"
+
+#. module: document
+#: model:ir.model.fields,field_description:document.field_document_document__create_share_id
+msgid "Create Share"
+msgstr ""
+
+#. module: document
+#: model:ir.model.fields,field_description:document.field_document_share__activity_option
+msgid "Create a new activity"
+msgstr "Criar uma nova atividade "
+
+#. module: document
+#: model:ir.model.fields,field_description:document.field_document_document__create_uid
+#: model:ir.model.fields,field_description:document.field_document_facet__create_uid
+#: model:ir.model.fields,field_description:document.field_document_folder__create_uid
+#: model:ir.model.fields,field_description:document.field_document_request_wizard__create_uid
+#: model:ir.model.fields,field_description:document.field_document_share__create_uid
+#: model:ir.model.fields,field_description:document.field_document_tag__create_uid
+#: model:ir.model.fields,field_description:document.field_document_workflow_action__create_uid
+#: model:ir.model.fields,field_description:document.field_document_workflow_rule__create_uid
+#: model_terms:ir.ui.view,arch_db:document.document_view_search
+msgid "Created by"
+msgstr "Criado por"
+
+#. module: document
+#: model:ir.model.fields,field_description:document.field_document_document__create_date
+#: model:ir.model.fields,field_description:document.field_document_facet__create_date
+#: model:ir.model.fields,field_description:document.field_document_folder__create_date
+#: model:ir.model.fields,field_description:document.field_document_request_wizard__create_date
+#: model:ir.model.fields,field_description:document.field_document_share__create_date
+#: model:ir.model.fields,field_description:document.field_document_tag__create_date
+#: model:ir.model.fields,field_description:document.field_document_workflow_action__create_date
+#: model:ir.model.fields,field_description:document.field_document_workflow_rule__create_date
+msgid "Created on"
+msgstr "Criado em"
+
+#. module: document
+#: model_terms:ir.ui.view,arch_db:document.document_view_search
+msgid "Creation Date"
+msgstr "Data de Criação"
+
+#. module: document
+#: model:ir.model.fields.selection,name:document.selection__document_workflow_rule__condition_type__criteria
+msgid "Criteria"
+msgstr "Critérios"
+
+#. module: document
+#: model:ir.model.fields,field_description:document.field_document_share__alias_bounced_content
+msgid "Custom Bounced Message"
+msgstr "Mensagem Personalizada de Email Rejeitado"
+
+#. module: document
+#: model:ir.model.fields.selection,name:document.selection__document_request_wizard__activity_date_deadline_range_type__days
+#: model:ir.model.fields.selection,name:document.selection__document_share__activity_date_deadline_range_type__days
+#: model:ir.model.fields.selection,name:document.selection__document_workflow_rule__activity_date_deadline_range_type__days
+msgid "Days"
+msgstr "Dias"
+
+#. module: document
+#: model:ir.model.fields,field_description:document.field_mail_activity_type__default_user_id
+msgid "Default User"
+msgstr ""
+
+#. module: document
+#: model:ir.model.fields,field_description:document.field_document_share__alias_defaults
+msgid "Default Values"
+msgstr "Valores Predefinidos"
+
+#. module: document
+#: model_terms:ir.ui.view,arch_db:document.share_view_form
+#: model_terms:ir.ui.view,arch_db:document.share_view_form_popup
+msgid "Default values for uploaded document"
+msgstr "Valores padrão para documentos carregados "
+
+#. module: document
+#. openerp-web
+#: code:addons/document/static/src/xml/document_inspector.xml:0
+#, python-format
+msgid "Delete"
+msgstr "Eliminar"
+
+#. module: document
+#: model:document.workflow.rule,name:document.document_rule_internal_deprecate
+msgid "Deprecate"
+msgstr ""
+
+#. module: document
+#: model:document.tag,name:document.document_internal_status_deprecated
+msgid "Deprecated"
+msgstr "Obsoleto"
+
+#. module: document
+#: model:ir.model.fields,field_description:document.field_document_folder__description
+#: model_terms:ir.ui.view,arch_db:document.folder_view_form
+msgid "Description"
+msgstr "Descrição"
+
+#. module: document
+#. openerp-web
+#: code:addons/document/static/src/owl/components/pdf_manager/pdf_manager.xml:0
+#: code:addons/document/static/src/owl/components/pdf_manager/pdf_manager.xml:0
+#: code:addons/document/static/src/owl/components/pdf_manager/pdf_manager.xml:0
+#, python-format
+msgid "Discard"
+msgstr "Descartar"
+
+#. module: document
+#: model:ir.model.fields,field_description:document.field_document_document__display_name
+#: model:ir.model.fields,field_description:document.field_document_facet__display_name
+#: model:ir.model.fields,field_description:document.field_document_folder__display_name
+#: model:ir.model.fields,field_description:document.field_document_mixin__display_name
+#: model:ir.model.fields,field_description:document.field_document_request_wizard__display_name
+#: model:ir.model.fields,field_description:document.field_document_share__display_name
+#: model:ir.model.fields,field_description:document.field_document_tag__display_name
+#: model:ir.model.fields,field_description:document.field_document_workflow_action__display_name
+#: model:ir.model.fields,field_description:document.field_document_workflow_rule__display_name
+#: model:ir.model.fields,field_description:document.field_ir_attachment__display_name
+#: model:ir.model.fields,field_description:document.field_mail_activity__display_name
+#: model:ir.model.fields,field_description:document.field_mail_activity_type__display_name
+#: model:ir.model.fields,field_description:document.field_res_partner__display_name
+msgid "Display Name"
+msgstr "Nome"
+
+#. module: document
+#: model:ir.model,name:document.model_document_document
+#: model_terms:ir.ui.view,arch_db:document.document_view_kanban
+#: model_terms:ir.ui.view,arch_db:document.document_view_search
+#: model_terms:ir.ui.view,arch_db:document.document_view_list
+msgid "Document"
+msgstr "Documento"
+
+#. module: document
+#: model:ir.model.fields,field_description:document.field_document_folder__document_count
+#: model:ir.model.fields,field_description:document.field_res_partner__document_count
+msgid "Document Count"
+msgstr ""
+
+#. module: document
+#: model:ir.model.fields,field_description:document.field_document_share__owner_id
+msgid "Document Owner"
+msgstr "Dono do documento"
+
+#. module: document
+#: model:ir.model,name:document.model_document_request_wizard
+msgid "Document Request"
+msgstr "Pedido de Documento "
+
+#. module: document
+#: model:mail.template,subject:document.mail_template_document_request
+msgid "Document Request ${object.name != False and ': '+ object.name or ''}"
+msgstr ""
+
+#. module: document
+#: code:addons/document/models/document.py:0
+#: code:addons/document/models/document.py:0
+#: code:addons/document/models/mail_activity.py:0
+#, python-format
+msgid "Document Request: %s Uploaded by: %s"
+msgstr ""
+
+#. module: document
+#: model_terms:ir.ui.view,arch_db:document.document_view_kanban
+msgid "Document Thumbnail"
+msgstr ""
+
+#. module: document
+#: model:ir.model,name:document.model_document_workflow_action
+msgid "Document Workflow Tag Action"
+msgstr ""
+
+#. module: document
+#: model:ir.model.fields.selection,name:document.selection__document_share__type__ids
+msgid "Document list"
+msgstr "Lista de Documentos"
+
+#. module: document
+#. openerp-web
+#: code:addons/document/models/folder.py:0
+#: code:addons/document/models/res_partner.py:0
+#: code:addons/document/static/src/xml/document_inspector.xml:0
+#: model:document.facet,name:document.document_finance_document
+#: model:ir.actions.act_window,name:document.document_action
+#: model:ir.model.fields,field_description:document.field_document_folder__document_ids
+#: model:ir.model.fields,field_description:document.field_res_users__document_count
+#: model:ir.module.category,name:document.module_category_document_management
+#: model:ir.ui.menu,name:document.dashboard
+#: model:ir.ui.menu,name:document.menu_root
+#: model_terms:ir.ui.view,arch_db:document.action_view_search
+#: model_terms:ir.ui.view,arch_db:document.document_view_search
+#: model_terms:ir.ui.view,arch_db:document.res_config_settings_view_form
+#, python-format
+msgid "document"
+msgstr "Documentos"
+
+#. module: document
+#: model:ir.model,name:document.model_document_share
+msgid "document Share"
+msgstr ""
+
+#. module: document
+#: model:ir.model,name:document.model_document_folder
+msgid "document Workspace"
+msgstr ""
+
+#. module: document
+#: model:ir.model,name:document.model_document_mixin
+msgid "document creation mixin"
+msgstr ""
+
+#. module: document
+#: model_terms:ir.ui.view,arch_db:document.workflow_rule_form_view
+msgid "Does not contain"
+msgstr "Não Contem"
+
+#. module: document
+#: model:ir.model.fields,field_description:document.field_document_share__domain
+#: model:ir.model.fields,field_description:document.field_document_workflow_rule__domain
+#: model:ir.model.fields.selection,name:document.selection__document_share__type__domain
+#: model:ir.model.fields.selection,name:document.selection__document_workflow_rule__condition_type__domain
+#: model_terms:ir.ui.view,arch_db:document.workflow_rule_form_view
+msgid "Domain"
+msgstr "Domínio"
+
+#. module: document
+#: model_terms:ir.ui.view,arch_db:document.share_view_form_popup
+msgid "Done"
+msgstr "Concluído"
+
+#. module: document
+#: model_terms:ir.ui.view,arch_db:document.share_page
+msgid "Downlaod all files"
+msgstr "Instalar todos os ficheiros"
+
+#. module: document
+#. openerp-web
+#: code:addons/document/static/src/xml/document_inspector.xml:0
+#: model:ir.model.fields.selection,name:document.selection__document_share__action__download
+#: model_terms:ir.ui.view,arch_db:document.document_view_form
+#, python-format
+msgid "Download"
+msgstr "Transferir"
+
+#. module: document
+#: model_terms:ir.ui.view,arch_db:document.share_page
+msgid "Download all files"
+msgstr ""
+
+#. module: document
+#: model:ir.model.fields.selection,name:document.selection__document_share__action__downloadupload
+msgid "Download and Upload"
+msgstr "Transferir e Carregar"
+
+#. module: document
+#. openerp-web
+#: code:addons/document/static/src/xml/document_views.xml:0
+#, python-format
+msgid "Drop files here to upload"
+msgstr ""
+
+#. module: document
+#: model:ir.model.fields,field_description:document.field_document_request_wizard__activity_date_deadline_range
+#: model:ir.model.fields,field_description:document.field_document_share__activity_date_deadline_range
+#: model:ir.model.fields,field_description:document.field_document_workflow_rule__activity_date_deadline_range
+msgid "Due Date In"
+msgstr "Data de Vencimento em"
+
+#. module: document
+#: model:ir.model.fields,field_description:document.field_document_request_wizard__activity_date_deadline_range_type
+#: model:ir.model.fields,field_description:document.field_document_share__activity_date_deadline_range_type
+#: model:ir.model.fields,field_description:document.field_document_workflow_rule__activity_date_deadline_range_type
+msgid "Due type"
+msgstr "Tipo de Vencimento"
+
+#. module: document
+#: model_terms:ir.ui.view,arch_db:document.folder_view_form
+msgid "E.g. Finance"
+msgstr ""
+
+#. module: document
+#: model_terms:ir.ui.view,arch_db:document.document_request_form_view
+msgid "E.g. Missing Expense"
+msgstr ""
+
+#. module: document
+#: model_terms:ir.ui.view,arch_db:document.facet_view_form
+msgid "E.g. Status"
+msgstr "Ex. Estado"
+
+#. module: document
+#: model_terms:ir.ui.view,arch_db:document.workflow_rule_form_view
+msgid "E.g. Validate document"
+msgstr ""
+
+#. module: document
+#: model:ir.model.fields,field_description:document.field_document_document__email_cc
+msgid "Email cc"
+msgstr ""
+
+#. module: document
+#. openerp-web
+#: code:addons/document/static/src/js/document_controller_mixin.js:0
+#: code:addons/document/static/src/js/document_document_viewer.js:0
+#, python-format
+msgid "Error"
+msgstr "Erro"
+
+#. module: document
+#: model:ir.model.fields,field_description:document.field_document_workflow_rule__excluded_tag_ids
+msgid "Excluded Tags"
+msgstr ""
+
+#. module: document
+#: model:document.tag,name:document.document_finance_document_expense
+msgid "Expense"
+msgstr "Despesa"
+
+#. module: document
+#: model:ir.model.fields.selection,name:document.selection__document_share__state__expired
+msgid "Expired"
+msgstr "Expirado"
+
+#. module: document
+#: model:ir.model.constraint,message:document.constraint_document_facet_name_unique
+msgid "Facet already exists in this folder"
+msgstr ""
+
+#. module: document
+#: model:ir.model.fields,field_description:document.field_document_document__favorited_ids
+msgid "Favorite of"
+msgstr "Favorito de"
+
+#. module: document
+#: model:ir.model.fields.selection,name:document.selection__document_document__type__binary
+#: model_terms:ir.ui.view,arch_db:document.document_view_form
+msgid "File"
+msgstr "Ficheiro"
+
+#. module: document
+#: model:ir.model.fields,field_description:document.field_document_document__datas
+msgid "File Content (base64)"
+msgstr ""
+
+#. module: document
+#: model:ir.model.fields,field_description:document.field_document_document__file_size
+msgid "File Size"
+msgstr "Tamanho do ficheiro"
+
+#. module: document
+#: model_terms:ir.ui.view,arch_db:document.res_config_settings_view_form
+msgid "Files Centralization"
+msgstr ""
+
+#. module: document
+#: model:document.folder,name:document.document_finance_folder
+msgid "Finance"
+msgstr ""
+
+#. module: document
+#: model:document.tag,name:document.document_finance_document_financial
+msgid "Financial"
+msgstr ""
+
+#. module: document
+#: model:document.tag,name:document.document_finance_document_fiscal
+msgid "Fiscal"
+msgstr ""
+
+#. module: document
+#: model:document.facet,name:document.document_finance_fiscal_year
+msgid "Fiscal years"
+msgstr ""
+
+#. module: document
+#: model:ir.model.fields,field_description:document.field_mail_activity_type__folder_id
+msgid "Folder"
+msgstr "Pasta"
+
+#. module: document
+#: model:ir.model.fields,field_description:document.field_document_document__message_follower_ids
+#: model:ir.model.fields,field_description:document.field_document_share__message_follower_ids
+msgid "Followers"
+msgstr "Seguidores"
+
+#. module: document
+#: model:ir.model.fields,field_description:document.field_document_document__message_channel_ids
+#: model:ir.model.fields,field_description:document.field_document_share__message_channel_ids
+msgid "Followers (Channels)"
+msgstr "Seguidores (Canais)"
+
+#. module: document
+#: model:ir.model.fields,field_description:document.field_document_document__message_partner_ids
+#: model:ir.model.fields,field_description:document.field_document_share__message_partner_ids
+msgid "Followers (Partners)"
+msgstr "Seguidores (Parceiros)"
+
+#. module: document
+#: model:ir.model.fields,help:document.field_document_document__activity_type_icon
+msgid "Font awesome icon e.g. fa-tasks"
+msgstr ""
+
+#. module: document
+#: model_terms:ir.ui.view,arch_db:document.document_view_search
+#: model_terms:ir.ui.view,arch_db:document.facet_view_search
+msgid "Group By"
+msgstr "Agrupar por"
+
+#. module: document
+#: model:ir.model.fields,help:document.field_document_folder__read_group_ids
+msgid ""
+"Groups able to see the workspace and read its document without create/edit "
+"rights."
+msgstr ""
+
+#. module: document
+#: model:ir.model.fields,help:document.field_document_folder__group_ids
+msgid "Groups able to see the workspace and read/create/edit its document."
+msgstr ""
+
+#. module: document
+#: model:document.tag,name:document.document_internal_knowledge_hr
+msgid "HR"
+msgstr ""
+
+#. module: document
+#: model:ir.model.fields,field_description:document.field_document_workflow_rule__has_business_option
+msgid "Has Business Option"
+msgstr "Tem Opções de Negócios"
+
+#. module: document
+#. openerp-web
+#: code:addons/document/static/src/xml/document_inspector.xml:0
+#: model:ir.model.fields,field_description:document.field_document_document__previous_attachment_ids
+#, python-format
+msgid "History"
+msgstr "Histórico"
+
+#. module: document
+#: model:ir.model.fields,field_description:document.field_document_document__id
+#: model:ir.model.fields,field_description:document.field_document_facet__id
+#: model:ir.model.fields,field_description:document.field_document_folder__id
+#: model:ir.model.fields,field_description:document.field_document_mixin__id
+#: model:ir.model.fields,field_description:document.field_document_request_wizard__id
+#: model:ir.model.fields,field_description:document.field_document_share__id
+#: model:ir.model.fields,field_description:document.field_document_tag__id
+#: model:ir.model.fields,field_description:document.field_document_workflow_action__id
+#: model:ir.model.fields,field_description:document.field_document_workflow_rule__id
+#: model:ir.model.fields,field_description:document.field_ir_attachment__id
+#: model:ir.model.fields,field_description:document.field_mail_activity__id
+#: model:ir.model.fields,field_description:document.field_mail_activity_type__id
+#: model:ir.model.fields,field_description:document.field_res_partner__id
+msgid "ID"
+msgstr "ID"
+
+#. module: document
+#: model:ir.model.fields,help:document.field_document_share__alias_parent_thread_id
+msgid ""
+"ID of the parent record holding the alias (example: project holding the task"
+" creation alias)"
+msgstr ""
+"ID do registo parent que armazena o alias (Ex.: projeto que armazena o alias"
+" de criação de tarefas)"
+
+#. module: document
+#: model:ir.model.fields,field_description:document.field_document_document__activity_exception_icon
+msgid "Icon"
+msgstr "Ícone"
+
+#. module: document
+#: model:ir.model.fields,help:document.field_document_document__activity_exception_icon
+msgid "Icon to indicate an exception activity."
+msgstr ""
+
+#. module: document
+#: model:ir.model.fields,help:document.field_document_document__message_needaction
+#: model:ir.model.fields,help:document.field_document_document__message_unread
+#: model:ir.model.fields,help:document.field_document_share__message_needaction
+#: model:ir.model.fields,help:document.field_document_share__message_unread
+msgid "If checked, new messages require your attention."
+msgstr "Se selecionado, há novas mensagens que requerem a sua atenção."
+
+#. module: document
+#: model:ir.model.fields,help:document.field_document_document__message_has_error
+#: model:ir.model.fields,help:document.field_document_document__message_has_sms_error
+#: model:ir.model.fields,help:document.field_document_share__message_has_error
+#: model:ir.model.fields,help:document.field_document_share__message_has_sms_error
+msgid "If checked, some messages have a delivery error."
+msgstr "Se estiver marcado, algumas mensagens têm um erro de entrega."
+
+#. module: document
+#: model:ir.model.fields,help:document.field_document_share__alias_bounced_content
+msgid ""
+"If set, this content will automatically be sent out to unauthorized users "
+"instead of the default message."
+msgstr ""
+
+#. module: document
+#: model_terms:ir.ui.view,arch_db:document.document_view_search
+msgid "Image/Video"
+msgstr ""
+
+#. module: document
+#: model:document.tag,name:document.document_marketing_assets_images
+msgid "Images"
+msgstr ""
+
+#. module: document
+#: model:document.tag,name:document.document_finance_status_inbox
+#: model:document.tag,name:document.document_internal_status_inbox
+#: model:mail.activity.type,name:document.mail_document_activity_data_Inbox
+msgid "Inbox"
+msgstr "Caixa de Entrada"
+
+#. module: document
+#: model_terms:document.folder,description:document.document_internal_folder
+msgid ""
+"Incoming letters sent to inbox email alias will be added to your inbox "
+"automatically."
+msgstr ""
+
+#. module: document
+#: model:ir.model.fields,field_description:document.field_document_document__index_content
+msgid "Indexed Content"
+msgstr "Conteúdo indexado"
+
+#. module: document
+#: model:document.folder,name:document.document_internal_folder
+msgid "Internal"
+msgstr "Interno"
+
+#. module: document
+#: model:ir.model.fields,field_description:document.field_document_document__is_favorited
+msgid "Is Favorited"
+msgstr ""
+
+#. module: document
+#: model:ir.model.fields,field_description:document.field_document_document__message_is_follower
+#: model:ir.model.fields,field_description:document.field_document_share__message_is_follower
+msgid "Is Follower"
+msgstr "É Seguidor"
+
+#. module: document
+#: model:document.facet,name:document.document_internal_knowledge
+msgid "Knowledge"
+msgstr "Conhecimento"
+
+#. module: document
+#: model:ir.model.fields,field_description:document.field_document_document____last_update
+#: model:ir.model.fields,field_description:document.field_document_facet____last_update
+#: model:ir.model.fields,field_description:document.field_document_folder____last_update
+#: model:ir.model.fields,field_description:document.field_document_mixin____last_update
+#: model:ir.model.fields,field_description:document.field_document_request_wizard____last_update
+#: model:ir.model.fields,field_description:document.field_document_share____last_update
+#: model:ir.model.fields,field_description:document.field_document_tag____last_update
+#: model:ir.model.fields,field_description:document.field_document_workflow_action____last_update
+#: model:ir.model.fields,field_description:document.field_document_workflow_rule____last_update
+#: model:ir.model.fields,field_description:document.field_ir_attachment____last_update
+#: model:ir.model.fields,field_description:document.field_mail_activity____last_update
+#: model:ir.model.fields,field_description:document.field_mail_activity_type____last_update
+#: model:ir.model.fields,field_description:document.field_res_partner____last_update
+msgid "Last Modified on"
+msgstr "Última Modificação em"
+
+#. module: document
+#: model:ir.model.fields,field_description:document.field_document_document__write_uid
+#: model:ir.model.fields,field_description:document.field_document_facet__write_uid
+#: model:ir.model.fields,field_description:document.field_document_folder__write_uid
+#: model:ir.model.fields,field_description:document.field_document_request_wizard__write_uid
+#: model:ir.model.fields,field_description:document.field_document_share__write_uid
+#: model:ir.model.fields,field_description:document.field_document_tag__write_uid
+#: model:ir.model.fields,field_description:document.field_document_workflow_action__write_uid
+#: model:ir.model.fields,field_description:document.field_document_workflow_rule__write_uid
+msgid "Last Updated by"
+msgstr "Última Atualização por"
+
+#. module: document
+#: model:ir.model.fields,field_description:document.field_document_document__write_date
+#: model:ir.model.fields,field_description:document.field_document_facet__write_date
+#: model:ir.model.fields,field_description:document.field_document_folder__write_date
+#: model:ir.model.fields,field_description:document.field_document_request_wizard__write_date
+#: model:ir.model.fields,field_description:document.field_document_share__write_date
+#: model:ir.model.fields,field_description:document.field_document_tag__write_date
+#: model:ir.model.fields,field_description:document.field_document_workflow_action__write_date
+#: model:ir.model.fields,field_description:document.field_document_workflow_rule__write_date
+msgid "Last Updated on"
+msgstr "Última Atualização em"
+
+#. module: document
+#: model:document.tag,name:document.document_internal_knowledge_legal
+msgid "Legal"
+msgstr ""
+
+#. module: document
+#. openerp-web
+#: code:addons/document/static/src/js/tours/document.js:0
+#, python-format
+msgid ""
+"Let's process document in your Inbox.<br/><i>Tip: Use Tags to filter "
+"document and structure your process.</i>"
+msgstr ""
+
+#. module: document
+#. openerp-web
+#: code:addons/document/static/src/js/tours/document.js:0
+#, python-format
+msgid "Let's process these bills: send to Finance workspace."
+msgstr ""
+
+#. module: document
+#. openerp-web
+#: code:addons/document/static/src/js/tours/document.js:0
+#, python-format
+msgid "Let's process this document, coming from our scanner."
+msgstr ""
+
+#. module: document
+#. openerp-web
+#: code:addons/document/static/src/js/tours/document.js:0
+#, python-format
+msgid ""
+"Let's tag this bill as legal<br/> <i>Tips: actions can be tailored to your "
+"process, according to the workspace.</i>"
+msgstr ""
+
+#. module: document
+#: model:ir.model.fields,help:document.field_document_folder__user_specific
+msgid "Limit Read Groups to the document of which they are owner."
+msgstr ""
+
+#. module: document
+#: model:ir.model.fields,help:document.field_document_document__email_cc
+msgid "List of cc from incoming emails."
+msgstr ""
+
+#. module: document
+#: model:ir.model.fields.selection,name:document.selection__document_share__state__live
+msgid "Live"
+msgstr "Direto"
+
+#. module: document
+#: model_terms:ir.ui.view,arch_db:document.share_single
+msgid "Loading"
+msgstr "A carregar"
+
+#. module: document
+#. openerp-web
+#: code:addons/document/static/src/xml/document_inspector.xml:0
+#: model_terms:ir.ui.view,arch_db:document.document_view_form
+#, python-format
+msgid "Lock"
+msgstr "Bloqueio"
+
+#. module: document
+#: model:ir.model.fields,field_description:document.field_document_document__is_locked
+#: model_terms:ir.ui.view,arch_db:document.document_view_search
+msgid "Locked"
+msgstr "Bloqueada"
+
+#. module: document
+#: model:ir.model.fields,field_description:document.field_document_document__lock_uid
+msgid "Locked by"
+msgstr ""
+
+#. module: document
+#: model_terms:ir.ui.view,arch_db:document.share_view_form
+#: model_terms:ir.ui.view,arch_db:document.share_view_form_popup
+#: model_terms:ir.ui.view,arch_db:document.workflow_rule_form_view
+msgid "Log a note..."
+msgstr "Registe uma nota..."
+
+#. module: document
+#: model_terms:ir.ui.view,arch_db:document.public_page_layout
+msgid "Login"
+msgstr "Início de Sessão"
+
+#. module: document
+#: model_terms:ir.ui.view,arch_db:document.public_page_layout
+msgid "Logout"
+msgstr "Terminar sessão"
+
+#. module: document
+#. openerp-web
+#: code:addons/document/static/src/xml/document_inspector.xml:0
+#, python-format
+msgid "MB"
+msgstr ""
+
+#. module: document
+#: model:ir.model.fields,field_description:document.field_document_document__message_main_attachment_id
+#: model:ir.model.fields,field_description:document.field_document_share__message_main_attachment_id
+msgid "Main Attachment"
+msgstr "Anexo Principal"
+
+#. module: document
+#: model:document.workflow.rule,name:document.document_rule_internal_mad
+msgid "Mark As Draft"
+msgstr ""
+
+#. module: document
+#: model:ir.model.fields,field_description:document.field_document_workflow_rule__remove_activities
+msgid "Mark all as Done"
+msgstr ""
+
+#. module: document
+#: model:document.folder,name:document.document_marketing_folder
+msgid "Marketing"
+msgstr "Marketing"
+
+#. module: document
+#: model:ir.model.fields,field_description:document.field_document_document__message_has_error
+#: model:ir.model.fields,field_description:document.field_document_share__message_has_error
+msgid "Message Delivery error"
+msgstr "Erro de Envio de Mensagem"
+
+#. module: document
+#: model:ir.model.fields,field_description:document.field_document_document__message_ids
+#: model:ir.model.fields,field_description:document.field_document_share__message_ids
+msgid "Messages"
+msgstr "Mensagens"
+
+#. module: document
+#: model:ir.model.fields,field_description:document.field_document_document__mimetype
+msgid "Mime Type"
+msgstr "Tipo Mime"
+
+#. module: document
+#: model_terms:ir.ui.view,arch_db:document.workflow_rule_form_view
+msgid "Miscellaneous"
+msgstr "Diversos"
+
+#. module: document
+#: model_terms:ir.ui.view,arch_db:document.document_view_search
+msgid "Model"
+msgstr "Modelo"
+
+#. module: document
+#: model:ir.model.fields.selection,name:document.selection__document_request_wizard__activity_date_deadline_range_type__months
+#: model:ir.model.fields.selection,name:document.selection__document_share__activity_date_deadline_range_type__months
+#: model:ir.model.fields.selection,name:document.selection__document_workflow_rule__activity_date_deadline_range_type__months
+msgid "Months"
+msgstr "Meses"
+
+#. module: document
+#: model:document.workflow.rule,name:document.document_rule_finance_mti
+msgid "Move To Inbox"
+msgstr ""
+
+#. module: document
+#: model:ir.model.fields,field_description:document.field_document_workflow_rule__folder_id
+msgid "Move to Workspace"
+msgstr ""
+
+#. module: document
+#. openerp-web
+#: code:addons/document/static/src/js/document_inspector.js:0
+#, python-format
+msgid "Multiple values"
+msgstr "Valores Multiplos"
+
+#. module: document
+#: model_terms:ir.ui.view,arch_db:document.document_view_search
+msgid "My document"
+msgstr "Meus documentos"
+
+#. module: document
+#: model_terms:ir.ui.view,arch_db:document.document_view_search
+msgid "My Favorites"
+msgstr "Os Meus Favoritos"
+
+#. module: document
+#: model:ir.model.fields,field_description:document.field_document_document__name
+#: model:ir.model.fields,field_description:document.field_document_facet__name
+#: model:ir.model.fields,field_description:document.field_document_folder__name
+#: model:ir.model.fields,field_description:document.field_document_request_wizard__name
+#: model:ir.model.fields,field_description:document.field_document_share__name
+#: model:ir.model.fields,field_description:document.field_document_tag__name
+#: model_terms:ir.ui.view,arch_db:document.document_view_form
+msgid "Name"
+msgstr "Nome"
+
+#. module: document
+#: model_terms:ir.ui.view,arch_db:document.share_view_form
+#: model_terms:ir.ui.view,arch_db:document.share_view_form_popup
+msgid "Name of the share link"
+msgstr ""
+
+#. module: document
+#. openerp-web
+#: code:addons/document/static/src/js/document_inspector.js:0
+#, python-format
+msgid "Name or Category contains: %s"
+msgstr ""
+
+#. module: document
+#. openerp-web
+#: code:addons/document/static/src/owl/components/pdf_manager/pdf_manager.js:0
+#, python-format
+msgid "New File"
+msgstr ""
+
+#. module: document
+#. openerp-web
+#: code:addons/document/static/src/owl/components/pdf_manager/pdf_manager.js:0
+#, python-format
+msgid "New Group"
+msgstr ""
+
+#. module: document
+#: model:ir.model.fields,field_description:document.field_document_document__activity_date_deadline
+msgid "Next Activity Deadline"
+msgstr "Prazo da Próxima Atividade"
+
+#. module: document
+#: model:ir.model.fields,field_description:document.field_document_document__activity_summary
+msgid "Next Activity Summary"
+msgstr "Sumário da Próxima Atividade"
+
+#. module: document
+#: model:ir.model.fields,field_description:document.field_document_document__activity_type_id
+msgid "Next Activity Type"
+msgstr "Tipo de atividade seguinte "
+
+#. module: document
+#. openerp-web
+#: code:addons/document/static/src/owl/components/pdf_manager/pdf_manager.js:0
+#, python-format
+msgid "No document has been selected"
+msgstr ""
+
+#. module: document
+#: model_terms:ir.actions.act_window,help:document.share_action
+msgid "No shared links"
+msgstr ""
+
+#. module: document
+#: code:addons/document/models/document.py:0
+#, python-format
+msgid "Not a file"
+msgstr ""
+
+#. module: document
+#: code:addons/document/models/document.py:0
+#, python-format
+msgid "Not attached"
+msgstr ""
+
+#. module: document
+#: model:ir.model.fields,field_description:document.field_document_request_wizard__activity_note
+#: model:ir.model.fields,field_description:document.field_document_share__activity_note
+msgid "Note"
+msgstr "Nota"
+
+#. module: document
+#: model:ir.model.fields,field_description:document.field_document_document__message_needaction_counter
+#: model:ir.model.fields,field_description:document.field_document_share__message_needaction_counter
+msgid "Number of Actions"
+msgstr "Número de Ações"
+
+#. module: document
+#: model:ir.model.fields,field_description:document.field_document_document__message_has_error_counter
+#: model:ir.model.fields,field_description:document.field_document_share__message_has_error_counter
+msgid "Number of errors"
+msgstr ""
+
+#. module: document
+#: model:ir.model.fields,help:document.field_document_document__message_needaction_counter
+#: model:ir.model.fields,help:document.field_document_share__message_needaction_counter
+msgid "Number of messages which requires an action"
+msgstr "Número de mensagens que requerem uma ação"
+
+#. module: document
+#: model:ir.model.fields,help:document.field_document_document__message_has_error_counter
+#: model:ir.model.fields,help:document.field_document_share__message_has_error_counter
+msgid "Number of messages with delivery error"
+msgstr "Numero de mensagens com um erro de entrega."
+
+#. module: document
+#: model:ir.model.fields,help:document.field_document_document__message_unread_counter
+#: model:ir.model.fields,help:document.field_document_share__message_unread_counter
+msgid "Number of unread messages"
+msgstr "Número de mensagens não lidas"
+
+#. module: document
+#: model_terms:ir.ui.view,arch_db:document.public_page_layout
+msgid "Odoo Logo"
+msgstr "Odoo logo"
+
+#. module: document
+#: model_terms:ir.ui.view,arch_db:document.public_page_layout
+msgid "Odoo Website"
+msgstr "Odoo Website"
+
+#. module: document
+#: model:ir.model.fields,field_description:document.field_document_workflow_rule__limited_to_single_record
+msgid "One record limit"
+msgstr ""
+
+#. module: document
+#. openerp-web
+#: code:addons/document/static/src/xml/document_inspector.xml:0
+#, python-format
+msgid "Open chatter"
+msgstr ""
+
+#. module: document
+#: model:ir.model.fields,help:document.field_document_share__alias_force_thread_id
+msgid ""
+"Optional ID of a thread (record) to which all incoming messages will be "
+"attached, even if they did not reply to it. If set, this will disable the "
+"creation of new records completely."
+msgstr ""
+"ID opcional de uma linha (registo) à qual todas as mensagens de entrada "
+"serão anexadas, mesmo que não tenham tido resposta. Se definido, irá "
+"desativar completamente a criação de novos registos."
+
+#. module: document
+#: model:document.tag,name:document.document_internal_knowledge_other
+msgid "Other"
+msgstr "Outro"
+
+#. module: document
+#: model:ir.model.fields,field_description:document.field_document_folder__user_specific
+msgid "Own document Only"
+msgstr ""
+
+#. module: document
+#: model:ir.model.fields,field_description:document.field_document_document__owner_id
+#: model:ir.model.fields,field_description:document.field_document_request_wizard__owner_id
+#: model:ir.model.fields,field_description:document.field_document_share__alias_user_id
+#: model:ir.model.fields,field_description:document.field_document_workflow_rule__criteria_owner_id
+#: model_terms:ir.ui.view,arch_db:document.document_view_search
+msgid "Owner"
+msgstr "Dono"
+
+#. module: document
+#: model_terms:ir.ui.view,arch_db:document.share_page
+msgid "Owner: #{document.create_uid.name}"
+msgstr ""
+
+#. module: document
+#: model_terms:ir.ui.view,arch_db:document.document_view_search
+msgid "PDF/Document"
+msgstr ""
+
+#. module: document
+#: model:ir.model.fields,field_description:document.field_document_share__alias_parent_model_id
+msgid "Parent Model"
+msgstr "Modelo Parent"
+
+#. module: document
+#: model:ir.model.fields,field_description:document.field_document_share__alias_parent_thread_id
+msgid "Parent Record Thread ID"
+msgstr "ID da Linha de Registo do Parent"
+
+#. module: document
+#: model:ir.model.fields,field_description:document.field_document_folder__parent_folder_id
+#: model_terms:ir.ui.view,arch_db:document.folder_view_search
+msgid "Parent Workspace"
+msgstr ""
+
+#. module: document
+#: model:ir.model.fields,help:document.field_document_share__alias_parent_model_id
+msgid ""
+"Parent model holding the alias. The model holding the alias reference is not"
+" necessarily the model given by alias_model_id (example: project "
+"(parent_model) and task (model))"
+msgstr ""
+"Modelo parent que armazena o alias. O modelo que armazena a referência ao "
+"alias não é necessariamente o modelo determinado por alias_model_id (Ex.: "
+"project (parent_model) e task (model))"
+
+#. module: document
+#: model:ir.model.fields,help:document.field_document_share__alias_contact
+msgid ""
+"Policy to post a message on the document using the mailgateway.\n"
+"- everyone: everyone can post\n"
+"- partners: only authenticated partners\n"
+"- followers: only followers of the related document or members of following channels\n"
+msgstr ""
+"Política de publicação de mensagens no documento usando o mailgateway.\n"
+"- todos: todos podem publicar\n"
+"- parceiros: apenas parceiros autenticados\n"
+"- seguidores: apenas seguidores do documento relacionado ou membros de canais seguidores\n"
+
+#. module: document
+#: model:document.tag,name:document.document_internal_template_presentations
+msgid "Presentations"
+msgstr "Apresentações"
+
+#. module: document
+#: model:document.tag,name:document.document_internal_template_project
+msgid "Project"
+msgstr "Projeto"
+
+#. module: document
+#: model_terms:ir.ui.view,arch_db:document.folder_view_form
+msgid "Read Access"
+msgstr "Acesso de Leitura"
+
+#. module: document
+#: model:ir.model.fields,field_description:document.field_document_folder__read_group_ids
+msgid "Read Groups"
+msgstr ""
+
+#. module: document
+#: model:ir.model.fields,field_description:document.field_document_share__alias_force_thread_id
+msgid "Record Thread ID"
+msgstr "ID da Linha de Registo"
+
+#. module: document
+#: model:ir.model.fields,field_description:document.field_document_workflow_rule__domain_folder_id
+msgid "Related Workspace"
+msgstr ""
+
+#. module: document
+#. openerp-web
+#: code:addons/document/static/src/owl/components/pdf_manager/pdf_manager.js:0
+#: code:addons/document/static/src/owl/components/pdf_manager/pdf_manager.js:0
+#, python-format
+msgid "Remaining Pages"
+msgstr ""
+
+#. module: document
+#: model:ir.model.fields.selection,name:document.selection__document_workflow_action__action__remove
+msgid "Remove"
+msgstr "Remover"
+
+#. module: document
+#. openerp-web
+#: code:addons/document/static/src/xml/document_inspector.xml:0
+#, python-format
+msgid "Replace"
+msgstr "Substituir"
+
+#. module: document
+#: model:ir.model.fields.selection,name:document.selection__document_workflow_action__action__replace
+msgid "Replace by"
+msgstr "Substituir por"
+
+#. module: document
+#. openerp-web
+#: code:addons/document/static/src/xml/document_views.xml:0
+#: model:ir.model.fields.selection,name:document.selection__document_document__type__empty
+#: model_terms:ir.ui.view,arch_db:document.document_request_form_view
+#, python-format
+msgid "Request"
+msgstr "Requisição"
+
+#. module: document
+#: model:ir.model.fields,field_description:document.field_document_document__request_activity_id
+msgid "Request Activity"
+msgstr ""
+
+#. module: document
+#: model_terms:ir.ui.view,arch_db:document.document_request_form_view
+msgid "Request To"
+msgstr ""
+
+#. module: document
+#. openerp-web
+#: code:addons/document/static/src/xml/systray.xml:0
+#, python-format
+msgid "Request a Document"
+msgstr "Requisitar um Documento"
+
+#. module: document
+#: model:ir.actions.act_window,name:document.action_request_form
+msgid "Request a file"
+msgstr "Requisitar um ficheiro"
+
+#. module: document
+#: model_terms:ir.ui.view,arch_db:document.document_view_search
+#: model_terms:ir.ui.view,arch_db:document.share_single
+msgid "Requested"
+msgstr ""
+
+#. module: document
+#: model:mail.activity.type,name:document.mail_document_activity_data_md
+msgid "Requested Document"
+msgstr ""
+
+#. module: document
+#: model:ir.model.fields,field_description:document.field_document_workflow_rule__required_tag_ids
+msgid "Required Tags"
+msgstr ""
+
+#. module: document
+#: model:ir.model.fields,field_description:document.field_document_document__res_model_name
+msgid "Res Model Name"
+msgstr ""
+
+#. module: document
+#: model:ir.model.fields,field_description:document.field_document_document__res_id
+#: model:ir.model.fields,field_description:document.field_document_request_wizard__res_id
+msgid "Resource ID"
+msgstr "ID do recurso"
+
+#. module: document
+#: model:ir.model.fields,field_description:document.field_document_document__res_model
+#: model:ir.model.fields,field_description:document.field_document_request_wizard__res_model
+msgid "Resource Model"
+msgstr "Modelo do recurso"
+
+#. module: document
+#: model:ir.model.fields,field_description:document.field_document_document__res_name
+msgid "Resource Name"
+msgstr "Nome do Recurso"
+
+#. module: document
+#: model:ir.model.fields,field_description:document.field_document_share__activity_user_id
+#: model:ir.model.fields,field_description:document.field_document_workflow_rule__activity_user_id
+msgid "Responsible"
+msgstr "Responsável"
+
+#. module: document
+#: model:ir.model.fields,field_description:document.field_document_document__activity_user_id
+msgid "Responsible User"
+msgstr "Utilizador responsável"
+
+#. module: document
+#: model_terms:ir.ui.view,arch_db:document.document_view_form
+msgid "Restore"
+msgstr "Restaurar"
+
+#. module: document
+#: model:ir.model.fields,field_description:document.field_document_document__message_has_sms_error
+#: model:ir.model.fields,field_description:document.field_document_share__message_has_sms_error
+msgid "SMS Delivery error"
+msgstr "Erro de Envio de SMS"
+
+#. module: document
+#: model:document.tag,name:document.document_internal_knowledge_sales
+msgid "Sales"
+msgstr "Vendas"
+
+#. module: document
+#: model:ir.model.fields,field_description:document.field_document_workflow_rule__activity_option
+msgid "Schedule Activity"
+msgstr "Agendar Atividade"
+
+#. module: document
+#. openerp-web
+#: code:addons/document/static/src/js/document_inspector.js:0
+#, python-format
+msgid "Search more..."
+msgstr ""
+
+#. module: document
+#. openerp-web
+#: code:addons/document/static/src/owl/components/pdf_manager/pdf_manager.xml:0
+#, python-format
+msgid "Select All: Shift + A"
+msgstr ""
+
+#. module: document
+#. openerp-web
+#: code:addons/document/static/src/js/document_inspector.js:0
+#, python-format
+msgid "Select tags"
+msgstr ""
+
+#. module: document
+#. openerp-web
+#: code:addons/document/static/src/js/tours/document.js:0
+#, python-format
+msgid "Send this letter to the legal department, by assigning the right tags."
+msgstr ""
+
+#. module: document
+#: model:document.workflow.rule,name:document.document_rule_internal_legal
+msgid "Send to Legal"
+msgstr ""
+
+#. module: document
+#: model:ir.model.fields,field_description:document.field_document_facet__sequence
+#: model:ir.model.fields,field_description:document.field_document_folder__sequence
+#: model:ir.model.fields,field_description:document.field_document_tag__sequence
+#: model:ir.model.fields,field_description:document.field_document_workflow_rule__sequence
+msgid "Sequence"
+msgstr "Sequência"
+
+#. module: document
+#: model:document.workflow.rule,name:document.document_rule_finance_2018contracts
+msgid "Set As 2020 Contracts"
+msgstr ""
+
+#. module: document
+#: model:ir.model.fields,field_description:document.field_document_workflow_rule__partner_id
+msgid "Set Contact"
+msgstr "Definir Contacto"
+
+#. module: document
+#: model:ir.model.fields,field_description:document.field_document_workflow_rule__user_id
+msgid "Set Owner"
+msgstr ""
+
+#. module: document
+#: model:ir.model.fields,field_description:document.field_document_workflow_rule__tag_action_ids
+msgid "Set Tags"
+msgstr ""
+
+#. module: document
+#: model:ir.model.fields,field_description:document.field_document_workflow_rule__has_owner_activity
+msgid "Set the activity on the document owner"
+msgstr ""
+
+#. module: document
+#: model:ir.actions.act_window,name:document.configuration_action
+#: model:ir.actions.act_window,name:document.settings_action
+#: model:ir.ui.menu,name:document.settings_menu
+msgid "Settings"
+msgstr "Definições"
+
+#. module: document
+#. openerp-web
+#: code:addons/document/static/src/xml/document_views.xml:0
+#: model_terms:ir.ui.view,arch_db:document.document_view_form
+#, python-format
+msgid "Share"
+msgstr "Partilhar"
+
+#. module: document
+#: model:ir.model.fields,field_description:document.field_document_folder__share_link_ids
+msgid "Share Links"
+msgstr ""
+
+#. module: document
+#: code:addons/document/models/share.py:0
+#, python-format
+msgid "Share domain"
+msgstr ""
+
+#. module: document
+#: code:addons/document/controllers/main.py:0
+#, python-format
+msgid "Share link"
+msgstr ""
+
+#. module: document
+#: model:ir.actions.act_window,name:document.share_action
+msgid "Share links"
+msgstr ""
+
+#. module: document
+#: code:addons/document/models/share.py:0
+#, python-format
+msgid "Share selected records"
+msgstr ""
+
+#. module: document
+#. openerp-web
+#: code:addons/document/static/src/xml/document_views.xml:0
+#, python-format
+msgid "Share this domain"
+msgstr ""
+
+#. module: document
+#. openerp-web
+#: code:addons/document/static/src/xml/document_inspector.xml:0
+#, python-format
+msgid "Share this selection"
+msgstr ""
+
+#. module: document
+#: model:ir.model.fields,field_description:document.field_document_share__type
+msgid "Share type"
+msgstr "Tipo de Partilha"
+
+#. module: document
+#: model:ir.model.fields,help:document.field_document_document__create_share_id
+msgid "Share used to create this document"
+msgstr ""
+
+#. module: document
+#: model_terms:ir.ui.view,arch_db:document.share_view_form_popup
+msgid "Shared"
+msgstr "Partilhado"
+
+#. module: document
+#: model:ir.model.fields,field_description:document.field_document_share__document_ids
+msgid "Shared document"
+msgstr ""
+
+#. module: document
+#: model:ir.model.fields,field_description:document.field_document_share__tag_ids
+msgid "Shared Tags"
+msgstr "Etiquetas Partilhadas"
+
+#. module: document
+#: model:ir.ui.menu,name:document.share_menu
+msgid "Shares & Emails"
+msgstr ""
+
+#. module: document
+#. openerp-web
+#: code:addons/document/static/src/xml/document_inspector.xml:0
+#, python-format
+msgid "Size"
+msgstr "Tamanho"
+
+#. module: document
+#. openerp-web
+#: code:addons/document/static/src/owl/components/pdf_manager/pdf_manager.xml:0
+#: code:addons/document/static/src/xml/document_inspector.xml:0
+#: code:addons/document/static/src/xml/document_inspector.xml:0
+#, python-format
+msgid "Split"
+msgstr "Dividir"
+
+#. module: document
+#. openerp-web
+#: code:addons/document/static/src/xml/document_thread.xml:0
+#, python-format
+msgid "Split PDF"
+msgstr ""
+
+#. module: document
+#. openerp-web
+#: code:addons/document/static/src/owl/components/pdf_manager/pdf_manager.xml:0
+#: code:addons/document/static/src/owl/components/pdf_manager/pdf_manager.xml:0
+#, python-format
+msgid "Split and apply the action"
+msgstr ""
+
+#. module: document
+#: model:document.facet,name:document.document_finance_status
+#: model:document.facet,name:document.document_internal_status
+#: model:ir.model.fields,field_description:document.field_document_share__state
+msgid "Status"
+msgstr "Estado"
+
+#. module: document
+#: model:ir.model.fields,help:document.field_document_document__activity_state
+msgid ""
+"Status based on activities\n"
+"Overdue: Due date is already passed\n"
+"Today: Activity date is today\n"
+"Planned: Future activities."
+msgstr ""
+
+#. module: document
+#: model:ir.model.fields,field_description:document.field_document_folder__children_folder_ids
+msgid "Sub workspaces"
+msgstr ""
+
+#. module: document
+#: model:ir.model.fields,field_description:document.field_document_share__activity_summary
+#: model:ir.model.fields,field_description:document.field_document_workflow_rule__activity_summary
+msgid "Summary"
+msgstr "Sumário"
+
+#. module: document
+#: model:ir.model,name:document.model_document_tag
+#: model:ir.model.fields,field_description:document.field_document_facet__tag_ids
+#: model:ir.model.fields,field_description:document.field_document_workflow_action__tag_id
+#: model:ir.model.fields,field_description:document.field_mail_activity_type__tag_ids
+#: model_terms:ir.ui.view,arch_db:document.tag_view_search
+msgid "Tag"
+msgstr "Etiqueta"
+
+#. module: document
+#: model:ir.model.fields,field_description:document.field_document_folder__facet_ids
+#: model_terms:ir.ui.view,arch_db:document.folder_view_tree
+msgid "Tag Categories"
+msgstr ""
+
+#. module: document
+#: model:ir.model.constraint,message:document.constraint_document_tag_facet_name_unique
+msgid "Tag already exists for this facet"
+msgstr ""
+
+#. module: document
+#: model:ir.model.fields,help:document.field_document_folder__facet_ids
+msgid "Tag categories defined for this workspace"
+msgstr ""
+
+#. module: document
+#. openerp-web
+#: code:addons/document/static/src/xml/document_inspector.xml:0
+#: model:ir.actions.act_window,name:document.facet_action
+#: model:ir.model.fields,field_description:document.field_document_document__tag_ids
+#: model:ir.model.fields,field_description:document.field_document_request_wizard__tag_ids
+#: model:ir.ui.menu,name:document.category_menu
+#: model_terms:ir.ui.view,arch_db:document.facet_view_form
+#: model_terms:ir.ui.view,arch_db:document.facet_view_tree
+#: model_terms:ir.ui.view,arch_db:document.folder_view_form
+#: model_terms:ir.ui.view,arch_db:document.workflow_rule_form_view
+#, python-format
+msgid "Tags"
+msgstr "Etiquetas"
+
+#. module: document
+#: model:document.facet,name:document.document_internal_template
+msgid "Templates"
+msgstr "Modelos"
+
+#. module: document
+#: model:document.tag,name:document.document_internal_template_text
+msgid "Text"
+msgstr "Texto"
+
+#. module: document
+#: model:ir.model.fields,help:document.field_document_facet__tooltip
+msgid "Text shown when hovering on this tag category or its tags"
+msgstr ""
+
+#. module: document
+#: model:ir.model.fields,help:document.field_document_share__alias_model_id
+msgid ""
+"The model (Odoo Document Kind) to which this alias corresponds. Any incoming"
+" email that does not reply to an existing record will cause the creation of "
+"a new record of this model (e.g. a Project Task)"
+msgstr ""
+"O modelo (Odoo Document Kind) a qual esta alias corresponde. Qualquer email "
+"de entrada que não responda a um registo existente criará um novo registo "
+"deste modelo (Ex.: uma Tarefa de Projeto)"
+
+#. module: document
+#: model:ir.model.fields,help:document.field_document_share__alias_name
+msgid ""
+"The name of the email alias, e.g. 'jobs' if you want to catch emails for "
+"<jobs@example.odoo.com>"
+msgstr ""
+"O nome do alias de email, ex.: 'jobs' se quiser receber emails de "
+"<jobs@example.odoo.com>"
+
+#. module: document
+#: model:ir.model.fields,help:document.field_document_share__alias_user_id
+msgid ""
+"The owner of records created upon receiving emails on this alias. If this "
+"field is not set the system will attempt to find the right owner based on "
+"the sender (From) address, or will use the Administrator account if no "
+"system user is found for that address."
+msgstr ""
+"O dono dos registos criados depois da receção de emails neste alias. Se este"
+" campo não estiver ativo, o sistema vai tentar encontrar o dono correto com "
+"base no endereço do remetente (De), ou então usa a conta de Administrador se"
+" não for encontrado nenhum utilizador do sistema nesse endereço."
+
+#. module: document
+#: model:ir.model.constraint,message:document.constraint_document_share_share_unique
+msgid "This access token already exists"
+msgstr ""
+
+#. module: document
+#: model:ir.model.constraint,message:document.constraint_document_document_attachment_unique
+msgid "This attachment is already a document"
+msgstr ""
+
+#. module: document
+#: model:ir.model.fields,help:document.field_document_document__group_ids
+msgid "This attachment will only be available for the selected user groups"
+msgstr ""
+
+#. module: document
+#: model_terms:ir.ui.view,arch_db:document.share_single
+msgid ""
+"This document has been requested.\n"
+"                <b onclick=\"$('.o_request_upload').trigger('click')\" style=\"cursor:pointer;\">Upload it</b>."
+msgstr ""
+
+#. module: document
+#: model_terms:ir.ui.view,arch_db:document.not_available
+msgid "This link has expired"
+msgstr ""
+
+#. module: document
+#: model:ir.model.fields,help:document.field_document_document__company_id
+#: model:ir.model.fields,help:document.field_document_folder__company_id
+msgid "This workspace will only be available to the selected company"
+msgstr ""
+
+#. module: document
+#: model:ir.model.fields,field_description:document.field_document_document__thumbnail
+msgid "Thumbnail"
+msgstr "Miniatura"
+
+#. module: document
+#: model:digest.tip,name:document.digest_tip_document_0
+msgid "Tip: Become a paperless company"
+msgstr ""
+
+#. module: document
+#: model:document.tag,name:document.document_finance_status_tc
+#: model:document.tag,name:document.document_internal_status_tc
+msgid "To Validate"
+msgstr ""
+
+#. module: document
+#: model:mail.activity.type,name:document.mail_document_activity_data_tv
+msgid "To validate"
+msgstr "Por Validar"
+
+#. module: document
+#: model:ir.model.fields,field_description:document.field_document_facet__tooltip
+#: model:ir.model.fields,field_description:document.field_document_workflow_rule__note
+#: model_terms:ir.ui.view,arch_db:document.facet_view_form
+msgid "Tooltip"
+msgstr ""
+
+#. module: document
+#: model:ir.model.fields,field_description:document.field_document_document__type
+msgid "Type"
+msgstr "Tipo"
+
+#. module: document
+#: model:ir.model.fields,help:document.field_document_document__activity_exception_decoration
+msgid "Type of the exception activity on record."
+msgstr ""
+
+#. module: document
+#: model:ir.model.fields,field_description:document.field_document_document__url
+#: model:ir.model.fields,field_description:document.field_document_share__full_url
+#: model:ir.model.fields.selection,name:document.selection__document_document__type__url
+#: model_terms:ir.ui.view,arch_db:document.document_view_search
+#: model_terms:ir.ui.view,arch_db:document.document_upload_url_view
+#: model_terms:ir.ui.view,arch_db:document.share_page
+#: model_terms:ir.ui.view,arch_db:document.share_single
+msgid "URL"
+msgstr "URL"
+
+#. module: document
+#. openerp-web
+#: code:addons/document/static/src/xml/document_inspector.xml:0
+#, python-format
+msgid "Un-archive"
+msgstr ""
+
+#. module: document
+#: model_terms:ir.ui.view,arch_db:document.document_view_form
+msgid "Unlock"
+msgstr "Desbloquear"
+
+#. module: document
+#. openerp-web
+#: code:addons/document/static/src/js/document_controller_mixin.js:0
+#, python-format
+msgid "Unnamed"
+msgstr "Sem nome"
+
+#. module: document
+#: model:ir.model.fields,field_description:document.field_document_document__message_unread
+#: model:ir.model.fields,field_description:document.field_document_share__message_unread
+msgid "Unread Messages"
+msgstr "Mensagens Não Lidas"
+
+#. module: document
+#: model:ir.model.fields,field_description:document.field_document_document__message_unread_counter
+#: model:ir.model.fields,field_description:document.field_document_share__message_unread_counter
+msgid "Unread Messages Counter"
+msgstr "Contador de Mensagens Não Lidas"
+
+#. module: document
+#. openerp-web
+#: code:addons/document/static/src/xml/document_views.xml:0
+#: model_terms:ir.ui.view,arch_db:document.share_page
+#, python-format
+msgid "Upload"
+msgstr "Enviar"
+
+#. module: document
+#: model_terms:ir.actions.act_window,help:document.document_action
+msgid ""
+"Upload <span class=\"font-weight-normal\">a file or</span> drag <span class"
+"=\"font-weight-normal\">it here.</span>"
+msgstr ""
+
+#. module: document
+#. openerp-web
+#: code:addons/document/static/src/xml/document_inspector.xml:0
+#, python-format
+msgid "Upload Document"
+msgstr "Carregar Documento"
+
+#. module: document
+#: model:ir.model.fields,field_description:document.field_document_share__email_drop
+msgid "Upload by Email"
+msgstr "Carregamento por Email"
+
+#. module: document
+#: model:res.groups,name:document.group_document_user
+msgid "User"
+msgstr "Utilizador"
+
+#. module: document
+#: model:document.tag,name:document.document_finance_document_vat
+msgid "VAT"
+msgstr "NIF"
+
+#. module: document
+#: model:ir.model.fields,field_description:document.field_document_share__date_deadline
+msgid "Valid Until"
+msgstr "Válida Até"
+
+#. module: document
+#: model:document.workflow.rule,name:document.document_rule_finance_validate
+msgid "Validate"
+msgstr "Validar"
+
+#. module: document
+#: model:document.tag,name:document.document_finance_status_validated
+#: model:document.tag,name:document.document_internal_status_validated
+msgid "Validated"
+msgstr "Validado"
+
+#. module: document
+#: model:document.tag,name:document.document_marketing_assets_Videos
+msgid "Videos"
+msgstr ""
+
+#. module: document
+#. openerp-web
+#: code:addons/document/static/src/js/tours/document.js:0
+#, python-format
+msgid ""
+"Want to become a <b>paperless company</b>? Let's discover Odoo document."
+msgstr ""
+
+#. module: document
+#: model:ir.model.fields,field_description:document.field_document_document__website_message_ids
+#: model:ir.model.fields,field_description:document.field_document_share__website_message_ids
+msgid "Website Messages"
+msgstr "Mensagens do Site da Web"
+
+#. module: document
+#: model:ir.model.fields,help:document.field_document_document__website_message_ids
+#: model:ir.model.fields,help:document.field_document_share__website_message_ids
+msgid "Website communication history"
+msgstr "Histórico de comunicação do site da Web"
+
+#. module: document
+#: model:ir.model.fields.selection,name:document.selection__document_request_wizard__activity_date_deadline_range_type__weeks
+#: model:ir.model.fields.selection,name:document.selection__document_share__activity_date_deadline_range_type__weeks
+#: model:ir.model.fields.selection,name:document.selection__document_workflow_rule__activity_date_deadline_range_type__weeks
+msgid "Weeks"
+msgstr "Semanas"
+
+#. module: document
+#: model:ir.actions.act_window,name:document.workflow_rule_action
+msgid "Workflow Actions"
+msgstr ""
+
+#. module: document
+#: model:ir.model.fields,field_description:document.field_document_workflow_action__workflow_rule_id
+msgid "Workflow Rule"
+msgstr ""
+
+#. module: document
+#: model:ir.model.fields,field_description:document.field_document_document__folder_id
+#: model:ir.model.fields,field_description:document.field_document_facet__folder_id
+#: model:ir.model.fields,field_description:document.field_document_request_wizard__folder_id
+#: model:ir.model.fields,field_description:document.field_document_share__folder_id
+#: model:ir.model.fields,field_description:document.field_document_tag__folder_id
+#: model_terms:ir.ui.view,arch_db:document.facet_view_search
+#: model_terms:ir.ui.view,arch_db:document.folder_view_tree
+msgid "Workspace"
+msgstr ""
+
+#. module: document
+#: model:ir.actions.act_window,name:document.folder_action
+#: model:ir.ui.menu,name:document.folder_menu
+msgid "Workspaces"
+msgstr ""
+
+#. module: document
+#. openerp-web
+#: code:addons/document/static/src/js/tours/document.js:0
+#, python-format
+msgid ""
+"Wow... 6 document processed in a few seconds, You're good.<br/>The tour is "
+"complete. Try uploading your own document now."
+msgstr ""
+
+#. module: document
+#: model_terms:ir.ui.view,arch_db:document.folder_view_form
+msgid "Write Access"
+msgstr "Acesso de Escrita"
+
+#. module: document
+#: model:ir.model.fields,field_description:document.field_document_folder__group_ids
+msgid "Write Groups"
+msgstr ""
+
+#. module: document
+#: model_terms:ir.ui.view,arch_db:document.workflow_rule_form_view
+msgid "Write a tooltip for the action here"
+msgstr ""
+
+#. module: document
+#: model:ir.model.fields,help:document.field_document_document__attachment_type
+msgid ""
+"You can either upload a file from your computer or copy/paste an internet "
+"link to your file."
+msgstr ""
+"Tanto pode carregar um ficheiro a partir do seu computador como copiar/colar"
+" uma ligação internet para o seu ficheiro."
+
+#. module: document
+#: code:addons/document/models/folder.py:0
+#, python-format
+msgid "You cannot create recursive folders."
+msgstr ""
+
+#. module: document
+#. openerp-web
+#: code:addons/document/static/src/xml/document_inspector.xml:0
+#, python-format
+msgid "Youtube Video"
+msgstr ""
+
+#. module: document
+#. openerp-web
+#: code:addons/document/static/src/xml/document_search_panel.xml:0
+#: code:addons/document/static/src/xml/document_search_panel.xml:0
+#, python-format
+msgid "_onDragEnter(section.id, valueId)"
+msgstr ""
+
+#. module: document
+#. openerp-web
+#: code:addons/document/static/src/xml/document_search_panel.xml:0
+#: code:addons/document/static/src/xml/document_search_panel.xml:0
+#, python-format
+msgid "_onDragLeave"
+msgstr ""
+
+#. module: document
+#. openerp-web
+#: code:addons/document/static/src/xml/document_search_panel.xml:0
+#: code:addons/document/static/src/xml/document_search_panel.xml:0
+#, python-format
+msgid "_onDrop(section.id, valueId)"
+msgstr ""
+
+#. module: document
+#. openerp-web
+#: code:addons/document/static/src/xml/document_inspector.xml:0
+#: code:addons/document/static/src/xml/document_inspector.xml:0
+#, python-format
+msgid "delete"
+msgstr "eliminar"
+
+#. module: document
+#. openerp-web
+#: code:addons/document/static/src/xml/document_inspector.xml:0
+#, python-format
+msgid "document"
+msgstr "documento"
+
+#. module: document
+#. openerp-web
+#: code:addons/document/static/src/xml/document_inspector.xml:0
+#, python-format
+msgid "document"
+msgstr ""
+
+#. module: document
+#. openerp-web
+#: code:addons/document/static/src/xml/document_inspector.xml:0
+#, python-format
+msgid "document selected"
+msgstr "Documento selecionado"
+
+#. module: document
+#: model_terms:ir.ui.view,arch_db:document.share_page
+msgid "document shared by"
+msgstr "Documento partilhado por"
+
+#. module: document
+#. openerp-web
+#: code:addons/document/static/src/xml/document_search_panel.xml:0
+#: code:addons/document/static/src/xml/document_search_panel.xml:0
+#, python-format
+msgid "document.SearchPanel.Category"
+msgstr ""
+
+#. module: document
+#. openerp-web
+#: code:addons/document/static/src/xml/document_search_panel.xml:0
+#, python-format
+msgid "document.SearchPanel.FiltersGroup"
+msgstr ""
+
+#. module: document
+#. openerp-web
+#: code:addons/document/static/src/xml/document_inspector.xml:0
+#: code:addons/document/static/src/xml/document_inspector.xml:0
+#, python-format
+msgid "download"
+msgstr ""
+
+#. module: document
+#: model_terms:ir.ui.view,arch_db:document.share_view_form
+#: model_terms:ir.ui.view,arch_db:document.share_view_form_popup
+#: model_terms:ir.ui.view,arch_db:document.workflow_rule_form_view
+msgid "e.g. Discuss proposal"
+msgstr "por exemplo, Proposta de discussão"
+
+#. module: document
+#: model_terms:ir.ui.view,arch_db:document.document_upload_url_view
+msgid "e.g. https://www.youtube.com/watch?v=CP96yVnXNrY"
+msgstr ""
+
+#. module: document
+#. openerp-web
+#: code:addons/document/static/src/xml/document_inspector.xml:0
+#: code:addons/document/static/src/xml/document_inspector.xml:0
+#, python-format
+msgid "restore"
+msgstr ""
+
+#. module: document
+#. openerp-web
+#: code:addons/document/static/src/owl/components/pdf_page/pdf_page.xml:0
+#: code:addons/document/static/src/owl/components/pdf_page/pdf_page.xml:0
+#, python-format
+msgid "select"
+msgstr ""
+
+#. module: document
+#. openerp-web
+#: code:addons/document/static/src/xml/document_inspector.xml:0
+#, python-format
+msgid "selected"
+msgstr ""
+
+#. module: document
+#: model_terms:ir.ui.view,arch_db:document.public_page_layout
+msgid "shared by"
+msgstr "Partilhado por"
+
+#. module: document
+#. openerp-web
+#: code:addons/document/static/src/js/document_controller_mixin.js:0
+#, python-format
+msgid "status code: %s </br> message: %s"
+msgstr ""
+
+#. module: document
+#: model_terms:ir.ui.view,arch_db:document.document_view_kanban
+msgid "toggle favorite"
+msgstr ""
+
+#. module: document
+#. openerp-web
+#: code:addons/document/static/src/owl/components/pdf_manager/pdf_manager.js:0
+#, python-format
+msgid "unnamed"
+msgstr ""

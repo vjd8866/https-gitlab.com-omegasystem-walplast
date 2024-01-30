@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <record id="view_wp_locations_form" model="ir.ui.view">
+            <field name="name">wp.locations.form</field>
+            <field name="model">wp.locations</field>
+            <field name="arch" type="xml">
+                <form string="Locations">
+                    <group>
+                        <group>
+                            <field name="name" required="1"/>
+                            <field name="desc"/>
+                            <field name="search_key" />
+                            <field name="company_id" />
+                        </group>
+                        <group>
+                            <label for="street" string="Address"/>
+                            <div class="o_address_format">
+                                <field name="street" placeholder="Street..." class="o_address_street"/>
+                                <field name="street2" placeholder="Street 2..." class="o_address_street"/>
+                                <field name="city" placeholder="City" class="o_address_city" required="1"/>
+                                <field name="zip_code" placeholder="ZIP" class="o_address_zip"/>
+                                <field name="state_id" class="o_address_state" placeholder="State" required="1"
+                                       style="width: 100%;" options='{"no_open": True}' widget="selection"/>
+                                <field name="country_id" placeholder="Country" class="o_address_country"
+                                       options='{"no_open": True, "no_create": True}'/>
+                            </div>
+                        </group>
+                    </group>
+
+                </form>
+            </field>
+        </record>
+        <record id="view_wp_locations_tree" model="ir.ui.view">
+            <field name="name">wp.locations.tree</field>
+            <field name="model">wp.locations</field>
+            <field name="arch" type="xml">
+                <tree string="Locations">
+                    <field name="name"/>
+                    <field name="company_id" />
+                </tree>
+            </field>
+        </record>
+        <record id="action_wp_locations" model="ir.actions.act_window">
+            <field name="name">Locations</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">wp.locations</field>
+
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <menuitem id="menu_wp_locations" name="Locations" action="action_wp_locations"
+                  parent="menu_contract_config" sequence="4"/>
+    </data>
+</odoo>

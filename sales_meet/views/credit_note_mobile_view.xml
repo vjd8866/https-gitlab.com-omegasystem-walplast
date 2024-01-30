@@ -1,0 +1,299 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+	<record id="view_credit_note_mobile_form" model="ir.ui.view">
+		<field name="name">credit.note.mobile.form</field>
+		<field name="model">credit.note</field>
+		<field name="arch" type="xml">
+			<form>
+				<header>
+					<button name="approve_credit_note_manager" type="object" string="Approve"  class="btn-primary"
+							style="font-size: 16px;" attrs="{'invisible':[('state','in',('approved','draft','posted'))]}"/>
+					<button name="refuse_credit_note" type="object" string="Refuse"  class="btn-primary"
+							style="font-size: 16px;" attrs="{'invisible':[('state','in',('cancel','draft','posted'))]}" />
+					<field name="state" widget="statusbar" statusbar_visible="draft,done"/>
+				</header>
+
+				<sheet >
+					<div class="oe_title">
+						<h1><field name="name" states="done" readonly="1"/></h1>
+					</div>
+					<group  invisible="1">
+						<field name="clubbed_bool" invisible="1" />
+						<field name="new_year_bool"   invisible="1" />
+						<field name="partner_id" invisible="1"/>
+						<field name="condition"  invisible="1"/>
+						<field name="check_lines" invisible="1"/>
+					</group>
+
+					<group>
+						<group>
+							<field name="date_start" colspan="4"  class="oe_inline" required="1"
+								   attrs="{'readonly':[('state','!=','draft')]}"/>
+							<field name="company_id"  colspan="4" options="{'no_create': True, 'no_open': True}"
+								   required="1"  attrs="{'readonly':[('state','!=','draft')]}"/>
+							<field name="cn_type" required="1" colspan="4"  attrs="{'readonly':[('state','!=','draft')]}"/>
+						</group>
+
+						<group>
+							<field name="dateordered2" options="{'no_create': True, 'no_open': True}"  required="1"
+								   colspan="4"  attrs="{'readonly':[('state','=','posted')]}"/>
+							<field name="dateordered3" options="{'no_create': True, 'no_open': True}"  required="1"
+								   colspan="4"  attrs="{'readonly':[('state','=','posted')]}"/>
+							<field name="user2_id" options="{'no_create': True, 'no_open': True}"  required="1"
+								   colspan="4" attrs="{'readonly':[('state','=','posted')]}"/>
+						</group>
+					</group>
+
+					<group>
+						<group attrs="{'invisible':[('file_name','=',False)]}">
+							<field name="cn_data" colspan="4" invisible="1"/>
+							<field name="file_name" filename="cn_data" colspan="4" attrs="{'invisible':[('file_name','=',False)]}"/>
+							<field name="check_lines" colspan="4" invisible="1"/>
+						</group>
+						<group/>
+					</group>
+					<group col="4" colspan="2"  >
+						<div class="col-xs-12" style="margin-top:5%;">
+							<center>
+								<span class="col-sm-3"/>
+								<button name="search_mobile_qr_invoices" type="object" string="Search"
+										class="btn-primary col-xs-2" style="font-size: 16px;"  states='draft'/>
+
+								<span class="col-sm-3"/>
+								<button name="credit_note_report" type="object" string="Report"
+										class="btn-primary col-xs-2"  style="font-size: 16px;" states='approved' />
+
+								<span class="col-sm-3"/>
+								<button name="send_approval" type="object" string="Send Approval"
+										class="btn-primary col-xs-2"  style="font-size: 16px;" states='done'/>
+
+								<span class="col-sm-3"/>
+								<button name="generate_csv_cn_webservice" string="Push to ERP" type="object"
+										class="btn-primary col-xs-2" style="font-size: 16px;" states='approved'  />
+							</center>
+						</div>
+					</group>
+
+					<group col="4" colspan="4" >
+						<field name="credit_note_line_one2many" string="Credit Note Line" nolabel="1" mode="tree,kanban"
+							   attrs="{'readonly':[('state','=','posted')]}">
+							<tree editable="bottom" create="false" delete="false" decoration-success="check_invoice==True">
+								<field name="name"  invisible="1"/>
+								<button name="approve_invoice" icon="fa-check" type="object" style="color:green !important;" />
+								<field name="check_invoice" invisible="1" nolabel="1" string=''/>
+								<field name="user1_id"  attrs="{'required':[('check_invoice','=',True)]}"/>
+								<field name="ad_org_id" attrs="{'required':[('check_invoice','=',True)]}" />
+								<field name="beneficiary_code" string="Code"  attrs="{'required':[('check_invoice','=',True)]}" />
+								<field name="partner_id" options="{'no_create' : True, 'no_open': True}"/>
+								<field name="charge_name"  />
+								<!-- <field name="barcode_line_ids" widget="many2many_tags" /> -->
+								<field name="credit_ids" widget="many2many_tags" />
+
+								<field name="description" attrs="{'required':[('check_invoice','=',True)]}" />
+								<field name="totalamt"  sum="Total Amount" attrs="{'required':[('check_invoice','=',True)]}"/>
+								<field name="log" />
+
+								<field name="value_date" invisible="1"/>
+								<field name="cn_type"  invisible="1"/>
+								<field name="cnfromperiod"  invisible="1" />
+								<field name="c_period_id"   invisible="1" />
+								<field name="dateordered2" invisible="1"/>
+								<field name="dateordered3" invisible="1"/>
+								<field name="user2_id"  invisible="1"/>
+								<field name="cn_on_product" invisible="1" />
+								<field name="c_elementvalue_id"  invisible ="1"/>
+								<field name="c_bpartner_id2"  invisible="1"/>
+								<field name="beneficiary_name"  invisible="1"/>
+								<field name="charge_id" invisible="1" />
+								<field name="allocatedamt" invisible="1"/>
+								<field name="unallocated" invisible="1"/>
+								<field name="duedays" invisible="1"/>
+								<field name="transaction_amount" invisible="1"/>
+								<field name="payment_term"  invisible="1"/>
+								<field name="transaction_type" invisible="1"/>
+								<field name="customercode"  invisible="1"/>
+								<field name="beneficiary_account_number"  invisible="1"/>
+								<field name="customer_reference_number"  invisible="1"/>
+								<field name="owner"  invisible="1"/>
+								<field name="ifsc_code"  invisible="1"/>
+								<field name="beneficiary_email_id"  invisible="1"/>
+								<field name="owner_email" invisible="1"/>
+								<field name="user_id" invisible="1" />
+								<field name="create_uid"  invisible="1"/>
+								<field name="state"  invisible="1"/>
+								<field name="delegate_user_id" invisible="1"  widget="many2many_tags" />
+								<field name="delay_date" invisible="1"/>
+								<field name="credit_note_id" invisible="1"/>
+								<field name="company_id" invisible="1" options="{'no_create' : True, 'no_open': True}"/>
+							</tree>
+						</field>
+					</group>
+
+				</sheet>
+				<div class="oe_chatter">
+					<field name="message_follower_ids" widget="mail_followers" groups="base.group_user"/>
+					<field name="message_ids" widget="mail_thread"/>
+				</div>
+			</form>
+		</field>
+	</record>
+
+
+	<record id="view_credit_note_mobile_tree" model="ir.ui.view">
+		<field name="name">view_credit_note_mobile_tree</field>
+		<field name="model">credit.note.line</field>
+		<field name="arch" type="xml">
+			<tree editable="bottom" create="false" delete="false" decoration-success="check_invoice==True">
+				<field name="name" invisible="1"/>
+				<field name="company_id" invisible="1" options="{'no_create' : True}"/>
+				<!--                <button name="approve_invoice" string="Approve" type="object"-->
+				<!--                        style="color:green;"/>-->
+				<field name="check_invoice" invisible="1" nolabel="1" string=''/>
+				<field name="user1_id" attrs="{'required':[('check_invoice','=',True)]}"/>
+				<field name="ad_org_id" attrs="{'required':[('check_invoice','=',True)]}"/>
+				<field name="beneficiary_code" string="Code" attrs="{'required':[('check_invoice','=',True)]}"/>
+				<field name="partner_id" options="{'no_create' : True}"/>
+				<field name="charge_name"/>
+				<!-- <field name="barcode_line_ids" widget="many2many_tags" /> -->
+				<field name="credit_ids" widget="many2many_tags"/>
+
+				<field name="description" attrs="{'required':[('check_invoice','=',True)]}"/>
+				<field name="totalamt" sum="Total Amount" attrs="{'required':[('check_invoice','=',True)]}"/>
+				<field name="log"/>
+
+				<field name="value_date" invisible="1"/>
+				<field name="cn_type" invisible="1"/>
+				<field name="cnfromperiod" invisible="1"/>
+				<field name="c_period_id" invisible="1"/>
+				<field name="dateordered2" invisible="1"/>
+				<field name="dateordered3" invisible="1"/>
+				<field name="user2_id" invisible="1"/>
+				<field name="cn_on_product" invisible="1"/>
+				<field name="c_elementvalue_id" invisible="1"/>
+				<field name="c_bpartner_id2" invisible="1"/>
+				<field name="beneficiary_name" invisible="1"/>
+				<field name="charge_id" invisible="1"/>
+				<field name="allocatedamt" invisible="1"/>
+				<field name="unallocated" invisible="1"/>
+				<field name="duedays" invisible="1"/>
+				<field name="transaction_amount" invisible="1"/>
+				<field name="payment_term" invisible="1"/>
+				<field name="transaction_type" invisible="1"/>
+				<field name="customercode" invisible="1"/>
+				<field name="beneficiary_account_number" invisible="1"/>
+				<field name="customer_reference_number" invisible="1"/>
+				<field name="owner" invisible="1"/>
+				<field name="ifsc_code" invisible="1"/>
+				<field name="beneficiary_email_id" invisible="1"/>
+				<field name="owner_email" invisible="1"/>
+				<field name="user_id" invisible="1"/>
+				<field name="create_uid" invisible="1"/>
+				<field name="state" invisible="1"/>
+				<field name="delegate_user_id" invisible="1" widget="many2many_tags"/>
+				<field name="delay_date" invisible="1"/>
+				<field name="credit_note_id" invisible="1"/>
+			</tree>
+		</field>
+	</record>
+
+	<record id="view_credit_note_line_form" model="ir.ui.view">
+		<field name="name">credit.note.line.form</field>
+		<field name="model">credit.note.line</field>
+		<field name="arch" type="xml">
+			<form>
+				<group invisible="1">
+					<field name="name"  invisible="1"/>
+					<button name="approve_invoice" icon="fa-check"
+							type="object" style="color:green !important;" />
+				</group>
+
+				<group col="4" colspan="4">
+					<field name="partner_id" options="{'no_create' : True, 'no_open': True}"/>
+					<field name="beneficiary_code" string="Code" />
+					<field name="user1_id"  attrs="{'required':[('check_invoice','=',True)]}"/>
+					<field name="ad_org_id" attrs="{'required':[('check_invoice','=',True)]}" />
+					<field name="charge_name"  />
+					<field name="description" attrs="{'required':[('check_invoice','=',True)]}" />
+					<field name="totalamt"  sum="Total Amount" attrs="{'required':[('check_invoice','=',True)]}"/>
+					<field name="log" />
+				</group>
+
+				<group>
+					<!-- <field name="barcode_line_id" /> -->
+					<!-- <field name="barcode_line_ids" widget="many2many_tags" /> -->
+					<field name="credit_ids" widget="many2many_tags" />
+
+				</group>
+
+				<group col="4" colspan="4">
+					<field name="check_invoice" />
+					<field name="transaction_amount" />
+					<field name="user2_id" />
+					<field name="cn_type"  />
+					<field name="beneficiary_name"  />
+					<field name="charge_id"  />
+					<field name="company_id"  options="{'no_create' : True, 'no_open': True}"/>
+					<field name="dateordered2" />
+					<field name="dateordered3" />
+					<field name="state"  />
+					<field name="credit_note_id" />
+					<field name="c_bpartner_id"  />
+					<field name="customercode"  />
+				</group>
+
+				<group>
+
+					<group col="4" colspan="4">
+						<field name="value_date" invisible="1"/>
+						<field name="cnfromperiod"  invisible="1" />
+						<field name="c_period_id"   invisible="1" />
+						<field name="cn_on_product" invisible="1" />
+						<field name="c_elementvalue_id"  invisible ="1"/>
+						<field name="allocatedamt" invisible="1"/>
+						<field name="unallocated" invisible="1"/>
+						<field name="duedays" invisible="1"/>
+						<field name="payment_term"  invisible="1"/>
+						<field name="transaction_type" invisible="1"/>
+						<field name="beneficiary_account_number"  invisible="1"/>
+						<field name="customer_reference_number"  invisible="1"/>
+						<field name="owner"  invisible="1"/>
+						<field name="ifsc_code"  invisible="1"/>
+						<field name="beneficiary_email_id"  invisible="1"/>
+						<field name="owner_email" invisible="1"/>
+						<field name="user_id" invisible="1" />
+						<field name="create_uid"  invisible="1"/>
+						<field name="delegate_user_id" invisible="1"  widget="many2many_tags" />
+						<field name="delay_date" invisible="1"/>
+					</group>
+				</group>
+			</form>
+		</field>
+	</record>
+
+	<record id="action_credit_note_mobile" model="ir.actions.act_window">
+		<field name="name">Mobile Credit Note</field>
+		<field name="type">ir.actions.act_window</field>
+		<field name="res_model">credit.note</field>
+		<field name="binding_view_types">form</field>
+		<field name="domain">[('condition','=','mobile')]</field>
+		<field name="context">{ 'default_condition':'mobile', }
+		</field>
+		<field name="view_mode">tree,form</field>
+	</record>
+
+	<record model="ir.actions.act_window.view" id="action_credit_note_form2">
+		<field name="sequence" eval="2"/>
+		<field name="view_mode">form</field>
+		<field name="view_id" ref="view_credit_note_mobile_form"/>
+		<field name="act_window_id" ref="action_credit_note_mobile"/>
+	</record>
+
+	<record model="ir.actions.act_window.view" id="action_credit_note_tree2">
+		<field name="sequence" eval="1"/>
+		<field name="view_mode">tree</field>
+		<field name="view_id" ref="view_credit_note_tree"/>
+		<field name="act_window_id" ref="action_credit_note_mobile"/>
+	</record>
+
+</odoo>

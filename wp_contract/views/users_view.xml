@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <record id="users_tree_view_extension" model="ir.ui.view">
+        <field name="name">contract.users</field>
+        <field name="inherit_id" ref="base.view_users_tree" />
+        <field name="model">res.users</field>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='company_id']" position="after">
+                <field name="department_id" invisible="1"/>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="users_form_view_extension" model="ir.ui.view">
+        <field name="name">contract.users</field>
+        <field name="inherit_id" ref="base.view_users_form" />
+        <field name="model">res.users</field>
+        <field name="arch" type="xml">
+            <xpath expr="//div[hasclass('oe_title')]" position="after">
+                <group>
+                    <field name="department_id"/>
+                </group>
+                <group>
+                    <field name="allowed_department_ids" widget="many2many_tags"/>
+                </group>
+            </xpath>
+        </field>
+    </record>
+</odoo>

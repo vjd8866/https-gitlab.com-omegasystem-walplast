@@ -1,0 +1,5 @@
+id,active,name,sequence
+id_1,True,HO Employee,1
+id_2,True,Distributor,2
+id_3,True,Retailer,3
+id_4,True,Salesperson,4

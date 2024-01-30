@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo> 
+	<record id="wp_retailer_import_view_form" model="ir.ui.view">
+		<field name="name">wp.retailer.import.form</field>
+		<field name="model">wp.retailer.import</field>
+		<field name="arch" type="xml">
+			<form string="Retailer Import">
+				<group >
+					<group  >
+	                    <field name="retailer_csv_data" invisible="1"/> 
+	                    <field name="retailer_file_name" filename="retailer_csv_data" colspan="4" widget="upload" />
+	                </group>
+                </group>
+
+				<footer>
+					<button name="action_upload" string="Import"
+						type="object" class="btn btn-sm btn-primary" />
+					<button string="Cancel" class="btn btn-sm btn-default"
+						special="cancel" />
+				</footer>
+
+			</form>
+		</field>
+	</record>
+
+	<record id="wp_retailer_import_action" model="ir.actions.act_window">
+		<field name="name">Retailer Import</field>
+		<field name="type">ir.actions.act_window</field>
+		<field name="res_model">wp.retailer.import</field>
+		<field name="view_mode">form</field>
+		<field name="view_id" ref="wp_retailer_import_view_form" />
+		<field name="target">new</field>
+	</record>
+
+</odoo>

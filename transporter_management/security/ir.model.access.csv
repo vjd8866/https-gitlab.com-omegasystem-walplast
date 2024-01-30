@@ -1,0 +1,14 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_transporter_management,transporter_management,model_transporter_management,transporter_management.transporter_user_group,1,1,1,1
+access_transporter_order_time,transporter_order_time,model_transporter_order_time,transporter_management.transporter_user_group,1,1,1,1
+access_truck_reporting_time,truck_reporting_time,model_truck_reporting_time,transporter_management.transporter_user_group,1,1,1,1
+access_truck_type,truck_type,model_truck_type,transporter_management.transporter_user_group,1,1,1,1
+access_wp_transporter,wp_transporter,model_wp_transporter,transporter_management.transporter_user_group,1,1,1,1
+access_import_erp_product,import_erp_product,model_import_erp_product,base.group_user,1,1,1,1
+access_update_planning,update_planning,model_update_planning,base.group_user,1,1,1,1
+access_wp_plant,wp_plant,model_wp_plant,base.group_user,1,1,1,1
+access_map_depot,map_depot,model_map_depot,base.group_user,1,1,1,1
+access_transporter_products,transporter_products,model_transporter_products,base.group_user,1,1,1,1
+access_transporter_customer,transporter_customer,model_transporter_customer,base.group_user,1,1,1,1
+access_tpr_plan_report,tpr_plan_report,model_tpr_plan_report,base.group_user,1,1,1,1
+

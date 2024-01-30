@@ -1,0 +1,221 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <record id="contract_user_rules" model="ir.rule">
+            <field name="name">Contract User Rule</field>
+            <field ref="model_wp_contracts" name="model_id"/>
+            <field name="domain_force">['|',('department_id','child_of',user.allowed_department_ids.ids),('department_id','=',user.department_id.id)]</field>
+            <field name="groups" eval="[(4, ref('wp_contract.it_contract_group')),(4, ref('wp_contract.non_it_contract_group'))]"/>
+        </record>
+
+        <record id="view_wp_it_contracts_form" model="ir.ui.view">
+            <field name="name">wp.it.contracts.form</field>
+            <field name="model">wp.contracts</field>
+            <field name="arch" type="xml">
+                <form string="Contract Management">
+                    <header>
+                        <button name="%(wp_contract.action_contract_remarks)d" type="action" string="Set to Expired" context="{'default_set_to_expired':True}" attrs="{'invisible':[('status','!=','to_be_renewed')]}"/>
+                        <button name="%(wp_contract.action_contract_remarks)d" type="action" string="Set To Renewed" context="{'default_set_to_renewed':True}" attrs="{'invisible':[('status','!=','to_be_renewed')]}"/>
+                        <!--                        <button name="send_contract_reminder" type="object" string="Send Reminder Email" groups="wp_contract.contract_manager_group"/>-->
+                        <button name="display_product_key" type="object" string="Show Product Key" groups="wp_contract.contract_manager_group"/>
+                        <field name="status" widget="statusbar" statusbar_visible="to_be_renewed"/>
+                    </header>
+                    <sheet>
+                        <field name="contract_type" invisible="1"/>
+                        <!--                        <field name="show_product_key"/>-->
+                        <group>
+                            <group>
+                                <field name="category" />
+                                <field name="name"/>
+                                <field name="product_key"  password="True"/>
+                                <field name="no_of_license" />
+                                <field name="company_id" />
+                                <field name="vendor_id" />
+                                <field name="supplier_id" />
+                                <field name="po_cost" />
+                                <field name="start_date" />
+                                <field name="end_date" />
+                            </group>
+                            <group>
+                                <field name="user_id" invisible="1"/>
+                                <field name="reminder_days" />
+                                <field name="desc"  width="20%"/>
+                                <field name="upload_file" widget="many2many_binary" />
+                                <!--                                <field name="trigger_reminder_before"/>-->
+                                <field name="first_followers" widget="many2many_tags"/>
+                                <field name="second_followers" widget="many2many_tags"/>
+                                <field name="closed_remarks" attrs="{'invisible':[('closed_remarks','=',False)]}"/>
+                                <field name="renewed_remarks" attrs="{'invisible':[('renewed_remarks','=',False)]}"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="view_wp_it_contracts_tree" model="ir.ui.view">
+            <field name="name">wp.it.contracts.tree</field>
+            <field name="model">wp.contracts</field>
+            <field name="arch" type="xml">
+                <tree string="IT Contracts">
+                    <!--                IT contracts-->
+                    <field name="contract_type" invisible="1"/>
+                    <field name="name"/>
+                    <field name="category" />
+                    <field name="vendor_id" />
+                    <field name="supplier_id" />
+                    <field name="start_date" />
+                    <field name="end_date" />
+                    <field name="desc" />
+                    <field name="status" widget="statusbar"/>
+                </tree>
+            </field>
+        </record>
+
+
+        <record id="view_wp_non_it_contracts_form" model="ir.ui.view">
+            <field name="name">wp.non.it.contracts.form</field>
+            <field name="model">wp.contracts</field>
+            <field name="arch" type="xml">
+                <form string="Contract Management">
+                    <header>
+                        <!--                        <button name="set_to_expired" type="object" string="Set to Expired"/>-->
+                        <button name="%(wp_contract.action_contract_remarks)d" type="action" string="Set to Expired" context="{'default_set_to_expired':True}" attrs="{'invisible':[('status','!=','to_be_renewed')]}"/>
+                        <button name="%(wp_contract.action_contract_remarks)d" type="action" string="Set To Renewed" context="{'default_set_to_renewed':True}" attrs="{'invisible':[('status','!=','to_be_renewed')]}"/>
+                        <!--                        <button name="send_contract_reminder" type="object" string="Send Reminder Email" groups="wp_contract.contract_manager_group"/>-->
+                        <field name="status" widget="statusbar" statusbar_visible="to_be_renewed"/>
+                    </header>
+                    <sheet>
+                        <field name="contract_type" invisible="1"/>
+                        <div>
+                            <group>
+                                <group width="50%">
+                                    <field name="name" required="1"/>
+                                    <field name="company_id"/>
+                                    <field name="location" domain="[('company_id','=',company_id)]" required="1"/>
+                                    <field name="department_id_1" required="1"/>
+                                    <field name="document_no" required="1"/>
+                                    <field name="document_type" required="1"/>
+                                    <field name="act_of_document" />
+                                    <field name="desc_of_document" />
+                                    <field name="license_registration_no" />
+                                    <field name="document_issued_on" />
+                                </group>
+
+                                <group width="50%">
+                                    <field name="govt_approver" />
+                                    <field name="contact_person" />
+                                    <field name="contact_no" />
+                                    <field name="consultant_name" />
+                                    <field name="consultant_contact_no" />
+                                    <field name="official_fees_paid" />
+                                    <field name="fees_paid_on_dated" />
+                                    <field name="other_expenses_paid" />
+                                    <field name="expenses_paid_dated" />
+                                    <field name="documents" widget="many2many_binary" />
+                                </group>
+                            </group>
+                        </div>
+                        <div>
+                            <group>
+                                <group width="50%">
+                                    <field name="start_date" string="Valid From" required="1"/>
+                                    <field name="end_date" string="Valid To" required="1"/>
+                                    <field name="validity" />
+                                    <field name="renewal_reminder" string="Document Renewal Reminder"/>
+                                    <field name="document_hp" />
+                                    <field name="no_of_employees" />
+                                    <field name="user_id" invisible="1"/>
+                                </group>
+                                <group width="50%">
+                                    <field name="spoc_name" />
+                                    <field name="department_id" readonly="1"/>
+                                    <field name="department_bool" invisible="1"/>
+                                    <field name="first_followers" widget="many2many_tags"/>
+                                    <field name="second_followers" widget="many2many_tags"/>
+                                    <field name="closed_remarks" attrs="{'invisible':[('closed_remarks','=',False)]}"/>
+                                    <field name="renewed_remarks" attrs="{'invisible':[('renewed_remarks','=',False)]}"/>
+                                </group>
+                            </group>
+                        </div>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="view_wp_non_it_contracts_tree" model="ir.ui.view">
+            <field name="name">wp.non.it.contracts.tree</field>
+            <field name="model">wp.contracts</field>
+            <field name="arch" type="xml">
+                <tree string="Contract Management">
+                    <!--                Non-IT Contracts-->
+                    <field name="name"/>
+                    <field name="contract_type" invisible="1"/>
+                    <field name="document_no" />
+                    <field name="department_bool" invisible="1" />
+                    <field name="document_type" />
+                    <field name="start_date" string="Valid From"/>
+                    <field name="end_date" string="Valid To"/>
+                    <field name="validity" type="char"/>
+                    <field name="location" />
+                    <field name="spoc_name" />
+                    <field name="company_id" />
+                    <field name="status" widget="statusbar"/>
+                </tree>
+            </field>
+        </record>
+
+        <!--        <record id="view_non_it_contracts_search" model="ir.ui.view">-->
+        <!--            <field name="name">wp.non.it.contracts.tree</field>-->
+        <!--            <field name="model">wp.contracts</field>-->
+        <!--            <field name="arch" type="xml">-->
+        <!--                <search string="Non-IT Contract">-->
+        <!--                    <field name="name"/>-->
+        <!--                    <field name="spoc_name" />-->
+        <!--                    <field name="department_id"/>-->
+        <!--                    <group expand="0" string="Contracts">-->
+        <!--                        <filter string="My Department's" name="my_department"-->
+        <!--                                domain="[('department_id','=',user.department_id.id)]"/>-->
+        <!--                    </group>-->
+        <!--                </search>-->
+        <!--            </field>-->
+        <!--        </record>-->
+
+        <record id="action_wp_it_contracts" model="ir.actions.act_window">
+            <field name="name">IT Contracts</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">wp.contracts</field>
+
+            <field name="context">{'default_contract_type':'it_contract'}</field>
+            <field name="domain">[('contract_type','=','it_contract')]</field>
+            <field name="view_ids" eval="[(5,0,0),
+                (0, 0, {'view_mode': 'tree', 'view_id': ref('wp_contract.view_wp_it_contracts_tree')}),
+                (0, 0, {'view_mode': 'form', 'view_id': ref('wp_contract.view_wp_it_contracts_form')})]"/>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <record id="action_wp_non_it_contracts" model="ir.actions.act_window">
+            <field name="name">Contract Management</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">wp.contracts</field>
+
+            <field name="context">{'default_contract_type':'non_it_contract'}</field>
+            <field name="domain">[('contract_type','=','non_it_contract')]</field>
+            <field name="view_ids" eval="[(5,0,0),
+                (0, 0, {'view_mode': 'tree', 'view_id': ref('wp_contract.view_wp_non_it_contracts_tree')}),
+                (0, 0, {'view_mode': 'form', 'view_id': ref('wp_contract.view_wp_non_it_contracts_form')})]"/>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <menuitem name="Contracts" id="menu_contracts" sequence="2"
+                  web_icon="wp_contract,static/description/business-contract-product-hanson-bridgett-project-manager-png-favpng-D4LD8g0qwCbDTia1AM1dQxyVE.jpg"
+                  groups="wp_contract.contract_manager_group,wp_contract.it_contract_group,wp_contract.non_it_contract_group"/>
+        <menuitem id="menu_contract_config" name="Configuration"
+                  parent="menu_contracts" sequence="4" groups="wp_contract.contract_manager_group"/>
+<!--        <menuitem id="menu_it_contracts" name="IT Contracts" action="action_wp_it_contracts"-->
+<!--                  parent="menu_contracts" sequence="2" groups="wp_contract.it_contract_group"/>-->
+
+        <menuitem id="menu_not_it_contracts" name="Contract Management" action="action_wp_non_it_contracts"
+                  parent="menu_contracts" sequence="3" groups="wp_contract.non_it_contract_group"/>
+    </data>
+</odoo>

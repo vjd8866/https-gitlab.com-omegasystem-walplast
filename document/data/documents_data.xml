@@ -1,0 +1,296 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+
+        <!-- activity types -->
+
+        <record id="mail_document_activity_data_Inbox" model="mail.activity.type">
+            <field name="name">Inbox</field>
+            <field name="res_model_id" ref="document.model_document_document"/>
+        </record>
+
+        <record id="mail_document_activity_data_tv" model="mail.activity.type">
+            <field name="name">To validate</field>
+            <field name="res_model_id" ref="document.model_document_document"/>
+        </record>
+
+        <record id="mail_document_activity_data_md" model="mail.activity.type">
+            <field name="name">Requested Document</field>
+            <field name="category">upload_file</field>
+            <field name="res_model_id" ref="document.model_document_document"/>
+        </record>
+
+        <!-- Folders -->
+
+        <record id="document_internal_folder" model="document.folder">
+            <field name="name">Internal</field>
+            <field name="description" type="html">
+                <p>Categorize, share and keep track of all your internal document.</p>
+                <p>Incoming letters sent to inbox email alias will be added to your inbox automatically.</p>
+            </field>
+            <field name="sequence">1</field>
+        </record>
+
+        <record id="document_finance_folder" model="document.folder">
+            <field name="name">Finance</field>
+            <field name="description" type="html">
+                <center>
+                    <p>Automate your inbox using scanned document or emails sent to <strong>inbox-financial</strong> email alias.</p>
+                </center>
+            </field>
+            <field name="sequence">11</field>
+        </record>
+
+        <record id="document_marketing_folder" model="document.folder">
+            <field name="name">Marketing</field>
+            <field name="sequence">13</field>
+        </record>
+
+        <!-- Facets internal -->
+
+        <record id="document_internal_status" model="document.facet">
+            <field name="name">Status</field>
+            <field name="sequence">1</field>
+            <field name="folder_id" ref="document_internal_folder"/>
+        </record>
+
+        <record id="document_internal_knowledge" model="document.facet">
+            <field name="name">Knowledge</field>
+            <field name="sequence">6</field>
+            <field name="folder_id" ref="document_internal_folder"/>
+        </record>
+
+        <record id="document_internal_template" model="document.facet">
+            <field name="name">Templates</field>
+            <field name="sequence">6</field>
+            <field name="folder_id" ref="document_internal_folder"/>
+        </record>
+
+        <!-- Facets finance -->
+
+        <record id="document_finance_status" model="document.facet">
+            <field name="name">Status</field>
+            <field name="sequence">1</field>
+            <field name="folder_id" ref="document_finance_folder"/>
+        </record>
+
+        <record id="document_finance_document" model="document.facet">
+            <field name="name">document</field>
+            <field name="sequence">5</field>
+            <field name="folder_id" ref="document_finance_folder"/>
+        </record>
+
+        <record id="document_finance_fiscal_year" model="document.facet">
+            <field name="name">Fiscal years</field>
+            <field name="sequence">5</field>
+            <field name="folder_id" ref="document_finance_folder"/>
+        </record>
+
+
+        <!-- Facets marketing -->
+
+        <record id="document_marketing_assets" model="document.facet">
+            <field name="name">Assets</field>
+            <field name="sequence">5</field>
+            <field name="folder_id" ref="document_marketing_folder"/>
+        </record>
+
+        <!-- tags internal -->
+
+        <record id="document_internal_status_inbox" model="document.tag">
+            <field name="name">Inbox</field>
+            <field name="facet_id" ref="document_internal_status"/>
+            <field name="sequence">2</field>
+        </record>
+
+        <record id="document_internal_status_tc" model="document.tag">
+            <field name="name">To Validate</field>
+            <field name="facet_id" ref="document_internal_status"/>
+            <field name="sequence">3</field>
+        </record>
+
+        <record id="document_internal_status_validated" model="document.tag">
+            <field name="name">Validated</field>
+            <field name="facet_id" ref="document_internal_status"/>
+            <field name="sequence">5</field>
+        </record>
+
+        <record id="document_internal_status_deprecated" model="document.tag">
+            <field name="name">Deprecated</field>
+            <field name="facet_id" ref="document_internal_status"/>
+            <field name="sequence">6</field>
+        </record>
+
+        <record id="document_internal_knowledge_hr" model="document.tag">
+            <field name="name">HR</field>
+            <field name="facet_id" ref="document_internal_knowledge"/>
+            <field name="sequence">9</field>
+        </record>
+
+        <record id="document_internal_knowledge_sales" model="document.tag">
+            <field name="name">Sales</field>
+            <field name="facet_id" ref="document_internal_knowledge"/>
+            <field name="sequence">9</field>
+        </record>
+
+        <record id="document_internal_knowledge_legal" model="document.tag">
+            <field name="name">Legal</field>
+            <field name="facet_id" ref="document_internal_knowledge"/>
+            <field name="sequence">9</field>
+        </record>
+
+        <record id="document_internal_knowledge_other" model="document.tag">
+            <field name="name">Other</field>
+            <field name="facet_id" ref="document_internal_knowledge"/>
+            <field name="sequence">10</field>
+        </record>
+
+        <record id="document_internal_template_presentations" model="document.tag">
+            <field name="name">Presentations</field>
+            <field name="facet_id" ref="document_internal_template"/>
+            <field name="sequence">10</field>
+        </record>
+
+        <record id="document_internal_template_contracts" model="document.tag">
+            <field name="name">Contracts</field>
+            <field name="facet_id" ref="document_internal_template"/>
+            <field name="sequence">10</field>
+        </record>
+
+        <record id="document_internal_template_project" model="document.tag">
+            <field name="name">Project</field>
+            <field name="facet_id" ref="document_internal_template"/>
+            <field name="sequence">10</field>
+        </record>
+
+        <record id="document_internal_template_text" model="document.tag">
+            <field name="name">Text</field>
+            <field name="facet_id" ref="document_internal_template"/>
+            <field name="sequence">10</field>
+        </record>
+
+        <!-- tags finance -->
+
+        <record id="document_finance_status_inbox" model="document.tag">
+            <field name="name">Inbox</field>
+            <field name="facet_id" ref="document_finance_status"/>
+            <field name="sequence">6</field>
+        </record>
+
+        <record id="document_finance_status_tc" model="document.tag">
+            <field name="name">To Validate</field>
+            <field name="facet_id" ref="document_finance_status"/>
+            <field name="sequence">6</field>
+        </record>
+
+        <record id="document_finance_status_validated" model="document.tag">
+            <field name="name">Validated</field>
+            <field name="facet_id" ref="document_finance_status"/>
+            <field name="sequence">6</field>
+        </record>
+
+        <record id="document_finance_document_bill" model="document.tag">
+            <field name="name">Bill</field>
+            <field name="facet_id" ref="document_finance_document"/>
+            <field name="sequence">5</field>
+        </record>
+
+        <record id="document_finance_document_expense" model="document.tag">
+            <field name="name">Expense</field>
+            <field name="facet_id" ref="document_finance_document"/>
+            <field name="sequence">6</field>
+        </record>
+
+        <record id="document_finance_document_vat" model="document.tag">
+            <field name="name">VAT</field>
+            <field name="facet_id" ref="document_finance_document"/>
+            <field name="sequence">7</field>
+        </record>
+
+        <record id="document_finance_document_fiscal" model="document.tag">
+            <field name="name">Fiscal</field>
+            <field name="facet_id" ref="document_finance_document"/>
+            <field name="sequence">8</field>
+        </record>
+
+        <record id="document_finance_document_financial" model="document.tag">
+            <field name="name">Financial</field>
+            <field name="facet_id" ref="document_finance_document"/>
+            <field name="sequence">9</field>
+        </record>
+
+        <record id="document_finance_document_Contracts" model="document.tag">
+            <field name="name">Contracts</field>
+            <field name="facet_id" ref="document_finance_document"/>
+            <field name="sequence">10</field>
+        </record>
+
+        <record id="document_finance_fiscal_year_2018" model="document.tag">
+            <field name="name" eval="str(datetime.now().year)"/>
+            <field name="facet_id" ref="document_finance_fiscal_year"/>
+            <field name="sequence">6</field>
+        </record>
+
+        <record id="document_finance_fiscal_year_2017" model="document.tag">
+            <field name="name" eval="str(datetime.now().year-1)"/>
+            <field name="facet_id" ref="document_finance_fiscal_year"/>
+            <field name="sequence">5</field>
+        </record>
+
+        <!-- tags marketing -->
+
+        <record id="document_marketing_assets_ads" model="document.tag">
+            <field name="name">Ads</field>
+            <field name="facet_id" ref="document_marketing_assets"/>
+            <field name="sequence">10</field>
+        </record>
+
+        <record id="document_marketing_assets_brochures" model="document.tag">
+            <field name="name">Brochures</field>
+            <field name="facet_id" ref="document_marketing_assets"/>
+            <field name="sequence">11</field>
+        </record>
+
+        <record id="document_marketing_assets_images" model="document.tag">
+            <field name="name">Images</field>
+            <field name="facet_id" ref="document_marketing_assets"/>
+            <field name="sequence">12</field>
+        </record>
+
+        <record id="document_marketing_assets_Videos" model="document.tag">
+            <field name="name">Videos</field>
+            <field name="facet_id" ref="document_marketing_assets"/>
+            <field name="sequence">13</field>
+        </record>
+
+        <!-- share links -->
+
+        <record id="share_account_folder" model="document.share">
+            <field name="name">Inbox Financial</field>
+            <field name="alias_name">inbox-financial</field>
+            <field name="type">domain</field>
+            <field name="folder_id" ref="document_finance_folder"/>
+            <field name="action">downloadupload</field>
+            <field name="tag_ids" eval="[(6,0,[ref('document_finance_status_inbox')])]"/>
+            <field name="email_drop">True</field>
+            <field name="activity_option">True</field>
+            <field name="activity_type_id" ref="mail_document_activity_data_Inbox"/>
+            <field name="activity_date_deadline_range">7</field>
+            <field name="activity_date_deadline_range_type">days</field>
+        </record>
+
+        <record id="share_internal_folder" model="document.share">
+            <field name="name">Inbox Internal</field>
+            <field name="alias_name">inbox</field>
+            <field name="type">domain</field>
+            <field name="folder_id" ref="document_internal_folder"/>
+            <field name="action">downloadupload</field>
+            <field name="tag_ids" eval="[(6,0,[ref('document_internal_status_inbox')])]"/>
+            <field name="email_drop">True</field>
+            <field name="activity_option">True</field>
+            <field name="activity_type_id" ref="mail_document_activity_data_Inbox"/>
+            <field name="activity_date_deadline_range">7</field>
+            <field name="activity_date_deadline_range_type">days</field>
+        </record>
+    </data>
+</odoo>

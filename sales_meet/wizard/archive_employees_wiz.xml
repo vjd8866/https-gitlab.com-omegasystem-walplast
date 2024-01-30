@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <record id="view_archive_employee" model="ir.ui.view">
+        <field name="model">archive.emp</field>
+        <field name="arch" type="xml">
+            <form>
+                <footer>
+                    <button name="archive_emp" string="Archive" type="object" class="oe_highlight"/>
+                    or
+                    <button string="Cancel" class="oe_link" special="cancel" />
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    	<record id="action_emp_archive" model="ir.actions.act_window">
+		 <field name="name">Archive Employees</field>
+		 <field name="res_model">archive.emp</field>
+		 <field name="view_mode">tree,form</field>
+		 <field name="view_id" ref="view_archive_employee"/>
+		 <field name="target">new</field>
+	 </record>
+
+    <menuitem id="menu_emp_archive" parent="hr.menu_human_resources_configuration" sequence= "7"
+          name= "Archive Employees" action="action_emp_archive" />
+</odoo>

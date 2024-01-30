@@ -1,0 +1,298 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <record id="seq_transportal_sr_no" model="ir.sequence">
+            <field name="name">transportal_sr_no_seq</field>
+            <field name="code">transporter.management</field>
+            <field name="padding">3</field>
+        </record>
+        <!--        Transporter Order Time-->
+        <record id="view_transporter_order_time_form" model="ir.ui.view">
+            <field name="name">transporter.order.time.form</field>
+            <field name="model">transporter.order.time</field>
+            <field name="arch" type="xml">
+                <form string="Transporter Order Time">
+                    <group>
+                        <field name="name"/>
+                    </group>
+                    <group>
+                        <group>
+                            <field name="day_no"/>
+                            <field name="add_note"/>
+                        </group>
+                        <group>
+                            <field name="days"/>
+                        </group>
+                    </group>
+                </form>
+            </field>
+        </record>
+        <record id="view_transporter_order_time_tree" model="ir.ui.view">
+            <field name="name">transporter.order.time.tree</field>
+            <field name="model">transporter.order.time</field>
+            <field name="arch" type="xml">
+                <tree string="Transporter Order Time">
+                    <field name="name"/>
+                </tree>
+            </field>
+        </record>
+        <record id="action_transporter_order_time" model="ir.actions.act_window">
+            <field name="name">Transporter Order Time</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">transporter.order.time</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <!--        Truck Reporting Time-->
+        <record id="view_truck_reporting_time_form" model="ir.ui.view">
+            <field name="name">truck.reporting.time.form</field>
+            <field name="model">truck.reporting.time</field>
+            <field name="arch" type="xml">
+                <form string="Truck Reporting Time">
+                    <group>
+                        <group>
+                            <field name="name"/>
+                        </group>
+                    </group>
+                </form>
+            </field>
+        </record>
+        <record id="view_truck_reporting_time_tree" model="ir.ui.view">
+            <field name="name">truck.reporting.time.tree</field>
+            <field name="model">truck.reporting.time</field>
+            <field name="arch" type="xml">
+                <tree string="Truck Reporting Time" editable="bottom">
+                    <field name="name"/>
+                </tree>
+            </field>
+        </record>
+        <record id="action_truck_reporting_time" model="ir.actions.act_window">
+            <field name="name">Truck Reporting Time</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">truck.reporting.time</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <!--        Transporter Type-->
+        <record id="view_truck_type_form" model="ir.ui.view">
+            <field name="name">truck.type.form</field>
+            <field name="model">truck.type</field>
+            <field name="arch" type="xml">
+                <form string="Truck Type">
+                    <group>
+                        <group>
+                            <field name="name"/>
+                        </group>
+                    </group>
+                </form>
+            </field>
+        </record>
+        <record id="view_truck_type_tree" model="ir.ui.view">
+            <field name="name">truck.type.tree</field>
+            <field name="model">truck.type</field>
+            <field name="arch" type="xml">
+                <tree string="Truck Type" editable="bottom">
+                    <field name="name"/>
+                </tree>
+            </field>
+        </record>
+        <record id="action_truck_type" model="ir.actions.act_window">
+            <field name="name">Truck Type</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">truck.type</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <!--        Transporters -->
+        <record id="view_wp_transporter_form" model="ir.ui.view">
+            <field name="name">wp.transporter.form</field>
+            <field name="model">wp.transporter</field>
+            <field name="arch" type="xml">
+                <form string="Transporters">
+                    <header>
+                        <label for="isactive" name="Active"/>
+                        <field name="isactive"/>
+                    </header>
+                    <group>
+                        <group>
+                            <field name="name"/>
+                            <field name="plant"/>
+                        </group>
+                        <group>
+                            <field name="code"/>
+                            <field name="depot_ids" widget="many2many_tags"/>
+                        </group>
+                    </group>
+                </form>
+            </field>
+        </record>
+        <record id="view_wp_transporter_tree" model="ir.ui.view">
+            <field name="name">wp.transporter.tree</field>
+            <field name="model">wp.transporter</field>
+            <field name="arch" type="xml">
+                <tree string="Transporters">
+                    <field name="name"/>
+                    <field name="code"/>
+                    <field name="depot_ids" widget="many2many_tags"/>
+                    <field name="plant"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="view_wp_transporter_search" model="ir.ui.view">
+            <field name="name">wp.transporter.search</field>
+            <field name="model">wp.transporter</field>
+            <field name="arch" type="xml">
+                <search>
+                    <field name="name"/>
+                    <field name="isactive"/>
+                    <group expand="0" string="Archived" name="archive">
+                        <filter string="Archived" name="archived"
+                                domain="[('isactive','=',False)]"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+
+        <record id="action_wp_transporter" model="ir.actions.act_window">
+            <field name="name">Transporters</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">wp.transporter</field>
+            <field name="view_mode">tree,form</field>
+            <field name="domain">[('isactive','=',True)]</field>
+            <field name="search_view_id" ref="transporter_management.view_wp_transporter_search"/>
+        </record>
+
+        <!--        Plants -->
+        <record id="view_wp_plants_form" model="ir.ui.view">
+            <field name="name">wp.plants.form</field>
+            <field name="model">wp.plant</field>
+            <field name="arch" type="xml">
+                <form string="Plants">
+                    <group>
+                        <group>
+                            <field name="name"/>
+                            <field name="location"/>
+                        </group>
+                        <group>
+                            <field name="plant_name"/>
+                        </group>
+                    </group>
+                </form>
+            </field>
+        </record>
+        <record id="view_wp_plants_tree" model="ir.ui.view">
+            <field name="name">wp.plants.tree</field>
+            <field name="model">wp.plant</field>
+            <field name="arch" type="xml">
+                <tree string="Plants" editable="bottom">
+                    <field name="name"/>
+                    <field name="plant_name"/>
+                    <field name="location"/>
+                </tree>
+            </field>
+        </record>
+        <record id="action_wp_plants" model="ir.actions.act_window">
+            <field name="name">Plants</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">wp.plant</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <!--        Transporter Customer-->
+        <record id="view_transporter_customer_form" model="ir.ui.view">
+            <field name="name">transporter.customer.form</field>
+            <field name="model">transporter.customer</field>
+            <field name="arch" type="xml">
+                <form string="TRM Customers">
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="name"/>
+                                <field name="bp_code"/>
+                                <label for="street" string="Address"/>
+                                <div class="o_address_format">
+                                    <field name="street" placeholder="Street..." class="o_address_street"/>
+                                    <field name="street2" placeholder="Street 2..." class="o_address_street"/>
+                                    <field name="city" placeholder="City" class="o_address_city"/>
+                                    <field name="state_id" class="o_address_state" placeholder="State" options='{"no_open": True}'/>
+                                    <field name="zip" placeholder="ZIP" class="o_address_zip"/>
+                                    <field name="country_id" placeholder="Country" class="o_address_country" options='{"no_open": True, "no_create": True}'/>
+                                </div>
+                                <field name="creditstatus"/>
+                                <field name="gst_no"/>
+                                <field name="pan_no"/>
+                                <field name="user_id"/>
+                                <field name="transporter_id"/>
+                            </group>
+                            <group>
+                                <field name="isactive"/>
+                                <field name="parent_id"/>
+                                <field name="c_bpartner_id"/>
+                                <field name="partner_group_id"/>
+                                <field name="so_creditlimit"/>
+                                <field name="taxid"/>
+                                <field name="cst_no"/>
+                                <field name="tin_no"/>
+                                <field name="c_location_id"/>
+                                <field name="c_bpartner_location_id"/>
+                                <field name="ad_client_id"/>
+                                <field name="company_id"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <record id="view_transporter_customer_tree" model="ir.ui.view">
+            <field name="name">transporter.customer.tree</field>
+            <field name="model">transporter.customer</field>
+            <field name="arch" type="xml">
+                <tree string="TRM Customer">
+                    <field name="name"/>
+                    <field name="bp_code"/>
+                    <field name="parent_id"/>
+                    <field name="transporter_id"/>
+                    <field name="user_id"/>
+                </tree>
+            </field>
+        </record>
+        <record id="action_transporter_customer" model="ir.actions.act_window">
+            <field name="name">Customers</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">transporter.customer</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+
+
+        <record id="tpr_product_product_extension" model="ir.ui.view">
+            <field name="name">tpr.product.form</field>
+            <field name="model">product.product</field>
+            <field name="inherit_id" ref="product.product_normal_form_view" />
+            <field name="arch" type="xml">
+                <field name="categ_id" position="after"  >
+                    <field name="bp_name"/>
+                </field>
+            </field>
+        </record>
+
+
+        <menuitem id="menu_transporter_config" name="Configuration" sequence="2" parent="menu_transporter_management_root" groups="transporter_manager_group"/>
+        <!--        <menuitem id="menu_action_wp_transporter" name="Transporters" action="action_wp_transporter"-->
+        <!--                  sequence="3" parent="menu_transporter_config"/>-->
+        <menuitem id="menu_trm_customer" name="Customers" action="action_transporter_customer"
+                  sequence="4" parent="menu_transporter_config"/>
+        <menuitem id="menu_truck_type" name="Truck Types" action="action_truck_type"
+                  sequence="5" parent="menu_transporter_config"/>
+        <menuitem id="menu_truck_reporting_time" name="Truck Reporting Time" action="action_truck_reporting_time"
+                  sequence="6" parent="menu_transporter_config"/>
+        <menuitem id="menu_transporter_order_time" name="Transporter Order Time" action="action_transporter_order_time"
+                  sequence="7" parent="menu_transporter_config"/>
+        <menuitem id="menu_wp_plant" name="Plants" action="action_wp_plants"
+                  sequence="8" parent="menu_transporter_config"/>
+        <menuitem id="menu_wp_transporter" name="Transporters" action="action_wp_transporter"
+                  sequence="9" parent="menu_transporter_config"/>
+
+    </data>
+</odoo>

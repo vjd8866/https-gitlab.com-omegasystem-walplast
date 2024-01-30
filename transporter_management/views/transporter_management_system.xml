@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+<!--        <record id="transporter_mgmnt_user_rule" model="ir.rule">-->
+<!--            <field name="name">Transporter User</field>-->
+<!--            <field ref="model_transporter_management" name="model_id"/>-->
+<!--            <field name="domain_force">[('plant.id','=',user.factory_id.id)]</field>-->
+<!--            <field name="groups" eval="[(4, ref('transporter_management.transporter_user_group'))]"/>-->
+<!--        </record>-->
+
+        <record id="view_transporter_management_form" model="ir.ui.view">
+            <field name="name">transporter.management.form</field>
+            <field name="model">transporter.management</field>
+            <field name="arch" type="xml">
+                <form string="TPR">
+                    <div>
+                        <a href="/transporter_management/static/transporter_guidelines.pdf" target="_blank">Guidelines</a>
+                    </div>
+                    <div style="margin:10px;border-bottom: 1px solid blue;">
+                        <group>
+                            <group>
+                                <field name="date"/>
+                                <field name="name"/>
+                                <field name="plant"/>
+                            </group>
+                            <group>
+                                <field name="order_type"/>
+                                <field name="truck_order_id"/>
+                                <field name="sending_location"/>
+                            </group>
+                        </group>
+                    </div>
+
+                    <div style="margin:10px;border-bottom: 1px solid blue;">
+                        <group>
+                            <group>
+                                <field name="depot_code" domain="['|',('bp_code','ilike','APL'),('bp_code','ilike','apl')]"/>
+                                <!--                                <field name="transporter" context="{'search_default_supplier':1, 'default_supplier':1, 'default_customer':0}" domain="[('supplier','=',True)]"/>-->
+                                <field name="transporter" domain="[('depot_ids','=',depot_code),('isactive','=',True)]"/>
+                                <field name="remarks_2"/>
+                            </group>
+                            <group>
+                                <field name="depot_desc"/>
+                                <field name="type"/>
+                                <!--                                <field name="status_bool"/>-->
+                                <!--                                <label name="Status" for="update_status" string="Status"/>-->
+                                <!--                                <button name="update_status"  string="Yes" decoration-success="status_bool==True" decoration-danger="status_bool==False"/>-->
+                                <!--                                <field name="sku_code"/>-->
+                            </group>
+                        </group>
+                    </div>
+
+                    <div style="margin:10px;border-bottom: 1px solid blue;">
+                        <!--                        <group>-->
+                        <!--                            <field name="product_code"  domain="['|',('bp_name','ilike','Asian'),('bp_name','ilike','asian')]" width="280px"/>-->
+                        <!--                        </group>-->
+                        <!--                        <group>-->
+                        <!--                            <group>-->
+                        <!--                                <field name="bags" style="min-width: 50px;"/>-->
+                        <!--                            </group>-->
+                        <!--                            <group>-->
+                        <!--                                <field name="volume"/>-->
+                        <!--                            </group>-->
+                        <!--                        </group>-->
+                        <notebook>
+                            <page String="Product Code">
+                                <field name="products_transport_rel" widget="one2many_list">
+                                    <tree editable="bottom">
+<!--                                        <field name="product_id" domain="['|',('bp_name','ilike','Asian'),('bp_name','ilike','asian')]" />-->
+                                        <field name="product_id" domain="['|',('name','ilike','Asian'),('name','ilike','asian')]" />
+                                        <!--                                        <field name="product_id" />-->
+                                        <field name="bags"/>
+                                        <field name="volume" sum="Total Volume"/>
+                                    </tree>
+                                </field>
+                            </page>
+                        </notebook>
+                    </div>
+                    <div style="margin:10px;border-bottom: 1px solid blue;">
+                        <group>
+                            <group>
+                                <field name="order_time"/>
+                            </group>
+                            <group>
+                                <field name="truck_reporting_time" attrs="{'invisible':[('truck_reporting_time','=',False)]}"/>
+                            </group>
+                        </group>
+                    </div>
+                    <div attrs="{'invisible':[('status_updated','=',False)]}">
+                        <group>
+                            <group>
+                                <field name="status_updated" invisible="1"/>
+                                <field name="status"/>
+                                <field name="remarks"/>
+                            </group>
+                            <group>
+                                <field name="actual_type"/>
+                                <field name="reason"/>
+                            </group>
+                        </group>
+                    </div>
+                </form>
+            </field>
+        </record>
+        <record id="view_transporter_management_tree" model="ir.ui.view">
+            <field name="name">transporter.management.tree</field>
+            <field name="model">transporter.management</field>
+            <field name="arch" type="xml">
+                <tree string="TPR">
+                    <field name="user_id" invisible="1"/>
+                    <field name="order_type"/>
+                    <field name="truck_order_id"/>
+                    <field name="sending_location"/>
+                    <field name="name"/>
+                    <field name="date"/>
+                    <field name="depot_code"/>
+                    <field name="depot_desc"/>
+                    <field name="transporter"/>
+                    <field name="type"/>
+                    <field name="status"/>
+                    <button name="%(transporter_management.update_planning_action)d" string="Update Details" type="action"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="view_transporter_management_search" model="ir.ui.view">
+            <field name="name">transporter.management.search</field>
+            <field name="model">transporter.management</field>
+            <field name="arch" type="xml">
+                <search string="TPR">
+                    <field name="name"/>
+                    <field name="date"/>
+                    <field name="truck_order_id"/>
+                    <field name="depot_code"/>
+                    <field name="depot_desc"/>
+                    <group expand="0" string="Transporters">
+                        <filter string="Today's Plan" name="today_plan"
+                                domain="[('date','=',context_today().strftime('%Y-%m-%d'))]"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+        <record id="action_transporter_management" model="ir.actions.act_window">
+            <field name="name">TPR</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">transporter.management</field>
+            <field name="search_view_id" ref="transporter_management.view_transporter_management_search"/>
+            <field name="view_mode">tree,form</field>
+            <field name="context">{'search_default_today_plan':1}</field>
+        </record>
+
+        <!--    Products One2many View    -->
+
+        <record id="view_transporter_products_form" model="ir.ui.view">
+            <field name="name">transporter.products.form</field>
+            <field name="model">transporter.products</field>
+            <field name="arch" type="xml">
+                <form string="Product Code">
+                    <group>
+                        <field name="product_id"/>
+                        <field name="bags"/>
+                        <field name="volume"/>
+                        <field name="transporter_management" invisible="1"/>
+                    </group>
+                </form>
+            </field>
+        </record>
+        <record id="view_transporter_products_tree" model="ir.ui.view">
+            <field name="name">transporter.products.tree</field>
+            <field name="model">transporter.products</field>
+            <field name="arch" type="xml">
+                <tree string="Product Code" >
+                    <field name="transporter_management" invisible="1"/>
+                    <field name="product_id"/>
+                    <field name="bags"/>
+                    <field name="volume"/>
+                </tree>
+            </field>
+        </record>
+
+        <menuitem id="menu_transporter_management_root" name="TPR"
+                  sequence="6" web_icon="transporter_management,static/description/transporter_management.png" groups="transporter_user_group"/>
+        <menuitem id="menu_transporter_management" name="TPR" action="action_transporter_management"
+                  sequence="1" parent="menu_transporter_management_root" groups="transporter_user_group"/>
+
+    </data>
+</odoo>

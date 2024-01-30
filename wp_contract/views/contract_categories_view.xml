@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <record id="view_contract_categories_form" model="ir.ui.view">
+            <field name="name">contract.categories.form</field>
+            <field name="model">wp.contract.categories</field>
+            <field name="arch" type="xml">
+                <form string="Contract Categories">
+                    <field name="name" required="1"/>
+                </form>
+            </field>
+        </record>
+
+        <record id="view_contract_categories_tree" model="ir.ui.view">
+            <field name="name">contract.categories.tree</field>
+            <field name="model">wp.contract.categories</field>
+            <field name="arch" type="xml">
+                <tree string="Contract Categories" editable="bottom">
+                    <field name="name" required="1"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="action_contract_categories" model="ir.actions.act_window">
+            <field name="name">Contract Categories</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">wp.contract.categories</field>
+
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <menuitem id="menu_contract_categories" name="Contract Categories" action="action_contract_categories"
+                  parent="menu_contract_config" sequence="2"/>
+    </data>
+</odoo>

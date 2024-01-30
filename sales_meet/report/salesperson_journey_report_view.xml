@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+        <record id="view_salesperson_journey_report_form" model="ir.ui.view">
+            <field name="name">salesperson.journey.report.form</field>
+            <field name="model">salesperson.journey.report</field>
+            <field name="arch" type="xml">
+                <form>
+                    <field name="name" invisible="1"/>
+                    <field invisible="1" name="state"/>
+                    
+                    <div states="choose">
+                        <group col="4" colspan="4">
+                            <field name="date_from" required="1"/>
+                            <field name="date_to" required="1"/>
+                        </group>
+                        <group col="4" colspan="4">
+                            <field invisible="0" name="all_records"/>
+                            <field name="user_id"  attrs="{'readonly': [('can_salessupport_edit', '=', False)],'invisible': [('all_records', '=', True)]}" 
+                                options="{'no_create': True, 'no_open': True}" />
+                        </group>
+                        <group col="4" colspan="4">
+                            <field name="can_salessupport_edit" invisible="1"/>
+                            <field invisible="0" name="hierarchy_bool" attrs="{'invisible': [('all_records', '=', True)]}" />
+                        </group>
+                    </div>
+                    <div states="get">
+                        <group>
+                            <field name="export_file" invisible="1"/>
+                            <field name="report" filename="export_file" colspan="4"/>
+                        </group>
+                     </div>
+                    
+                    <footer states="choose">
+                        <button name="print_report" string="Print Report" type="object" class="btn-primary"/>
+                        <button string="Close" class="btn-default" special="cancel" />
+                    </footer>
+                    <footer states="get">
+                        <button special="cancel" string="Cancel" class="oe_highlight" />
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+        <record model='ir.actions.act_window' id='action_salesperson_journey_report'>
+            <field name="name">Salesperson Journey Report</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">salesperson.journey.report</field>
+            <field name="binding_view_types">form</field>
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="view_salesperson_journey_report_form"/>
+            <field name="target">new</field>
+        </record>
+
+</odoo>

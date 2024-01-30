@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <record model='ir.ui.view' id='map_depot_form'>
+            <field name="name">map.depot.form</field>
+            <field name="model">map.depot</field>
+            <field name="arch" type="xml">
+                <form >
+                    <group>
+                        <group>
+                            <field name="file"/>
+                        </group>
+                    </group>
+                    <footer>
+                        <button name="map_depot" string="Update" type="object" class="oe_highlight"/>
+                        <button string="Cancel" class="oe_link" special="cancel" />
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+        <record model='ir.actions.act_window' id='map_depot_action'>
+            <field name="name">Map Transporters to Depot</field>
+            <field name="res_model">map.depot</field>
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="map_depot_form"/>
+            <field name="target">new</field>
+        </record>
+        <menuitem id="menu_map_transporters" name="Mapping Transporters" action="map_depot_action"
+                  sequence="9" parent="menu_transporter_config"/>
+    </data>
+</odoo>

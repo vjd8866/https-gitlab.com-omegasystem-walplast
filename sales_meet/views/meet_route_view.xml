@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+  <data>
+
+      <record id="view_wp_salesperson_journey_search" model="ir.ui.view">
+        <field name="name">wp.salesperson.journey.search</field>
+        <field name="model">wp.salesperson.journey</field>
+        <field name="arch" type="xml">
+          <search string="Invoice Payments">
+            <field name="name"/>
+            <field name="user_id"  />
+            <separator/>
+            <filter name="today" string="Today" domain="[('started_at', '&gt;=', datetime.datetime.now().replace(hour=0, minute=0, second=0)),('started_at', '&lt;=', datetime.datetime.now().replace(hour=23, minute=59, second=59))]" />
+            <filter name="cusrr_month" string="Current Month" domain="[('started_at', '&gt;=', datetime.datetime.now().strftime('%Y-%m-01'))]" />
+            <separator/>
+            <filter name="no_jour_end" string="No Journey End" domain="[('ended_at', '=', False)]" />
+            <filter name="my_jour" string="My Journeys" domain="[('user_id.id', '=', uid)]" />
+            <separator/>
+            <group expand="0" string="Group By">
+                <filter name="user" string="User" domain="[]" context="{'group_by':'user_id'}"/>
+                <separator/>
+                <filter name="groupby_name" string="Month" context="{'group_by':'date'}"/>
+            </group>
+
+          </search>
+        </field>
+      </record>
+
+  <record id="view_wp_salesperson_journey_form" model="ir.ui.view">
+      <field name="name">wp.salesperson.journey.form</field>
+      <field name="model">wp.salesperson.journey</field>
+      <field name="arch" type="xml">
+          <form>
+            <header>
+            	<button name="start_journey" string="Start" class="btn-primary"
+                        type="object"  />
+                <button name="end_journey" string="End" class="btn-primary"
+                        type="object"   />
+            	<!-- <field name="status" widget="statusbar"/> -->
+            </header>
+            <sheet>
+              <h2><field name="name" readonly="1" attrs="{'invisible': [('name', '=', False)]}"/></h2>
+                <group  col="4" colspan="4">
+                    <field name="user_id"  />
+                    <field name="date" />
+                    <field name="started_at" />
+                    <field name="ended_at" />
+                    <field name="mobile_id" />
+                    <field name="duration" />
+                </group>
+                <!-- <group > -->
+                <notebook>
+                	<page string="Activities" name="activities">
+	                  <field name="meetings_one2many" string="Meetings" >
+	                  	<tree>
+	                  		<field name="user_id"  />
+	                  		<field name="start_date" />
+                        <field name="checkin_lattitude" />
+                        <field name="checkin_longitude" />
+                        <field name="mobile_id" />
+                        <field name="reverse_location" />
+                        <field name="meeting_type" />
+<!--                        <field name="state" invisible="1" />-->
+	                  		<field name="journey_mobile_id" invisible="1"  />
+	                  		<field name="journey_id" invisible="1" />
+	                  	</tree>
+	                  </field>
+                	</page>
+                	<page string="Routes" name="routes">
+	                  <field name="routes_one2many" string="Routes"  >
+	                  	<tree>
+          							<field name="latitude" />
+          							<field name="longitude" />
+          							<field name="mobile_id" />
+	                  		<field name="journey_routes_id" invisible="1" />
+	                  	</tree>
+	                  </field>
+                	</page>
+            	</notebook>
+            </sheet>
+             <div class="oe_chatter">
+                <field name="message_ids" widget="mail_thread"/>
+            </div>
+          </form>
+      </field>
+  </record>
+
+
+  <record id="view_wp_salesperson_journey_tree" model="ir.ui.view">
+      <field name="name">wp.salesperson.journey.tree</field>
+      <field name="model">wp.salesperson.journey</field>
+      <field name="arch" type="xml">
+          <tree >
+    				<field name="name" />
+    				<field name="user_id"  />
+    				<field name="date" />
+    				<field name="started_at" />
+    				<field name="ended_at" />
+          </tree>
+      </field>
+  </record>
+
+  <record id="action_wp_salesperson_journey" model="ir.actions.act_window">
+      <field name="name">Sales Route</field>
+      <field name="type">ir.actions.act_window</field>
+      <field name="res_model">wp.salesperson.journey</field>
+      <field name="binding_view_types">form</field>
+      <field name="view_mode">tree,form</field>
+      <field name="context">{"search_default_today":1}</field>
+      <field name="search_view_id" ref="view_wp_salesperson_journey_search" />
+  </record>
+
+
+  <record id="view_wp_draft_sales_meet_form" model="ir.ui.view">
+      <field name="name">wp.draft.sales.meet.form</field>
+      <field name="model">wp.draft.sales.meet</field>
+      <field name="arch" type="xml">
+          <form>
+          	<header>
+            	<field name="state" widget="statusbar"/>
+            </header>
+            <sheet>
+              <h2><field name="name" readonly="1" attrs="{'invisible': [('name', '=', False)]}"/></h2>
+                <group  col="4" colspan="4">
+                    <field name="date" />
+                    <button name="draft_meetings" string="Draft Meetings" class="btn-primary"
+                        type="object" states='Draft'  />
+                </group>
+                <label for="output"/>
+                <field name="output" readonly="1" />
+            </sheet>
+          </form>
+      </field>
+  </record>
+
+
+  <record id="view_wp_draft_sales_meet_tree" model="ir.ui.view">
+      <field name="name">wp.draft.sales.meet.tree</field>
+      <field name="model">wp.draft.sales.meet</field>
+      <field name="arch" type="xml">
+          <tree >
+    				<field name="name" />
+    				<field name="date" />
+          </tree>
+      </field>
+  </record>
+
+  <record id="action_wp_draft_sales_meet" model="ir.actions.act_window">
+      <field name="name">Draft Sales Meeting</field>
+      <field name="type">ir.actions.act_window</field>
+      <field name="res_model">wp.draft.sales.meet</field>
+      <field name="binding_view_types">form</field>
+      <field name="view_mode">tree,form</field>
+  </record>
+
+
+ 	</data>
+</odoo>

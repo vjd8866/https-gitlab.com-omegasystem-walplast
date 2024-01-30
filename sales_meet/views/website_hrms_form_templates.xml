@@ -1,0 +1,374 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="0">
+
+        <template id="hrms_help_pages" name="HRMS Help Pages" >
+            <t t-call="website.layout">
+
+                <div class="container">
+                    <div class="col-md-12 mt16 mb16">
+                        <div class="pull-right">
+                            <t t-if="request.env.user.partner_id.name == 'Public user'">
+                                <t t-if="setting_allow_user_signup">
+                                    <a href="/support/account/create">Create Account</a>
+                                    |
+                                </t>
+                            </t>
+
+
+                            <button class="btn btn-primary btn-lg">
+                                <a style="color: #ffffff;" href="/hrms/joininginfo/submit">Employee Info</a>
+                            </button>
+                            <a style="color: #ffffff;">--</a>
+                            <button class="btn btn-primary btn-lg">
+                                <a style="color: #ffffff;" href="/support/ticket/submit">ID Card</a>
+                            </button>
+                            <a style="color: #ffffff;">--</a>
+                            <button class="btn btn-primary btn-lg">
+                                <a style="color: #ffffff;" href="/support/ticket/submit">Gratuity</a>
+                            </button>
+                            <a style="color: #ffffff;">--</a>
+                            <button class="btn btn-primary btn-lg">
+                                <a style="color: #ffffff;" href="/support/ticket/submit">Mediclaim</a>
+                            </button>
+                            <a style="color: #ffffff;">--</a>
+                            <button class="btn btn-primary btn-lg">
+                                <a style="color: #ffffff;" href="/support/ticket/submit">Medical Reimbursment &amp; LTA
+                                    Form
+                                </a>
+                            </button>
+                            <a style="color: #ffffff;">--</a>
+
+                            <!--                     <a href="/support/ticket/submit">ID Card</a> |
+                                                <a href="/support/ticket/submit">Gratuity</a> |
+                                                <a href="/support/ticket/submit">Mediclaim</a> |
+                                                <a href="/support/ticket/submit">Medicla Reimbursment &amp; LTA Form</a> |
+                                                <t t-if="request.env.user.partner_id.name != 'Public user'">
+                                                    | <a href="/support/ticket/view">My Tickets</a>
+                                                </t>
+                                                <t t-if="manager">
+                                                    | <a href="/support/ticket/reporting">Reporting</a>
+                                                </t> -->
+                        </div>
+                    </div>
+
+                    <!-- <script>
+                    $(document).ready(function() {
+                        $("#search_help_pages").autocomplete({
+                            source: '/support/help/auto-complete',
+                            minLength: 1,
+                            select: function( event, ui ) {
+                                window.location.href = ui.item.value;
+                            }
+                            }).data("ui-autocomplete")._renderItem = function (ul, item) {
+                                return $("<li></li>")
+                                    .data("item.autocomplete", item)
+                                    .append("<a>" + item.label + "</a>")
+                                    .appendTo(ul);
+                        };
+                    });
+                    </script> -->
+
+                    <div class="mt16 mb16">
+                        <h1 class="text-center support-main-title">Help Pages</h1>
+
+                        <!--                 <div name="search_from_container" t-attf-class="form-group">
+                                            <div class="col-md-3"></div>
+                                            <div class="col-md-6">
+                                                <input type="search" class="form-control" id="search_help_pages" name="search" placeholder="Search"/>
+                                            </div>
+                                            <div class="col-md-3"></div>
+                                        </div> -->
+
+                    </div>
+
+                    <!--             <div class="mt16 mb16 col-md-12">
+                                    <t t-foreach="help_groups" t-as="help_group">
+                                        <div class="col-md-4">
+                                            <h2 class="support-help-group" t-field="help_group.name"></h2>
+                                            <t t-foreach="help_group.page_ids" t-as="help_page">
+                                                <t t-if="help_page.website_published">
+                                                    <h3 class="mt8 mb8 support-help-page"><a t-attf-href="#{help_page.url_generated}" t-field="help_page.name"></a></h3>
+                                                </t>
+                                            </t>
+                                        </div>
+                                    </t>
+                                </div> -->
+
+                </div>
+            </t>
+        </template>
+
+        <template id="joininginfo_submit_form" name="Submit Support Ticket" >
+            <t t-call="website.layout">
+
+                <div id="wrap" class="oe_structure oe_empty">
+                    <section>
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <h1 class="text-center">Submit Joining Information</h1>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <form action="/support/ticket/process" method="POST" class="form-horizontal mt32"
+                          enctype="multipart/form-data">
+                        <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
+                        <input style="display:none;" name="my_gold" value="256"/>
+                        <div t-attf-class="form-group #{error and 'person_name' in error and 'has-error' or ''}">
+                            <label class="col-md-3 col-sm-4 control-label" for="wp_person_name">Name</label>
+                            <div class="col-md-7 col-sm-8">
+                                <input type="text" class="form-control" name="person_name" required="True"
+                                       t-attf-value="#{person_name or ''}"/>
+                            </div>
+                        </div>
+                        <div t-attf-class="form-group #{error and 'person_name' in error and 'has-error' or ''}">
+                            <label class="col-md-3 col-sm-4 control-label" for="wp_father_name">Father Name</label>
+                            <div class="col-md-7 col-sm-8">
+                                <input type="text" class="form-control" name="person_name" required="True"/>
+                            </div>
+                        </div>
+                        <div t-attf-class="form-group #{error and 'person_name' in error and 'has-error' or ''}">
+                            <label class="col-md-3 col-sm-4 control-label" for="wp_mother_name">Mother Name</label>
+                            <div class="col-md-7 col-sm-8">
+                                <input type="text" class="form-control" name="person_name" required="True"/>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <h3 class="text-center">Address</h3>
+                        </div>
+                        <div t-attf-class="form-group #{error and 'person_name' in error and 'has-error' or ''}">
+                            <label class="col-md-3 col-sm-4 control-label" for="wp_father_name">Current Address</label>
+                            <div class="col-md-7 col-sm-8">
+                                <input type="text" class="form-control" name="person_name" required="True"/>
+                            </div>
+                        </div>
+                        <div t-attf-class="form-group #{error and 'person_name' in error and 'has-error' or ''}">
+                            <label class="col-md-3 col-sm-4 control-label" for="wp_mother_name">Permanent Address
+                            </label>
+                            <div class="col-md-7 col-sm-8">
+                                <input type="text" class="form-control" name="person_name" required="True"/>
+                            </div>
+                        </div>
+
+                        <div class="col-md-12">
+                            <h3 class="text-center">Bank Details</h3>
+                        </div>
+                        <div t-attf-class="form-group #{error and 'person_name' in error and 'has-error' or ''}">
+                            <label class="col-md-3 col-sm-4 control-label" for="wp_father_name">Bank Name</label>
+                            <div class="col-md-7 col-sm-8">
+                                <input type="text" class="form-control" name="person_name" required="True"/>
+                            </div>
+                        </div>
+                        <div t-attf-class="form-group #{error and 'person_name' in error and 'has-error' or ''}">
+                            <label class="col-md-3 col-sm-4 control-label" for="wp_mother_name">Account Number</label>
+                            <div class="col-md-7 col-sm-8">
+                                <input type="text" class="form-control" name="person_name" required="True"/>
+                            </div>
+                        </div>
+                        <div t-attf-class="form-group #{error and 'person_name' in error and 'has-error' or ''}">
+                            <label class="col-md-3 col-sm-4 control-label" for="wp_father_name">IFSC Code</label>
+                            <div class="col-md-7 col-sm-8">
+                                <input type="text" class="form-control" name="person_name" required="True"/>
+                            </div>
+                        </div>
+                        <div t-attf-class="form-group #{error and 'person_name' in error and 'has-error' or ''}">
+                            <label class="col-md-3 col-sm-4 control-label" for="wp_mother_name">Bank Address</label>
+                            <div class="col-md-7 col-sm-8">
+                                <input type="text" class="form-control" name="person_name" required="True"/>
+                            </div>
+                        </div>
+                        <div t-attf-class="form-group #{error and 'person_name' in error and 'has-error' or ''}">
+                            <label class="col-md-3 col-sm-4 control-label" for="wp_father_name">Pan Card Number</label>
+                            <div class="col-md-7 col-sm-8">
+                                <input type="text" class="form-control" name="person_name" required="True"/>
+                            </div>
+                        </div>
+                        <div t-attf-class="form-group #{error and 'person_name' in error and 'has-error' or ''}">
+                            <label class="col-md-3 col-sm-4 control-label" for="wp_mother_name">Passport Number</label>
+                            <div class="col-md-7 col-sm-8">
+                                <input type="text" class="form-control" name="person_name" required="True"/>
+                            </div>
+                        </div>
+                        <div t-attf-class="form-group #{error and 'person_name' in error and 'has-error' or ''}">
+                            <label class="col-md-3 col-sm-4 control-label" for="wp_father_name">Aadhar Card No.</label>
+                            <div class="col-md-7 col-sm-8">
+                                <input type="text" class="form-control" name="person_name" required="True"/>
+                            </div>
+                        </div>
+                        <div t-attf-class="form-group #{error and 'person_name' in error and 'has-error' or ''}">
+                            <label class="col-md-3 col-sm-4 control-label" for="wp_mother_name">Previous UAN No. (if
+                                applicable)
+                            </label>
+                            <div class="col-md-7 col-sm-8">
+                                <input type="text" class="form-control" name="person_name" required="True"/>
+                            </div>
+                        </div>
+                        <div t-attf-class="form-group #{error and 'person_name' in error and 'has-error' or ''}">
+                            <label class="col-md-3 col-sm-4 control-label" for="wp_mother_name">Previous ESIC No. (if
+                                applicable)
+                            </label>
+                            <div class="col-md-7 col-sm-8">
+                                <input type="text" class="form-control" name="person_name" required="True"/>
+                            </div>
+                        </div>
+
+                        <div class="col-md-12">
+                            <h3 class="text-center">New Joinee Information</h3>
+                        </div>
+                        <div t-attf-class="form-group #{error and 'person_name' in error and 'has-error' or ''}">
+                            <label class="col-md-3 col-sm-4 control-label" for="wp_father_name">Date of Joining</label>
+                            <div class="col-md-7 col-sm-8">
+                                <input type="text" class="form-control" name="person_name" required="True"/>
+                            </div>
+                        </div>
+                        <div t-attf-class="form-group #{error and 'person_name' in error and 'has-error' or ''}">
+                            <label class="col-md-3 col-sm-4 control-label" for="wp_mother_name">Department</label>
+                            <div class="col-md-7 col-sm-8">
+                                <input type="text" class="form-control" name="person_name" required="True"/>
+                            </div>
+                        </div>
+                        <div t-attf-class="form-group #{error and 'person_name' in error and 'has-error' or ''}">
+                            <label class="col-md-3 col-sm-4 control-label" for="wp_father_name">Designation</label>
+                            <div class="col-md-7 col-sm-8">
+                                <input type="text" class="form-control" name="person_name" required="True"/>
+                            </div>
+                        </div>
+                        <div t-attf-class="form-group #{error and 'person_name' in error and 'has-error' or ''}">
+                            <label class="col-md-3 col-sm-4 control-label" for="wp_mother_name">Location</label>
+                            <div class="col-md-7 col-sm-8">
+                                <input type="text" class="form-control" name="person_name" required="True"/>
+                            </div>
+                        </div>
+                        <div t-attf-class="form-group #{error and 'person_name' in error and 'has-error' or ''}">
+                            <label class="col-md-3 col-sm-4 control-label" for="wp_father_name">Reporting Authority
+                            </label>
+                            <div class="col-md-7 col-sm-8">
+                                <input type="text" class="form-control" name="person_name" required="True"/>
+                            </div>
+                        </div>
+
+
+                        <script>
+
+                            $(document).ready(function() {
+
+                            update_sub_categories()
+
+
+                            $("#category").change(function() {
+                            update_sub_categories()
+                            });
+
+                            function update_sub_categories() {
+                            $.ajax({url: "/support/subcategories/fetch?category=" + $("#category").val(), success:
+                            function(result){
+                            $("#subcategoy_container").html(result);
+                            update_sub_category_fields();
+                            }});
+                            }
+
+                            $(document).on('change',"#subcategory", function(){
+                            update_sub_category_fields();
+                            });
+
+                            function update_sub_category_fields() {
+                            $.ajax({url: "/support/subcategories/field/fetch?subcategory=" + $("#subcategory").val(),
+                            success: function(result){
+                            $("#subcategoy_fields").html(result);
+                            }});
+                            }
+
+                            $('#file').change(function(){
+                            if(this.files.length &lt;t t-esc="setting_max_ticket_attachments"/>) {
+                            alert("You can only upload " +
+                            &lt;t t-esc="setting_max_ticket_attachments"/>
+                            + " files");
+                            }
+
+                            for (var x in this.files) {
+                            if (this.files[x].size / 1024 > &lt;t t-esc="setting_max_ticket_attachment_filesize"/>)
+                            {
+                            alert(this.files[x].name + " exceeds the " +
+                            &lt;t t-esc="setting_max_ticket_attachment_filesize"/>
+                            + "KB file size limit");
+                            $('#file').val('');
+                            }
+                            }
+
+                            });
+
+                            });
+
+
+                        </script>
+
+                        <div t-attf-class="form-group #{error and 'category' in error and 'has-error' or ''}">
+                            <label class="col-md-3 col-sm-4 control-label" for="name">Category</label>
+                            <div class="col-md-7 col-sm-8">
+                                <select class="form-control" id="category" name="category">
+                                    <t t-foreach="categories" t-as="category">
+                                        <option t-attf-value="#{category.id}">
+                                            <t t-esc="category.name"/>
+                                        </option>
+                                    </t>
+                                </select>
+                            </div>
+                        </div>
+                        <div id="subcategoy_container">
+
+                        </div>
+                        <div id="subcategoy_fields">
+
+                        </div>
+
+                        <div name="email_from_container"
+                             t-attf-class="form-group #{error and 'email' in error and 'has-error' or ''}">
+                            <label class="col-md-3 col-sm-4 control-label" for="email">Email</label>
+                            <div class="col-md-7 col-sm-8">
+                                <input type="email" class="form-control" name="email" required="True"
+                                       t-attf-value="#{email or ''}" t-att-readonly="'readonly' if email else None"/>
+                            </div>
+                        </div>
+
+                        <div name="file_container"
+                             t-attf-class="form-group #{error and 'file' in error and 'has-error' or ''}">
+                            <label class="col-md-3 col-sm-4 control-label" for="file">Add Attachments</label>
+                            <div class="col-md-7 col-sm-8">
+                                <div class="btn btn-default btn-file col-md-12">
+                                    <input name="file" id="file" type="file" multiple="multiple"/>
+                                </div>
+                            </div>
+                        </div>
+                        <div t-attf-class="form-group #{error and 'description' in error and 'has-error' or ''}">
+                            <label class="col-md-3 col-sm-4 control-label" for="description">Description</label>
+                            <div class="col-md-7 col-sm-8">
+                                <textarea class="form-control" name="description" style="min-height: 120px"
+                                          required="True"></textarea>
+                            </div>
+                        </div>
+                        <div name="subject_container"
+                             t-attf-class="form-group #{error and 'subject' in error and 'has-error' or ''}">
+                            <label class="col-md-3 col-sm-4 control-label" for="subject">Subject</label>
+                            <div class="col-md-7 col-sm-8">
+                                <input type="subject" class="form-control" name="subject" required="True"/>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="col-md-offset-3 col-sm-offset-4 col-sm-8 col-md-7">
+                                <button class="btn btn-primary btn-lg">Submit</button>
+                            </div>
+                        </div>
+                    </form>
+
+                </div>
+            </t>
+
+        </template>
+
+
+    </data>
+</odoo>

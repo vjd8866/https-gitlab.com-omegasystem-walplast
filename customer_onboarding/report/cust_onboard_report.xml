@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <record model='ir.ui.view' id='cust_ob_report_form'>
+            <field name="name">cust.ob.report.form</field>
+            <field name="model">cust.ob.report</field>
+            <field name="arch" type="xml">
+                <form >
+                    <field name="state" invisible="1"/>
+                    <div states="choose">
+                        <group>
+                            <group>
+                                <label for="from_date" string="From"/>
+                                <field name="from_date" nolabel="1"/>
+                            </group>
+                            <group>
+                                <label for="to_date" string="To"/>
+                                <field name="to_date" nolabel="1"/>
+                            </group>
+                        </group>
+                    </div>
+                    <div states="get">
+                        <group>
+                            <field name="filename" colspan="4" invisible="1"/>
+                            <field name="xls_file" filename="filename" colspan="4"/>
+                        </group>
+                    </div>
+
+                    <footer states="choose">
+                        <button name="export_cust_ob" string="Print" type="object" class="oe_highlight"/>
+                        <button string="Cancel" class="oe_link" special="cancel" />
+                    </footer>
+                    <footer states="get">
+                        <button special="cancel" string="Cancel" class="oe_highlight" />
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+        <record model='ir.actions.act_window' id='cust_ob_report_action'>
+            <field name="name">Export On-boarding Report</field>
+            <field name="res_model">cust.ob.report</field>
+<!--            <field name="view_type">form</field>-->
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="cust_ob_report_form"/>
+            <field name="target">new</field>
+        </record>
+
+        <menuitem id="menu_cust_ob_report" name="Report" sequence="2" action="cust_ob_report_action" parent="menu_cust_onboard_root" groups="cust_onboard_user_group"/>
+    </data>
+</odoo>

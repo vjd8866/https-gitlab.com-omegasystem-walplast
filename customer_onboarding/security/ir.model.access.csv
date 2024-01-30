@@ -1,0 +1,5 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_cust_onboard,cust_onboard,model_cust_onboard,customer_onboarding.cust_onboard_user_group,1,1,1,1
+access_cust_ob_report,cust_ob_report,model_cust_ob_report,customer_onboarding.cust_onboard_user_group,1,1,1,1
+
+

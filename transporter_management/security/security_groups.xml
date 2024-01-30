@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <record model="ir.module.category" id="module_transporter_accesses">
+            <field name="name">TPR</field>
+            <field name="sequence">1</field>
+        </record>
+
+        <record id="transporter_user_group" model="res.groups">
+            <field name="name">User</field>
+            <field name="category_id" ref="transporter_management.module_transporter_accesses"/>
+            <field name="implied_ids" eval="[]"/>
+            <field name="comment">The users are allowed to create and manage IT contracts.</field>
+        </record>
+
+        <record id="transporter_manager_group" model="res.groups">
+            <field name="name">Manager</field>
+            <field name="category_id" ref="transporter_management.module_transporter_accesses"/>
+            <field name="implied_ids" eval="[(4, ref('transporter_management.transporter_user_group'))]"/>
+            <field name="comment">The users are allowed to create and manage all types of contracts.</field>
+        </record>
+
+    </data>
+</odoo>

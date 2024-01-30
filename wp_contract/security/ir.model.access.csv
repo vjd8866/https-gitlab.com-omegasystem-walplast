@@ -1,0 +1,7 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_wp_contracts,wp_contracts,model_wp_contracts,base.group_user,1,1,1,1
+access_wp_contract_categories,wp_contract_categories,model_wp_contract_categories,base.group_user,1,1,1,1
+access_contract_document_type,contract_document_type,model_contract_document_type,base.group_user,1,1,1,1
+access_contract_supplier,contract_supplier,model_contract_supplier,base.group_user,1,1,1,1
+access_contract_remarks,contract_remarks,model_contract_remarks,base.group_user,1,1,1,1
+access_wp_locations,wp_locations,model_wp_locations,base.group_user,1,1,1,1

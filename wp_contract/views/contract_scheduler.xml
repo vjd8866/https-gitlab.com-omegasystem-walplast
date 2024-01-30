@@ -1,0 +1,18 @@
+<?xml version="1.0" ?>
+<odoo>
+  <data noupdate="1">
+    <record id="daily_contract_reminder" model="ir.cron">
+      <field name="interval_type">days</field>
+      <field name="name">Daily Contract Reminder</field>
+      <field name="numbercall">-1</field>
+      <field name="priority">1</field>
+      <field name="doall">False</field>
+      <field name="active">True</field>
+      <field name="interval_number">1</field>
+      <field name="model_id" ref="model_wp_contracts"/>
+      <field name="code">model._send_contract_reminder()</field>
+    </record>
+
+
+  </data>
+</odoo>
